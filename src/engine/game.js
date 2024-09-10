@@ -86,8 +86,6 @@ export default class Game {
   }
 
   scaleUp(key, color = true) {
-
-// Array.from(Array(10).keys())
     for (let i = 8; i > 0; i -= 1) {
       let cols = this.o.pal.length;
       if (color) {

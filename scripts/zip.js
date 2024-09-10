@@ -44,7 +44,7 @@ const init = (src) => {
   min = fs.readFileSync("build/g2.js", "UTF8");
 
   html = html.replace('<script src="game.js"></script>', "");
-  html = html.replace("</body>", `<script>BUILD=${commit};${min}</script></body`);
+  html = html.replace("</body>", `<script>BUILD='${commit}';${min}</script></body`);
 
   let result = fs.writeFileSync(`${DIR}/index.html`, html, "utf8");
 

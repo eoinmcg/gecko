@@ -1,12 +1,7 @@
-import {version} from '../../../package.json';
-
 export default class Title {
   constructor(g) {
     this.g = g;
 
-    console.log(version);
-
-    this.vFont = g.H.mkFont(g, 2, 0);
     this._titleFont = g.H.mkFont(g, 8, 0);
     this.titleFont = g.H.mkFont(g, 8, 2);
     this.titleFontSmall = g.H.mkFont(g, 6, 2);
@@ -35,6 +30,8 @@ export default class Title {
       },
     });
 
+
+
   }
 
   update(dt) {
@@ -61,7 +58,6 @@ export default class Title {
     g.draw.text(`BLASTER`, this._titleFont, false, 188, 2, true, 50);
     g.draw.text(`BLASTER`, this.titleFont, false, 180, 2, true, 50);
 
-    g.draw.text(version, this.vFont, this.g.w - 60, 5);
 
     g.ents.forEach((e) => {
       e.render();
@@ -70,4 +66,3 @@ export default class Title {
     g.draw.img(g.imgs['pointer'], g.input.mx, g.input.my);
   }
 }
-
