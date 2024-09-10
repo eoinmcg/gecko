@@ -78,6 +78,8 @@ export default class Game {
         this.scaleUp('circle');
         this.scaleUp('bridge', false);
         this.scaleUp('spark');
+
+        this.favIcon(this.draw.resize(this.imgs.gecko, 8));
         document.querySelector("#l").style.display = "none";
         this.c.style.display = "block";
         this.loop();
@@ -102,6 +104,17 @@ export default class Game {
   sfx(key) {
     if (this.ios) return;
     zzfx(...this.data.sfx[key]);
+  }
+
+  favIcon(i) {
+    let c = document.createElement('canvas'), ctx = c.getContext("2d"), l = document.createElement('link');
+    c.width = 64;
+    c.height = 64;
+    ctx.drawImage(i, 0, 0);
+    l.type = 'image/x-icon';
+    l.rel = 'shortcut icon';
+    l.href = c.toDataURL('image/x-icon');
+    document.getElementsByTagName('head')[0].appendChild(l);
   }
 
   changeScene(scene) {
