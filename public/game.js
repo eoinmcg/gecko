@@ -627,6 +627,7 @@
           this.scaleUp("circle");
           this.scaleUp("bridge", false);
           this.scaleUp("spark");
+          this.favIcon(this.draw.resize(this.imgs.gecko, 8));
           document.querySelector("#l").style.display = "none";
           this.c.style.display = "block";
           this.loop();
@@ -650,6 +651,16 @@
       if (this.ios)
         return;
       zzfx(...this.data.sfx[key]);
+    }
+    favIcon(i) {
+      let c2 = document.createElement("canvas"), ctx2 = c2.getContext("2d"), l = document.createElement("link");
+      c2.width = 64;
+      c2.height = 64;
+      ctx2.drawImage(i, 0, 0);
+      l.type = "image/x-icon";
+      l.rel = "shortcut icon";
+      l.href = c2.toDataURL("image/x-icon");
+      document.getElementsByTagName("head")[0].appendChild(l);
     }
     changeScene(scene) {
       this.c.classList.add("flip");
@@ -800,12 +811,12 @@
       this.gameOver = false;
       this.audio = this.g.zzfxP(...this.g.tune);
       this.audio.loop = true;
-      this.audio.stop();
       this.g.spawn("Hole", { p: this, y: -g.h });
       this.baddies = [
-        // 'Cactus', 'Bat', 'Spider',
+        "Cactus",
+        "Bat",
+        "Spider",
         "Worm"
-        // 'Cactus'
       ];
     }
     update(dt) {
@@ -849,10 +860,6 @@
       }
       let score = Math.round(this.score);
       g.draw.text(g.H.pad(score), this.scoreFont, false, 20);
-      g.draw.ctx.globalAlpha = 0.5;
-      let ents = g.H.pad(g.ents.length, 3);
-      g.draw.text("ENTS " + ents, this.scoreFont, false, this.g.h - 22);
-      g.draw.ctx.globalAlpha = 1;
       if (this.gameOver && !this.g.mobile) {
         this.g.draw.img(this.g.imgs["pointer"], this.g.input.mx, this.g.input.my);
       }
