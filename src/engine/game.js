@@ -1,5 +1,5 @@
 import Data from "../game/data/base";
-import Stats from "../lib/stats";
+// import Stats from "../lib/stats";
 import Loader from "./loader";
 import resize from "./resize";
 import Input from "./input";
@@ -62,9 +62,9 @@ export default class Game {
     this.input = new Input(this.c, this);
     document.title = this.o.title;
 
-    this.stats = new Stats();
-    this.stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
-    document.body.appendChild(this.stats.dom);
+    // this.stats = new Stats();
+    // this.stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+    // document.body.appendChild(this.stats.dom);
 
     loader.start().then((imgs) => {
       this.imgs = imgs;
@@ -128,7 +128,7 @@ export default class Game {
   }
 
   loop() {
-    this.stats.begin();
+    // this.stats.begin();
     this.frameCurr = H.timeStamp();
     this.dt = this.dt + Math.min(1, (this.frameCurr - this.framePrev) / 1000);
 
@@ -137,7 +137,7 @@ export default class Game {
     this.render();
     this.framePrev = this.frameCurr;
     this.input.freshKeys = [];
-    this.stats.end();
+    // this.stats.end();
     requestAnimationFrame(() => this.loop());
   }
 
