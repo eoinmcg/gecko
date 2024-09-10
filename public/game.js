@@ -277,10 +277,6 @@
     }
     getCords(e) {
       var g = this.g, offsetY = this.c.offsetTop, offsetX = this.c.offsetLeft, scale = parseInt(g.c.style.width, 10) / g.c.width, x = ~~((e.pageX - offsetX) / scale), y = ~~((e.pageY - offsetY) / scale);
-      x = x > g.w ? g.w : x;
-      x = x < 0 ? 0 : x;
-      y = y > g.h ? g.h : y;
-      y = y < 0 ? 0 : y;
       return [x, y];
     }
   };
