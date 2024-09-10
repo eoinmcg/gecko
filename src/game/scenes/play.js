@@ -82,10 +82,6 @@ export default class Play {
 
     let score = Math.round(this.score);
     g.draw.text(g.H.pad(score), this.scoreFont, false, 20);
-    g.draw.ctx.globalAlpha = 0.5;
-    let ents = g.H.pad(g.ents.length, 3);
-    g.draw.text('ENTS ' + ents, this.scoreFont, false, this.g.h - 22);
-    g.draw.ctx.globalAlpha = 1;
 
     if (this.gameOver && !this.g.mobile) {
       this.g.draw.img(this.g.imgs['pointer'], this.g.input.mx, this.g.input.my);
