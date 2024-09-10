@@ -22,13 +22,11 @@ export default class Play {
 
     this.audio = this.g.zzfxP(...this.g.tune);
     this.audio.loop = true;
-    this.audio.stop();
     this.g.spawn('Hole', {p: this, y: -g.h});
 
     this.baddies = [
-      // 'Cactus', 'Bat', 'Spider',
+      'Cactus', 'Bat', 'Spider',
       'Worm'
-      // 'Cactus'
     ];
   }
 
