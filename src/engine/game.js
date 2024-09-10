@@ -73,11 +73,11 @@ export default class Game {
         this.draw = new Draw(this.o.w, this.o.h, this.o.pal);
         this.scene = new this.scenes[this.sceneName](this);
         // @todo put these in config
-        Setup(this);
         this.scaleUp('dot');
         this.scaleUp('circle');
         this.scaleUp('bridge', false);
         this.scaleUp('spark');
+        Setup(this);
 
         this.favIcon(this.draw.resize(this.imgs.gecko, 8));
         document.querySelector("#l").style.display = "none";

@@ -68,10 +68,6 @@ export default class P1 extends Sprite {
     }
 
     this.bindToScreen();
-    // if (this.x < this.minX) { this.x = this.minX; }
-    // if (this.x > this.maxX) { this.x = this.maxX }
-    // if (this.y < this.minY) { this.y = this.minY; }
-    // if (this.y > this.maxY) { this.y = this.maxY; }
 
     const t = this.tail;
     this.tailxDir = (t[t.length-1].x >

@@ -29,9 +29,6 @@ export default class Title {
         this.canStart = true;
       },
     });
-
-
-
   }
 
   update(dt) {
@@ -55,9 +52,7 @@ export default class Title {
     g.draw.text(`GECKO`, this._titleFontSmall, false, 128);
     g.draw.text(`GECKO`, this.titleFontSmall, false, 120);
 
-    g.draw.text(`BLASTER`, this._titleFont, false, 188, 2, true, 50);
-    g.draw.text(`BLASTER`, this.titleFont, false, 180, 2, true, 50);
-
+    g.draw.text(`BLASTER`, this._titleFont, false, 188, 2, true, 50); g.draw.text(`BLASTER`, this.titleFont, false, 180, 2, true, 50);
 
     g.ents.forEach((e) => {
       e.render();

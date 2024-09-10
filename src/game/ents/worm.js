@@ -35,19 +35,17 @@ export default class Worm extends Baddie {
   }
 
   render() {
-    let x = this.x - this.halfW * (this.flip.x ? -1 : 1),
-        i = this.g.imgs['circle_1_1'],
-        i2 = this.g.imgs['circle_1_2'],
-        w = i.width;
-    x = (this.flip.x) ? x : x - this.w;
-    for (let n = 1; n < 6; n += 1) {
-      this.g.draw.img(n % 2 ? i : i2, (x + (w / 2) * n), this.y + this.h / 4);
-    }
+    let x = (this.flip.x)
+      ? this.x + this.halfW : this.x - this.w;
+    let i = (this.fader > 0)
+      ? 'wormtail' : 'wormtail_flipY';
+    this.g.draw.img(this.g.imgs[i], x, this.y + this.halfW);
     super.render();
   }
 
   update(dt) {
     super.update(dt);
+    this.fader = Math.sin(new Date().getTime() * 0.03);
 
     if (!this.active && this.y > this.g.h / 3 && Math.random() > 0.9) {
       this.active = true;
