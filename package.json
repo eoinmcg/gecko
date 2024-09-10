@@ -1,0 +1,24 @@
+{
+  "name": "geckoblaster",
+  "version": "0.1",
+  "description": "js13k 2024 entry",
+  "main": "index.js",
+  "scripts": {
+    "start": "esbuild --bundle src/index.js --outfile=public/game.js --servedir=public --sourcemap --serve=8027",
+    "dev": "npm run start",
+    "imgs": "node ./scripts/encodeImages.js",
+    "build": "esbuild src/index.js --bundle --outfile=public/game.js",
+    "zip": "npm run build && node ./scripts/zip.js"
+  },
+  "author": "Eoin McGrath",
+  "license": "ISC",
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "colors": "^1.4.0",
+    "decompress": "^4.2.1",
+    "esbuild": "^0.19.5",
+    "node-zip": "^1.1.1",
+    "roadroller": "^2.1.0",
+    "uglify-js": "^3.17.4"
+  }
+}
