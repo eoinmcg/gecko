@@ -3,11 +3,9 @@ export default class Title {
     this.g = g;
 
     this._titleFont = g.H.mkFont(g, 8, 0);
-    this.titleFont = g.H.mkFont(g, 8, 2);
+    this.titleFont = g.imgs['titleFont'];
     this.titleFontSmall = g.H.mkFont(g, 6, 2);
     this._titleFontSmall = g.H.mkFont(g, 6, 0);
-
-    // document.querySelector('#c').style.cursor = 'none';
 
     this.canStart = false;
 
@@ -29,6 +27,7 @@ export default class Title {
         this.canStart = true;
       },
     });
+
   }
 
   update(dt) {
@@ -52,7 +51,8 @@ export default class Title {
     g.draw.text(`GECKO`, this._titleFontSmall, false, 128);
     g.draw.text(`GECKO`, this.titleFontSmall, false, 120);
 
-    g.draw.text(`BLASTER`, this._titleFont, false, 188, 2, true, 50); g.draw.text(`BLASTER`, this.titleFont, false, 180, 2, true, 50);
+    g.draw.text(`BLASTER`, this._titleFont, false, 188, 2, true, 50);
+    g.draw.text(`BLASTER`, this.g.imgs['titleFont'], false, 180, 2, true, 50);
 
     g.ents.forEach((e) => {
       e.render();

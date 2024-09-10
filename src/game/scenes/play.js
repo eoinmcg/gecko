@@ -9,7 +9,6 @@ export default class Play {
     this.bgSpeed = 1;
     this.bgCol = 12;
 
-    // document.querySelector('#c').style.cursor = 'none';
     this.p1 = this.g.spawn('P1', {p: this});
     this.score = 0;
 
@@ -31,7 +30,7 @@ export default class Play {
   }
 
   update(dt) {
-    this.fader = Math.sin(new Date().getTime() * 0.03);
+    this.fader = Math.sin(new Date().getTime() * 0.003);
 
     if (!this.gameOver && Math.random() > 0.99) {
       if( Math.random() > 0.1) {
@@ -78,6 +77,11 @@ export default class Play {
     });
     if (!this.gameOver) {
       this.p1.render();
+    } else if (this.gameOver && this.fader > 0) {
+      this.g.draw.text('GAME', this.g.imgs['_titleFont'], false, 158);
+      this.g.draw.text('GAME', this.g.imgs['titleFont'], false, 150);
+      this.g.draw.text('OVER', this.g.imgs['_titleFont'], false, 218);
+      this.g.draw.text('OVER', this.g.imgs['titleFont'], false, 210);
     }
 
     let score = Math.round(this.score);
