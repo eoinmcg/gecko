@@ -10,19 +10,32 @@ export default class Title {
     this.bgPos = 0;
     this.bgSpeed = 0.25;
 
-    this.g.spawn('Button', {
-      y: this.g.h - 120,
+    g.spawn('Button', {
+      y: this.g.h - 130,
       clickCol: 11,
       col: 4,
       text: 'PLAY',
       cb: () => {
-        this.g.changeScene('Play');
+        g.changeScene(g.plays === 0 ? 'Tut' : 'Play');
       }
     });
-    this.g.addEvent({
+
+
+    g.addEvent({
       t: 100,
       cb: () => {
         this.canStart = true;
+        g.spawn('Button', {
+          y: g.h - 60,
+          textCol: 1,
+          clickCol: 0,
+          col: false,
+          w: 40,
+          text: 'ABOUT',
+          cb: () => {
+            g.changeScene('Help');
+          }
+        });
       },
     });
     this.bling();
@@ -72,4 +85,5 @@ export default class Title {
       }
     })
   }
+
 }

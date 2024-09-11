@@ -118,12 +118,12 @@ export default class Game {
     document.getElementsByTagName('head')[0].appendChild(l);
   }
 
-  changeScene(scene) {
-    this.c.classList.add("flip");
+  changeScene(scene, c = 'flip') {
+    this.c.classList.add(c);
     window.setTimeout(() => {
       this.ents = [];
       this.events = [];
-      this.c.classList.remove("flip");
+      this.c.classList.remove(c);
       this.scene = new this.scenes[scene](this);
     }, 300);
   }
@@ -194,19 +194,6 @@ export default class Game {
     })
   }
 
-  burst(x, y, col, num, w = 3) {
-    while (num--) {
-      this.ents.push(
-        new this.availEnts.Particle(this, {
-          x,
-          y,
-          col,
-          w,
-        }),
-      );
-    }
-  }
-
   addEvent(e) {
     this.events.push(e);
   }
@@ -217,6 +204,15 @@ export default class Game {
       if (e.t < 0) {
         e.cb.call(this);
         this.events.splice(i, 1);
+      }
+    });
+  }
+
+  addText(text, delay, x = false, y = 420, col = 2, scale = 3) {
+    this.addEvent({
+      t: delay,
+      cb: () => {
+        this.spawn('Text', {x: x, y: y, text: text, col: col, o: 5, scale: scale});
       }
     });
   }

@@ -64,7 +64,6 @@ export default class Baddie extends Sprite {
       this.kill();
       this.p.score += this.scale * 10;
     } else {
-      this.vy / 2;
       this.hurt = true;
       this.hurtTime = this.hurtTimeMaster;
     }

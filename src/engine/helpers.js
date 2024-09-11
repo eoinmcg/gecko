@@ -29,10 +29,15 @@ export default {
   },
 
   mkFont: function(g, size, col) {
-    let font = g.draw.color(g.imgs['font'], g.data.pal[col]);
-    font = g.draw.resize(font, size);
-    font.scale = size;
-    return font;
+    let key = `font_${size}_${col}`;
+    if (!g.imgs[key]) {
+      let font = g.draw.color(g.imgs['font'], g.data.pal[col]);
+      font = g.draw.resize(font, size);
+      font.scale = size;
+      g.imgs[key] = font;
+    }
+
+    return g.imgs[key];
   },
 
   toHex(cols) {

@@ -317,25 +317,6 @@
         x += w + spacing;
       }
     }
-    // text(str, x, y, colorKey = 2, shadow = true, size = 18) {
-    //   let raw = this.pal[colorKey];
-    //
-    //   this.ctx.font = `bold ${size}px monospace`
-    //
-    //   if (!x) {
-    //     let w = this.ctx.measureText(str).width;
-    //     x = this.w / 2 - (w / 2);
-    //   }
-    //   if (shadow) {
-    //     this.ctx.fillStyle = `rgba(0,0,0,1)`;
-    //     this.ctx.fillText(str, x, y + 3);
-    //   }
-    //   this.ctx.fillStyle = `rgb(${raw[0]},${raw[1]},${raw[2]})`;
-    //   this.ctx.fillText(str, x, y);
-    //
-    //   // this.ctx.strokeStyle = `rgb(${raw[0]},${raw[1]},${raw[2]})`;
-    //   // this.ctx.strokeText(str, x, y);
-    // }
     mkCanvas(w, h) {
       const c2 = document.createElement("canvas");
       const ctx2 = c2.getContext("2d");
@@ -370,10 +351,14 @@
       return c2;
     },
     mkFont: function(g, size, col) {
-      let font = g.draw.color(g.imgs["font"], g.data.pal[col]);
-      font = g.draw.resize(font, size);
-      font.scale = size;
-      return font;
+      let key = `font_${size}_${col}`;
+      if (!g.imgs[key]) {
+        let font = g.draw.color(g.imgs["font"], g.data.pal[col]);
+        font = g.draw.resize(font, size);
+        font.scale = size;
+        g.imgs[key] = font;
+      }
+      return g.imgs[key];
     },
     toHex(cols) {
       let hex = "#";
@@ -588,12 +573,12 @@
       l.href = c2.toDataURL("image/x-icon");
       document.getElementsByTagName("head")[0].appendChild(l);
     }
-    changeScene(scene) {
-      this.c.classList.add("flip");
+    changeScene(scene, c2 = "flip") {
+      this.c.classList.add(c2);
       window.setTimeout(() => {
         this.ents = [];
         this.events = [];
-        this.c.classList.remove("flip");
+        this.c.classList.remove(c2);
         this.scene = new this.scenes[scene](this);
       }, 300);
     }
@@ -652,18 +637,6 @@
         }
       });
     }
-    burst(x, y, col, num, w = 3) {
-      while (num--) {
-        this.ents.push(
-          new this.availEnts.Particle(this, {
-            x,
-            y,
-            col,
-            w
-          })
-        );
-      }
-    }
     addEvent(e) {
       this.events.push(e);
     }
@@ -673,6 +646,14 @@
         if (e.t < 0) {
           e.cb.call(this);
           this.events.splice(i, 1);
+        }
+      });
+    }
+    addText(text, delay, x = false, y = 420, col = 2, scale = 3) {
+      this.addEvent({
+        t: delay,
+        cb: () => {
+          this.spawn("Text", { x, y, text, col, o: 5, scale });
         }
       });
     }
@@ -703,19 +684,30 @@
       this.canStart = false;
       this.bgPos = 0;
       this.bgSpeed = 0.25;
-      this.g.spawn("Button", {
-        y: this.g.h - 120,
+      g.spawn("Button", {
+        y: this.g.h - 130,
         clickCol: 11,
         col: 4,
         text: "PLAY",
         cb: () => {
-          this.g.changeScene("Play");
+          g.changeScene(g.plays === 0 ? "Tut" : "Play");
         }
       });
-      this.g.addEvent({
+      g.addEvent({
         t: 100,
         cb: () => {
           this.canStart = true;
+          g.spawn("Button", {
+            y: g.h - 60,
+            textCol: 1,
+            clickCol: 0,
+            col: false,
+            w: 40,
+            text: "ABOUT",
+            cb: () => {
+              g.changeScene("Help");
+            }
+          });
         }
       });
       this.bling();
@@ -765,6 +757,105 @@
     }
   };
 
+  // src/game/scenes/tut.js
+  var Tut = class {
+    constructor(g) {
+      this.g = g;
+      this.tutorial = true;
+      this.bgPos = 0;
+      this.bgSpeed = 1;
+      this.f = g.H.mkFont(g, 4, 4);
+      this.p1 = g.spawn("P1", { p: this });
+      g.addText(g.mobile ? "MOVE GECKO WITH FINGER" : "MOVE WITH MOUSE", 100);
+      g.addEvent({
+        t: 600,
+        cb: () => {
+          g.addText("KILL BADDIES", 1);
+          g.spawn("Cactus", { p: this });
+        }
+      });
+      g.addEvent({
+        t: 1200,
+        cb: () => {
+          g.addText("COLLECT POWERUPS", 1);
+          g.spawn("Powerup", { p: this, x: g.w / 2, y: 0 });
+        }
+      });
+      g.addEvent({
+        t: 1700,
+        cb: () => {
+          g.addText("LETS GO!", 1);
+        }
+      });
+      g.addEvent({
+        t: 1900,
+        cb: () => {
+          g.changeScene("Play");
+        }
+      });
+    }
+    initGameOver() {
+      this.g.chageScene("Tut");
+    }
+    update(dt) {
+      this.bgPos += this.bgSpeed;
+      if (this.bgPos > this.g.h) {
+        this.bgPos = 0;
+      }
+      this.g.ents.forEach((e) => {
+        e.update(dt);
+      });
+    }
+    render() {
+      const g = this.g;
+      g.draw.clear(19);
+      g.draw.img(g.imgs.bg2, 0, this.bgPos - this.g.h);
+      g.draw.img(g.imgs.bg2, 0, this.bgPos);
+      this.g.draw.text("TUTORIAL", this.f, false, 20);
+      g.ents.forEach((e) => {
+        e.render();
+      });
+    }
+  };
+
+  // src/game/scenes/help.js
+  var Help = class {
+    constructor(g) {
+      this.g = g;
+      this.f = g.H.mkFont(g, 5, 4);
+      this.f2 = g.H.mkFont(g, 3, 2);
+      this.f3 = g.H.mkFont(g, 3, 1);
+      g.spawn("Button", {
+        y: this.g.h - 90,
+        clickCol: 11,
+        col: 4,
+        text: "BACK",
+        cb: () => {
+          g.changeScene("Title");
+        }
+      });
+    }
+    update(dt) {
+      this.g.ents.forEach((e) => {
+        e.update(dt);
+      });
+    }
+    render() {
+      const g = this.g;
+      g.draw.clear(0);
+      this.g.draw.text("CREDITS", this.f, false, 20);
+      this.g.draw.text("CODE AND GFX", this.f3, 50, 150);
+      this.g.draw.text("BY EOINMCG", this.f2, 50, 180);
+      this.g.draw.text("MUSIC", this.f3, 50, 250);
+      this.g.draw.text("DEPP. UNKNOWN", this.f2, 50, 280);
+      this.g.draw.text("COMPOSER", this.f2, 50, 310);
+      g.ents.forEach((e) => {
+        e.render();
+      });
+      g.draw.img(g.imgs["pointer"], g.input.mx, g.input.my);
+    }
+  };
+
   // src/game/scenes/play.js
   var Play = class {
     constructor(g) {
@@ -782,6 +873,7 @@
       this.p1 = this.g.spawn("P1", { p: this });
       this.score = 0;
       this.dist = 0;
+      g.plays += 1;
       this.offset = {
         x: 0,
         y: 0
@@ -1435,11 +1527,12 @@
       o.textCol = o.textCol || 2;
       o.hoverCol = o.hoverCol || 2;
       o.center = o.x === false;
+      o.size = o.size || 4;
       if (!g.imgs[`font_${o.textCol}`]) {
-        g.imgs[`font_${o.textCol}`] = g.H.mkFont(g, 4, o.textCol);
+        g.imgs[`font_${o.textCol}`] = g.H.mkFont(g, o.size, o.textCol);
       }
       if (!g.imgs[`font_${o.hoverCol}`]) {
-        g.imgs[`font_${o.hoverCol}`] = g.H.mkFont(g, 4, o.hoverCol);
+        g.imgs[`font_${o.hoverCol}`] = g.H.mkFont(g, o.size, o.hoverCol);
       }
       super(g, o);
       this.g = g;
@@ -1473,26 +1566,60 @@
     }
     render() {
       let font = this.hover ? this.pHover : this.p;
-      this.g.draw.ctx.globalAlpha = 0.3;
-      this.g.draw.rect(
-        this.x,
-        this.y + 10,
-        this.w,
-        this.h,
-        0
-      );
-      this.g.draw.ctx.globalAlpha = 1;
-      this.g.draw.rect(
-        this.x,
-        this.y,
-        this.w,
-        this.h,
-        this.currentCol
-      );
+      if (this.col) {
+        this.g.draw.ctx.globalAlpha = 0.3;
+        this.g.draw.rect(
+          this.x,
+          this.y + 10,
+          this.w,
+          this.h,
+          0
+        );
+        this.g.draw.ctx.globalAlpha = 1;
+        this.g.draw.rect(
+          this.x,
+          this.y,
+          this.w,
+          this.h,
+          this.currentCol
+        );
+      }
       this.g.draw.text(this.text, font, this.tX, this.y + 10);
     }
     intersects(mx, my) {
       return mx > this.x && mx < this.x + this.w && my > this.y && my < this.y + this.h;
+    }
+  };
+
+  // src/game/ents/text.js
+  var Text = class extends Sprite {
+    constructor(g, o) {
+      o.group = "text";
+      o.w = 10;
+      o.w = 10;
+      o.o = o.o || 1;
+      o.scale = o.scale || 2;
+      o.col = o.col || 1;
+      o.fade = o.fade || 0.01;
+      super(g, o);
+      for (let n in o) {
+        this[n] = o[n];
+      }
+      this.g = g;
+      this.p = g.H.mkFont(g, o.scale, o.col);
+    }
+    update() {
+      if (this.y < 0 || this.o < 0)
+        this.remove = true;
+      this.o -= this.fade;
+    }
+    render() {
+      if (this.o < 0)
+        return;
+      let d = this.g.draw;
+      d.ctx.globalAlpha = this.o;
+      d.text(this.text, this.p, this.x, this.y);
+      d.ctx.globalAlpha = 1;
     }
   };
 
@@ -1563,7 +1690,6 @@
         this.kill();
         this.p.score += this.scale * 10;
       } else {
-        this.vy / 2;
         this.hurt = true;
         this.hurtTime = this.hurtTimeMaster;
       }
@@ -1577,6 +1703,7 @@
       o.i = "bat";
       o.frames = 2;
       o.scale = 5;
+      o.hits = 2;
       super(g, o);
       this.vy = 2;
       this.vx = 0.5;
@@ -1679,7 +1806,8 @@
     }
     receiveDamage(o) {
       super.receiveDamage(o);
-      if (this.hits === -1 && Math.random() > 0.5) {
+      console.log(this.p);
+      if (this.hits === -1 && (Math.random() > 0.5 || this.p.tutorial)) {
         this.g.spawn("Powerup", { p: this.p, x: this.x, y: this.y });
       }
     }
@@ -1726,7 +1854,7 @@
       o.i = "worm";
       o.scale = 4;
       o.frames = 2;
-      o.hits = 3;
+      o.hits = 4;
       o.active = false;
       o.shake = true;
       o.flash = true;
@@ -1814,8 +1942,8 @@
   };
 
   // src/index.js
-  base_default.scenes = { Title, Play };
-  base_default.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button: Control, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj };
+  base_default.scenes = { Title, Help, Play, Tut };
+  base_default.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button: Control, Text, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj };
   new Game(base_default).init();
 })();
 //! ZzFXM (v2.0.3) | (C) Keith Clark | MIT | https://github.com/keithclark/ZzFXM

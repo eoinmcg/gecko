@@ -148,29 +148,6 @@ export default class Draw {
     }
   }
 
-  // text(str, x, y, colorKey = 2, shadow = true, size = 18) {
-  //   let raw = this.pal[colorKey];
-  //
-  //   this.ctx.font = `bold ${size}px monospace`
-  //
-  //   if (!x) {
-  //     let w = this.ctx.measureText(str).width;
-  //     x = this.w / 2 - (w / 2);
-  //   }
-  //   if (shadow) {
-  //     this.ctx.fillStyle = `rgba(0,0,0,1)`;
-  //     this.ctx.fillText(str, x, y + 3);
-  //   }
-  //   this.ctx.fillStyle = `rgb(${raw[0]},${raw[1]},${raw[2]})`;
-  //   this.ctx.fillText(str, x, y);
-  //
-  //   // this.ctx.strokeStyle = `rgb(${raw[0]},${raw[1]},${raw[2]})`;
-  //   // this.ctx.strokeText(str, x, y);
-  // }
-
-
-
- 
   mkCanvas(w, h) {
     const c = document.createElement('canvas');
     const ctx = c.getContext('2d');

@@ -6,6 +6,7 @@ export default class Bat extends Baddie {
     o.i = 'bat';
     o.frames = 2;
     o.scale = 5;
+    o.hits = 2;
 
     super(g, o);
 

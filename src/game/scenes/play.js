@@ -16,6 +16,7 @@ export default class Play {
     this.p1 = this.g.spawn('P1', {p: this});
     this.score = 0;
     this.dist = 0;
+    g.plays += 1;
 
     this.offset = {
       x: 0, y: 0

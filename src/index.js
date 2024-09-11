@@ -3,6 +3,8 @@ import o from './game/data/base';
 import Game from './engine/game';
 
 import Title from './game/scenes/title';
+import Tut from './game/scenes/tut';
+import Help from './game/scenes/help';
 import Play from './game/scenes/play';
 
 import P1 from './game/ents/p1';
@@ -13,6 +15,7 @@ import Bullet from './game/ents/bullet';
 import Circle from './game/ents/circle';
 import Boom from './game/ents/boom';
 import Button from './game/ents/button';
+import Text from './game/ents/text';
 import Bat from './game/ents/bat';
 import Hole from './game/ents/hole';
 import Cactus from './game/ents/cactus';
@@ -21,6 +24,6 @@ import Worm from './game/ents/worm';
 
 import Obj from './game/ents/obj';
 
-o.scenes = { Title, Play };
-o.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj };
+o.scenes = { Title, Help, Play, Tut };
+o.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button, Text, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj };
 new Game(o).init();

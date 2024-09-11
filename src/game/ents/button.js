@@ -10,12 +10,13 @@ export default class Control extends Sprite {
     o.textCol = o.textCol || 2;
     o.hoverCol = o.hoverCol || 2;
     o.center = o.x === false;
+    o.size = o.size || 4;
 
     if (!g.imgs[`font_${o.textCol}`]) {
-      g.imgs[`font_${o.textCol}`] = g.H.mkFont(g, 4, o.textCol);
+      g.imgs[`font_${o.textCol}`] = g.H.mkFont(g, o.size, o.textCol);
     }
     if (!g.imgs[`font_${o.hoverCol}`]) {
-      g.imgs[`font_${o.hoverCol}`] = g.H.mkFont(g, 4, o.hoverCol);
+      g.imgs[`font_${o.hoverCol}`] = g.H.mkFont(g, o.size, o.hoverCol);
     }
 
     super(g, o);
@@ -35,7 +36,7 @@ export default class Control extends Sprite {
       this.tX = this.x + 4;
     }
 
-    this.y = this.g.h + this.h * 2
+    this.y = this.g.h + this.h * 2;
   }
 
   update() {
@@ -56,12 +57,14 @@ export default class Control extends Sprite {
       let font = (this.hover)
         ? this.pHover : this.p;
 
+    if (this.col) {
       this.g.draw.ctx.globalAlpha = 0.3;
       this.g.draw.rect(this.x, this.y + 10, this.w, this.h,
         0);
       this.g.draw.ctx.globalAlpha = 1;
       this.g.draw.rect(this.x, this.y, this.w, this.h,
         this.currentCol);
+    }
 
       this.g.draw.text(this.text, font, this.tX, this.y + 10);
   }

@@ -5,7 +5,7 @@ export default class Worm extends Baddie {
     o.i = 'worm';
     o.scale = 4;
     o.frames = 2;
-    o.hits = 3;
+    o.hits = 4;
     o.active = false;
     o.shake = true;
     o.flash = true;
