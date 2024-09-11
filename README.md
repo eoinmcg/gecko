@@ -28,3 +28,8 @@ Good luck you'll need it!
 [Js13kGames entry](https://dev.js13kgames.com/2024/games/gecko-blaster)
 
 [Latest version](https://eoinmcgrath.com/gecko)
+
+
+
+## Credits
+- [Music 'Depp' by Unknown Composer](https://keithclark.github.io/ZzFXM/)
