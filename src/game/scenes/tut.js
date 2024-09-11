@@ -3,6 +3,7 @@ export default class Tut {
     this.g = g;
 
     this.tutorial = true;
+      this.escape = false;
 
     this.bgPos = 0;
     this.bgSpeed = 1;
@@ -10,10 +11,12 @@ export default class Tut {
     this.f = g.H.mkFont(g, 5, 4);
     this.p1 = g.spawn('P1', {p: this});
 
-    g.addText(g.mobile ? 'MOVE WITH FINGER' : 'MOVE WITH MOUSE', 100);
+    g.addText(g.mobile ? 'MOVE WITH FINGER' : 'MOVE WITH MOUSE', 50);
+    g.sfx('piano');
     g.addEvent({
       t: 600,
       cb: () => {
+        g.sfx('piano');
         g.addText('KILL BADDIES', 1);
         g.spawn('Cactus', {p: this});
       }
@@ -21,6 +24,7 @@ export default class Tut {
     g.addEvent({
       t: 1200,
       cb: () => {
+        g.sfx('piano');
         g.addText('COLLECT POWERUPS', 1);
         g.spawn('Powerup', {p: this, x: g.w/2, y: 0});
       }
@@ -28,6 +32,7 @@ export default class Tut {
     g.addEvent({
       t: 1700,
       cb: () => {
+        g.sfx('piano');
         g.addText('LETS GO!', 1);
       }
     })
@@ -53,6 +58,12 @@ export default class Tut {
     this.g.ents.forEach((e) => {
       e.update(dt);
     });
+
+
+    if (this.g.input.freshKeys.Escape && !this.escape) {
+      this.escape = true;
+      this.g.changeScene('Play');
+    }
 
   }
 

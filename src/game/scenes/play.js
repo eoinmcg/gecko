@@ -25,10 +25,11 @@ export default class Play {
     this.scoreFont = g.H.mkFont(g, 4, 2);
     this.gameOver = false;
 
+    g.tune = g.zzfxM(...g.SONG);
     g.audio = g.zzfxP(...g.tune);
     g.audio.loop = true;
 
-    this.hole = this.g.spawn('Hole', {p: this, y: -g.h});
+    this.hole = this.g.spawn('Hole', {p: this, y: -g.h * 3});
 
     this.allBaddies = ['Cactus', 'Bat', 'Spider', 'Worm'];
     this.baddies = [];

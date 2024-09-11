@@ -144,11 +144,10 @@ export default class Game {
       this.screenshot();
     }
     if (this.input.freshKeys.KeyM) {
+      console.log('MUTE', this.audio.stop());
       this.mute = !this.mute;
       if (this.mute && this.audio) {
         this.audio.stop();
-      } else if (this.audio) {
-        // this.audio.play();
       }
     }
     if (this.input.freshKeys.KeyP) {

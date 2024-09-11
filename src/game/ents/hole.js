@@ -12,12 +12,12 @@ export default class Hole extends Sprite {
     this.collidesWith = ['player'];
     this.x = 0;
 
-    this.reset();
+    this.reset(o.y);
 
   }
 
-  reset() {
-    this.y = -this.g.h;
+  reset(y = false) {
+    this.y = y || -this.g.h;
     let scale = this.scale + 3;
     const key = `bridge_${this.scale}`;
     this.bridge = {
