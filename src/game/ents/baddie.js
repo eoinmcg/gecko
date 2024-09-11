@@ -57,7 +57,7 @@ export default class Baddie extends Sprite {
           t: 2,
           cb: () => {
             this.p.bgCol = (this.p.gameOver)
-              ? 3 : 12;
+              ? 3 : this.p.bgColMaster;
           }
         });
       }

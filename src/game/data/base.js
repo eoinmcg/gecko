@@ -23,6 +23,10 @@ export default {
     [0, 87, 132], // 13 seablue
     [49, 162, 242], // 14 skyblue
     [178, 220, 239], // 15 cloudblue
+    [40, 30, 40],    // 16 plum
+    [30, 40, 30],     // 17 dgreen
+    [44, 34, 28],   // 18 charcoal PICO8
+    [44, 44, 44],  // 19 dark
   ],
   i: Images,
   sfx: Sfx

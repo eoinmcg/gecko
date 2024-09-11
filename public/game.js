@@ -1,6 +1,6 @@
 (() => {
   // src/game/data/images.js
-  var images_default = { "bat": "R0lGODlhEAAGAMIFAAAAAL8uNOuIMeuJMf7+/v///////////yH5BAEKAAcALAAAAAAQAAYAAAMdeEdM+vAAEEidqjkFNHgDIWxZ9z1ahD0msUbcGScAOw==", "bg": "R0lGODlhIgAiAIABAAAAAP///yH5BAEKAAEALAAAAAAiACIAAAJOhIOpy20PmpwKHoqZzXzBDgZfmG0kZp6TFanr6Dpw7M10Yt9IrvN3qtv5YkPiI1i7IEVFFWvJbJKeSyBSesJOj9BoC6oFUa/WXpgzDj4KADs=", "bg2": "R0lGODlhIgAiAIABABMbJP///yH5BAEKAAEALAAAAAAiACIAAAJ8jG8AyKjbYoLyvBoVtno7unXeJFbleIXgGJxZyrrNs2K0Tddzbl7wnrtxhLJW8Hgcfogd5AsSVJJ+DGdVp+LtWMPihEvyeIEo7LNs3oqpOHT6iu4lszUku8u0a5dRo36Ppyc3dwUIZFg45ndHpgJmVPao+AU2KRTzthhRAAA7", "bone": "R0lGODlhDwAHAIAAAP///////yH5BAEKAAEALAAAAAAPAAcAAAITDBCpena40pu0Ilsd3lE+1zFIAQA7", "bridge": "R0lGODlhCgAYAMIFAEk8K6NkIqRkIuqJMeuJMf///////////yH5BAEKAAcALAAAAAAKABgAAAMtKLo7AkwBEtkAOOdQ26uA0wlid2kaNzpQFI4kfKKYasqfW1Z7NNM2Xo7xWskSADs=", "bullet": "R0lGODlhBAAIAMIDAL4mM+uJMffia////////////////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAQALAAAAAAEAAgAAAMNSAA6siKwIEm1jOjNEgA7", "cactus": "R0lGODlhDAAIAMIEAESJGqPOJ/7+/v7//v///////////////yH5BAEKAAQALAAAAAAMAAgAAAMcSBraTiGAFicbQTgGoZyeFUkUuXwnIJojGJZTAgA7", "circle": "R0lGODlhEAAQAIABAP///+BviyH5BAEKAAEALAAAAAAQABAAAAIdjA2px6G/GJzgUIoudLr7D4aix32ZeWpN11gbUwAAOw==", "donut": "R0lGODlhCAAIAMIEAEk8K05CNOByjeuJMf///////////////yH5BAEKAAQALAAAAAAIAAgAAAMXSAEsQI7JOcZkhIB4meVAZVXhQIgjkQAAOw==", "dot": "R0lGODlhAQABAIABAP///zGi8iH5BAEKAAEALAAAAAABAAEAAAICRAEAOw==", "firefly": "R0lGODlhEAAGAKECAOuJMffia////////yH5BAEKAAMALAAAAAAQAAYAAAIbzI6GO+HfnmzA1RNqVkE4j3kd14lY6SSQmg4FADs=", "font": "R0lGODlhmwAFAIABAAAAAEk8KyH5BAEKAAEALAAAAACbAAUAAAJ4hGOAd6sZFpowPhrxhZz5x2ji5pRTyVEfulaWRV6vfNayksV5O/b53NMBcbjX0JY50pYwkFHDAxGTTlsUpZIadRViYzo1tVazcfHHRSOVWx9UyKK2wym6+nRei47PtkTbAbgTc1X3VvOXtfXFhkfmpVUWqZiSZFkAADs=", "gecko": "R0lGODlhCAAIAMIEABsmMr0oM+Bvi99wiv///////////////yH5BAEKAAcALAAAAAAIAAgAAAMXeAczoOOQRtQRIgRsMW+XJnQeR0KWZiUAOw==", "grass": "R0lGODlhCAAHAIABAAAAAP///yH5BAEKAAEALAAAAAAIAAcAAAIOjA2neeyRQIRwVsmQPAUAOw==", "heart": "R0lGODlhBQAFAIABAL4mMzGi8iH5BAEKAAEALAAAAAAFAAUAAAIIDGygu3mBQgEAOw==", "hole": "R0lGODlhRAAcAKEDAAAAAJycnJ2dnf///yH5BAEKAAMALAAAAABEABwAAAJznC0pd+rPxpvURVYT2HX7D2TgSIaZUHpHym5rC7sva8TlbNN1O+R37+MBacHRsHiLHZFLJKhJgvqkTgC1is1qt9yu9wsOi8fksvmMTqvX7Lb7DY/L5/S6PfcAObAB1Oi05wE4OPG3J1FxcTGh2OjYwIhRAAA7", "pointer": "R0lGODlhBAAFAKECAAAAAP////fia/fiayH5BAEKAAIALAAAAAAEAAUAAAIIjGWAEKIsIigAOw==", "pup": "R0lGODlhDgAEAKEDAOqKMfbia////v///yH5BAEKAAMALAAAAAAOAAQAAAIS1H6GKAIQWnvRPBiGo/HQ9Q0FADs=", "skull": "R0lGODlhBAAEAIAAAP///////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAEALAAAAAAEAAQAAAIFhB2Ql1kAOw==", "spark": "R0lGODlhDgAOAIAAAP///////yH5BAEKAAEALAAAAAAOAA4AAAIdjA9wy8md4jNRwloXxnT7v3WfBj7hdE6BoyIKUwAAOw==", "spider": "R0lGODlhEAAIAMIEAL4mM70qOTGi8v7+/////////////////yH5BAEKAAcALAAAAAAQAAgAAAMpeBAiASfKudqL1cHYmsxXNIhTJ0gCEREneYzHqR7qma72xMlr3JYxYAIAOw==", "worm": "R0lGODlhEAAIAMIFAL4mM78uNL8wOp2dnZ6env///////////yH5BAEKAAcALAAAAAAQAAgAAAMneEc8+lCRQmmEs4igg2SEUgVAEXhZdVRskW2duq4jd9JRK7OiNRcJADs=" };
+  var images_default = { "bat": "R0lGODlhEAAGAMIFAAAAAL8uNOuIMeuJMf7+/v///////////yH5BAEKAAcALAAAAAAQAAYAAAMdeEdM+vAAEEidqjkFNHgDIWxZ9z1ahD0msUbcGScAOw==", "bg": "R0lGODlhIgAiAIABAAAAAP///yH5BAEKAAEALAAAAAAiACIAAAJOhIOpy20PmpwKHoqZzXzBDgZfmG0kZp6TFanr6Dpw7M10Yt9IrvN3qtv5YkPiI1i7IEVFFWvJbJKeSyBSesJOj9BoC6oFUa/WXpgzDj4KADs=", "bg2": "R0lGODlhIgAiAIABABMbJP///yH5BAEKAAEALAAAAAAiACIAAAJ8jG8AyKjbYoLyvBoVtno7unXeJFbleIXgGJxZyrrNs2K0Tddzbl7wnrtxhLJW8Hgcfogd5AsSVJJ+DGdVp+LtWMPihEvyeIEo7LNs3oqpOHT6iu4lszUku8u0a5dRo36Ppyc3dwUIZFg45ndHpgJmVPao+AU2KRTzthhRAAA7", "bone": "R0lGODlhDwAHAIAAAP///////yH5BAEKAAEALAAAAAAPAAcAAAITDBCpena40pu0Ilsd3lE+1zFIAQA7", "bridge": "R0lGODlhCgAYAMIFAEk8K6NkIqRkIuqJMeuJMf///////////yH5BAEKAAcALAAAAAAKABgAAAMtKLo7AkwBEtkAOOdQ26uA0wlid2kaNzpQFI4kfKKYasqfW1Z7NNM2Xo7xWskSADs=", "bullet": "R0lGODlhBAAIAMIDAL4mM+uJMffia////////////////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAQALAAAAAAEAAgAAAMNSAA6siKwIEm1jOjNEgA7", "cactus": "R0lGODlhDAAIAMIEAESJGqPOJ/7+/v7//v///////////////yH5BAEKAAQALAAAAAAMAAgAAAMcSBraTiGAFicbQTgGoZyeFUkUuXwnIJojGJZTAgA7", "circle": "R0lGODlhEAAQAIABAP///+BviyH5BAEKAAEALAAAAAAQABAAAAIdjA2px6G/GJzgUIoudLr7D4aix32ZeWpN11gbUwAAOw==", "donut": "R0lGODlhCAAIAMIEAEk8K05CNOByjeuJMf///////////////yH5BAEKAAQALAAAAAAIAAgAAAMXSAEsQI7JOcZkhIB4meVAZVXhQIgjkQAAOw==", "dot": "R0lGODlhAQABAIABAP///zGi8iH5BAEKAAEALAAAAAABAAEAAAICRAEAOw==", "firefly": "R0lGODlhEAAGAKECAOuJMffia////////yH5BAEKAAMALAAAAAAQAAYAAAIbzI6GO+HfnmzA1RNqVkE4j3kd14lY6SSQmg4FADs=", "font": "R0lGODlhmwAFAIABAAAAAEk8KyH5BAEKAAEALAAAAACbAAUAAAJ4hGOAd6sZFpowPhrxhZz5x2ji5pRTyVEfulaWRV6vfNayksV5O/b53NMBcbjX0JY50pYwkFHDAxGTTlsUpZIadRViYzo1tVazcfHHRSOVWx9UyKK2wym6+nRei47PtkTbAbgTc1X3VvOXtfXFhkfmpVUWqZiSZFkAADs=", "gecko": "R0lGODlhCAAIAMIEABsmMr0oM+Bvi99wiv///////////////yH5BAEKAAcALAAAAAAIAAgAAAMXeAczoOOQRtQRIgRsMW+XJnQeR0KWZiUAOw==", "grass": "R0lGODlhCAAHAIABAAAAAP///yH5BAEKAAEALAAAAAAIAAcAAAIOjA2neeyRQIRwVsmQPAUAOw==", "heart": "R0lGODlhBQAFAIABAL4mMzGi8iH5BAEKAAEALAAAAAAFAAUAAAIIDGygu3mBQgEAOw==", "hole": "R0lGODlhRAAcAKEDAAAAAJycnJ2dnf///yH5BAEKAAMALAAAAABEABwAAAJznC0pd+rPxpvURVYT2HX7D2TgSIaZUHpHym5rC7sva8TlbNN1O+R37+MBacHRsHiLHZFLJKhJgvqkTgC1is1qt9yu9wsOi8fksvmMTqvX7Lb7DY/L5/S6PfcAObAB1Oi05wE4OPG3J1FxcTGh2OjYwIhRAAA7", "pointer": "R0lGODlhBAAFAKECAAAAAP////fia/fiayH5BAEKAAIALAAAAAAEAAUAAAIIjGWAEKIsIigAOw==", "pup": "R0lGODlhDgAEAKEDAOqKMfbia////v///yH5BAEKAAMALAAAAAAOAAQAAAIS1H6GKAIQWnvRPBiGo/HQ9Q0FADs=", "skull": "R0lGODlhBAAEAIAAAP///////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAEALAAAAAAEAAQAAAIFhB2Ql1kAOw==", "spark": "R0lGODlhDgAOAIAAAP///////yH5BAEKAAEALAAAAAAOAA4AAAIdjA9wy8md4jNRwloXxnT7v3WfBj7hdE6BoyIKUwAAOw==", "spider": "R0lGODlhEAAIAMIEAL4mM70qOTGi8v7+/////////////////yH5BAEKAAcALAAAAAAQAAgAAAMpeBAiASfKudqL1cHYmsxXNIhTJ0gCEREneYzHqR7qma72xMlr3JYxYAIAOw==", "title": "R0lGODlhNgAWAMIEAL4mM+uJMaPOJ/fia////////////////yH5BAEKAAQALAAAAAA2ABYAAAPFSLrc/jDKqYYlNuM8tucdJW4dSF5oyY3TtbhVGH8qKwkCgev4vi89YO5ne/iGPSQjqDgWIU4ib6l0Ph1JZDA7PTKv1G2SJ+6Owei0es1uiwLwuALuiMsJdjo+P+fv8356DIB9doV3hH+BAX11jHuND4KQDXqGlJORlo+Og5wLmwCiAAyiDqOjCqimC6yqq6+rqa2kDbKxs6+lsASyrL+1u7q2wb3FrrTAw8jLxcPPxqezt8aozbjI2bzA1N213LnRydPfAAkAOw==", "worm": "R0lGODlhEAAIAMIFAL4mM78uNL8wOp2dnZ6env///////////yH5BAEKAAcALAAAAAAQAAgAAAMneEc8+lCRQmmEs4igg2SEUgVAEXhZdVRskW2duq4jd9JRK7OiNRcJADs=" };
 
   // src/game/data/sfx.js
   var sfx_default = {
@@ -55,8 +55,16 @@
       // 13 seablue
       [49, 162, 242],
       // 14 skyblue
-      [178, 220, 239]
+      [178, 220, 239],
       // 15 cloudblue
+      [40, 30, 40],
+      // 16 plum
+      [30, 40, 30],
+      // 17 dgreen
+      [44, 34, 28],
+      // 18 charcoal PICO8
+      [44, 44, 44]
+      // 19 dark
     ],
     i: images_default,
     sfx: sfx_default
@@ -406,7 +414,7 @@
   // src/game/setup.js
   function Setup(g) {
     g.imgs["bg"] = mkBg(g, g.imgs["bg"], 8, 0.2);
-    g.imgs["bg2"] = mkBg(g, g.imgs["bg2"], 3, 0.15);
+    g.imgs["bg2"] = mkBg(g, g.imgs["bg2"], 3, 0.17);
     g.imgs["pointer"] = g.draw.resize(g.imgs["pointer"], 4);
     g.imgs["hole"] = mkHole(g, g.imgs["hole"]);
     g.imgs["wormtail"] = mkTail(g, 4);
@@ -540,10 +548,10 @@
           this.c.classList.add("active");
           this.draw = new Draw(this.o.w, this.o.h, this.o.pal);
           this.scene = new this.scenes[this.sceneName](this);
-          this.scaleUp("dot");
-          this.scaleUp("circle");
-          this.scaleUp("bridge", false);
-          this.scaleUp("spark");
+          this.scaleUp("dot", [0, 2, 3, 8, 11]);
+          this.scaleUp("circle", [0, 2, 3, 8, 11]);
+          this.scaleUp("bridge");
+          this.scaleUp("spark", [0, 2, 3, 8, 11]);
           Setup(this);
           this.favIcon(this.draw.resize(this.imgs.gecko, 8));
           document.querySelector("#l").style.display = "none";
@@ -552,14 +560,14 @@
         }, 400);
       });
     }
-    scaleUp(key, color = true) {
+    scaleUp(key, colors = []) {
       for (let i = 8; i > 0; i -= 1) {
         let cols = this.o.pal.length;
-        if (color) {
-          while (cols--) {
-            let img = this.draw.color(this.imgs[key], this.o.pal[cols]);
-            this.imgs[`${key}_${i}_${cols}`] = this.draw.resize(img, i);
-          }
+        if (colors.length) {
+          colors.forEach((col) => {
+            let img = this.draw.color(this.imgs[key], this.o.pal[col]);
+            this.imgs[`${key}_${i}_${col}`] = this.draw.resize(img, i);
+          });
         } else {
           this.imgs[`${key}_${i}`] = this.draw.resize(this.imgs[key], i);
         }
@@ -690,10 +698,8 @@
   var Title = class {
     constructor(g) {
       this.g = g;
-      this._titleFont = g.H.mkFont(g, 8, 0);
-      this.titleFont = g.imgs["titleFont"];
-      this.titleFontSmall = g.H.mkFont(g, 6, 2);
-      this._titleFontSmall = g.H.mkFont(g, 6, 0);
+      this.i = g.draw.resize(this.g.imgs.title, 4);
+      this.shadow = g.draw.color(this.i, g.data.pal[0], 0.2);
       this.canStart = false;
       this.bgPos = 0;
       this.bgSpeed = 0.25;
@@ -712,6 +718,7 @@
           this.canStart = true;
         }
       });
+      this.bling();
     }
     update(dt) {
       this.fader = Math.sin((/* @__PURE__ */ new Date()).getTime() * 5e-3);
@@ -728,14 +735,33 @@
       g.draw.clear(5);
       g.draw.img(g.imgs.bg2, 0, this.bgPos - this.g.h);
       g.draw.img(g.imgs.bg2, 0, this.bgPos);
-      g.draw.text(`GECKO`, this._titleFontSmall, false, 128);
-      g.draw.text(`GECKO`, this.titleFontSmall, false, 120);
-      g.draw.text(`BLASTER`, this._titleFont, false, 188, 2, true, 50);
-      g.draw.text(`BLASTER`, this.g.imgs["titleFont"], false, 180, 2, true, 50);
+      g.draw.img(this.shadow, 20, 125);
+      g.draw.img(this.i, 20, 120);
       g.ents.forEach((e) => {
         e.render();
       });
       g.draw.img(g.imgs["pointer"], g.input.mx, g.input.my);
+    }
+    bling() {
+      let coords = this.g.H.rndArray([
+        [180, 125],
+        [120, 200],
+        [60, 150]
+      ]);
+      this.g.addEvent({
+        t: this.g.H.rnd(150, 200),
+        cb: () => {
+          this.g.spawn("Boom", {
+            x: coords[0],
+            y: coords[1],
+            key: "boom",
+            scale: 4,
+            col: 2,
+            type: "spark"
+          });
+          this.bling();
+        }
+      });
     }
   };
 
@@ -747,8 +773,9 @@
       this.bg2 = g.imgs["bg2"];
       this.bgPos = 0;
       this.bgSpeed = 1;
-      this.bgColMaster = 12;
+      this.bgColMaster = g.H.rndArray([12, 16, 17, 18, 19]);
       this.bgCol = this.bgColMaster;
+      console.log(this.bgColMaster);
       for (let n = 0; n < 6; n += 1) {
         this.g.spawn("Obj", { p: this });
       }
@@ -1529,7 +1556,7 @@
           this.g.addEvent({
             t: 2,
             cb: () => {
-              this.p.bgCol = this.p.gameOver ? 3 : 12;
+              this.p.bgCol = this.p.gameOver ? 3 : this.p.bgColMaster;
             }
           });
         }
@@ -1626,7 +1653,7 @@
   // src/game/ents/cactus.js
   var Cactus = class extends Baddie {
     constructor(g, o) {
-      o.x = g.H.rnd(50, 250);
+      o.x = g.H.rnd(0, 15) * 16;
       o.i = "cactus";
       o.frames = 2;
       o.scale = 5;

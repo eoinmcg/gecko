@@ -2,10 +2,8 @@ export default class Title {
   constructor(g) {
     this.g = g;
 
-    this._titleFont = g.H.mkFont(g, 8, 0);
-    this.titleFont = g.imgs['titleFont'];
-    this.titleFontSmall = g.H.mkFont(g, 6, 2);
-    this._titleFontSmall = g.H.mkFont(g, 6, 0);
+    this.i = g.draw.resize(this.g.imgs.title, 4);
+    this.shadow = g.draw.color(this.i, g.data.pal[0], 0.2);
 
     this.canStart = false;
 
@@ -27,6 +25,7 @@ export default class Title {
         this.canStart = true;
       },
     });
+    this.bling();
 
   }
 
@@ -48,16 +47,29 @@ export default class Title {
     g.draw.clear(5);
     g.draw.img(g.imgs.bg2, 0, this.bgPos - this.g.h);
     g.draw.img(g.imgs.bg2, 0, this.bgPos);
-    g.draw.text(`GECKO`, this._titleFontSmall, false, 128);
-    g.draw.text(`GECKO`, this.titleFontSmall, false, 120);
-
-    g.draw.text(`BLASTER`, this._titleFont, false, 188, 2, true, 50);
-    g.draw.text(`BLASTER`, this.g.imgs['titleFont'], false, 180, 2, true, 50);
+    g.draw.img(this.shadow, 20, 125);
+    g.draw.img(this.i, 20, 120);
 
     g.ents.forEach((e) => {
       e.render();
     });
 
     g.draw.img(g.imgs['pointer'], g.input.mx, g.input.my);
+  }
+
+  bling() {
+    let coords = this.g.H.rndArray([
+      [180, 125],
+      [120, 200],
+      [60, 150],
+    ]);
+    this.g.addEvent({
+      t: this.g.H.rnd(150, 200),
+      cb: () => {
+    this.g.spawn('Boom', { x: coords[0], y: coords[1], key: 'boom', scale: 4, col: 2,
+      type: 'spark' });
+        this.bling();
+      }
+    })
   }
 }

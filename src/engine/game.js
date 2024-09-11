@@ -74,10 +74,10 @@ export default class Game {
         this.draw = new Draw(this.o.w, this.o.h, this.o.pal);
         this.scene = new this.scenes[this.sceneName](this);
         // @todo put these in config
-        this.scaleUp('dot');
-        this.scaleUp('circle');
-        this.scaleUp('bridge', false);
-        this.scaleUp('spark');
+        this.scaleUp('dot', [0, 2, 3, 8, 11]);
+        this.scaleUp('circle', [0, 2, 3, 8, 11]);
+        this.scaleUp('bridge');
+        this.scaleUp('spark', [0, 2, 3, 8, 11]);
         Setup(this);
 
         this.favIcon(this.draw.resize(this.imgs.gecko, 8));
@@ -88,14 +88,14 @@ export default class Game {
     });
   }
 
-  scaleUp(key, color = true) {
+  scaleUp(key, colors = []) {
     for (let i = 8; i > 0; i -= 1) {
       let cols = this.o.pal.length;
-      if (color) {
-        while (cols--) {
-          let img = this.draw.color(this.imgs[key], this.o.pal[cols]);
-          this.imgs[`${key}_${i}_${cols}`] = this.draw.resize(img, i);
-        }
+      if (colors.length) {
+        colors.forEach((col) => {
+        let img = this.draw.color(this.imgs[key], this.o.pal[col]);
+        this.imgs[`${key}_${i}_${col}`] = this.draw.resize(img, i);
+        })
       } else {
           this.imgs[`${key}_${i}`] = this.draw.resize(this.imgs[key], i);
       }

@@ -2,7 +2,7 @@ import Baddie from "./baddie";
 
 export default class Cactus extends Baddie {
   constructor(g, o) {
-    o.x = g.H.rnd(50, 250);
+    o.x = g.H.rnd(0, 15) * 16;
     o.i = 'cactus';
     o.frames = 2;
     o.scale = 5;

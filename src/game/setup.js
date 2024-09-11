@@ -2,7 +2,7 @@ import {version} from '../../package.json';
 
 export default function Setup(g) {
   g.imgs['bg'] = mkBg(g, g.imgs['bg'], 8, 0.2);
-  g.imgs['bg2'] = mkBg(g, g.imgs['bg2'], 3, 0.15);
+  g.imgs['bg2'] = mkBg(g, g.imgs['bg2'], 3, 0.17);
   g.imgs['pointer'] = g.draw.resize(g.imgs['pointer'], 4);
   g.imgs['hole'] = mkHole(g, g.imgs['hole']);
   g.imgs['wormtail'] = mkTail(g, 4);
