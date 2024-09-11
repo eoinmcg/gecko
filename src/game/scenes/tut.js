@@ -7,10 +7,10 @@ export default class Tut {
     this.bgPos = 0;
     this.bgSpeed = 1;
 
-    this.f = g.H.mkFont(g, 4, 4);
+    this.f = g.H.mkFont(g, 5, 4);
     this.p1 = g.spawn('P1', {p: this});
 
-    g.addText(g.mobile ? 'MOVE GECKO WITH FINGER' : 'MOVE WITH MOUSE', 100);
+    g.addText(g.mobile ? 'MOVE WITH FINGER' : 'MOVE WITH MOUSE', 100);
     g.addEvent({
       t: 600,
       cb: () => {

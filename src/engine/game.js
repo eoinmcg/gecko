@@ -208,7 +208,7 @@ export default class Game {
     });
   }
 
-  addText(text, delay, x = false, y = 420, col = 2, scale = 3) {
+  addText(text, delay, x = false, y = 100, col = 2, scale = 3) {
     this.addEvent({
       t: delay,
       cb: () => {
