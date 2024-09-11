@@ -1,6 +1,6 @@
 (() => {
   // src/game/data/images.js
-  var images_default = { "bat": "R0lGODlhEAAGAMIFAAAAAL8uNOuIMeuJMf7+/v///////////yH5BAEKAAcALAAAAAAQAAYAAAMdeEdM+vAAEEidqjkFNHgDIWxZ9z1ahD0msUbcGScAOw==", "bg": "R0lGODlhIgAiAIABAAAAAP///yH5BAEKAAEALAAAAAAiACIAAAJOhIOpy20PmpwKHoqZzXzBDgZfmG0kZp6TFanr6Dpw7M10Yt9IrvN3qtv5YkPiI1i7IEVFFWvJbJKeSyBSesJOj9BoC6oFUa/WXpgzDj4KADs=", "bg2": "R0lGODlhIgAiAIABABMbJP///yH5BAEKAAEALAAAAAAiACIAAAJ8jG8AyKjbYoLyvBoVtno7unXeJFbleIXgGJxZyrrNs2K0Tddzbl7wnrtxhLJW8Hgcfogd5AsSVJJ+DGdVp+LtWMPihEvyeIEo7LNs3oqpOHT6iu4lszUku8u0a5dRo36Ppyc3dwUIZFg45ndHpgJmVPao+AU2KRTzthhRAAA7", "bridge": "R0lGODlhCgAYAMIFAEk8K6NkIqRkIuqJMeuJMf///////////yH5BAEKAAcALAAAAAAKABgAAAMtKLo7AkwBEtkAOOdQ26uA0wlid2kaNzpQFI4kfKKYasqfW1Z7NNM2Xo7xWskSADs=", "bullet": "R0lGODlhBAAIAMIDAL4mM+uJMffia////////////////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAQALAAAAAAEAAgAAAMNSAA6siKwIEm1jOjNEgA7", "cactus": "R0lGODlhDAAIAMIEAESJGqPOJ/7+/v7//v///////////////yH5BAEKAAQALAAAAAAMAAgAAAMcSBraTiGAFicbQTgGoZyeFUkUuXwnIJojGJZTAgA7", "circle": "R0lGODlhEAAQAIABAP///+BviyH5BAEKAAEALAAAAAAQABAAAAIdjA2px6G/GJzgUIoudLr7D4aix32ZeWpN11gbUwAAOw==", "donut": "R0lGODlhCAAIAMIEAEk8K05CNOByjeuJMf///////////////yH5BAEKAAQALAAAAAAIAAgAAAMXSAEsQI7JOcZkhIB4meVAZVXhQIgjkQAAOw==", "dot": "R0lGODlhAQABAIABAP///zGi8iH5BAEKAAEALAAAAAABAAEAAAICRAEAOw==", "firefly": "R0lGODlhEAAGAKECAOuJMffia////////yH5BAEKAAMALAAAAAAQAAYAAAIbzI6GO+HfnmzA1RNqVkE4j3kd14lY6SSQmg4FADs=", "font": "R0lGODlhmwAFAIABAAAAAEk8KyH5BAEKAAEALAAAAACbAAUAAAJ4hGOAd6sZFpowPhrxhZz5x2ji5pRTyVEfulaWRV6vfNayksV5O/b53NMBcbjX0JY50pYwkFHDAxGTTlsUpZIadRViYzo1tVazcfHHRSOVWx9UyKK2wym6+nRei47PtkTbAbgTc1X3VvOXtfXFhkfmpVUWqZiSZFkAADs=", "gecko": "R0lGODlhCAAIAMIEABsmMr0oM+Bvi99wiv///////////////yH5BAEKAAcALAAAAAAIAAgAAAMXeAczoOOQRtQRIgRsMW+XJnQeR0KWZiUAOw==", "heart": "R0lGODlhBQAFAIABAL4mMzGi8iH5BAEKAAEALAAAAAAFAAUAAAIIDGygu3mBQgEAOw==", "hole": "R0lGODlhRAAcAKEDAAAAAJycnJ2dnf///yH5BAEKAAMALAAAAABEABwAAAJznC0pd+rPxpvURVYT2HX7D2TgSIaZUHpHym5rC7sva8TlbNN1O+R37+MBacHRsHiLHZFLJKhJgvqkTgC1is1qt9yu9wsOi8fksvmMTqvX7Lb7DY/L5/S6PfcAObAB1Oi05wE4OPG3J1FxcTGh2OjYwIhRAAA7", "pointer": "R0lGODlhBAAFAKECAAAAAP////fia/fiayH5BAEKAAIALAAAAAAEAAUAAAIIjGWAEKIsIigAOw==", "pup": "R0lGODlhDgAEAKEDAOqKMfbia////v///yH5BAEKAAMALAAAAAAOAAQAAAIS1H6GKAIQWnvRPBiGo/HQ9Q0FADs=", "skull": "R0lGODlhBAAEAIAAAP///////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAEALAAAAAAEAAQAAAIFhB2Ql1kAOw==", "spark": "R0lGODlhDgAOAIAAAP///////yH5BAEKAAEALAAAAAAOAA4AAAIdjA9wy8md4jNRwloXxnT7v3WfBj7hdE6BoyIKUwAAOw==", "spider": "R0lGODlhEAAIAMIEAL4mM70qOTGi8v7+/////////////////yH5BAEKAAcALAAAAAAQAAgAAAMpeBAiASfKudqL1cHYmsxXNIhTJ0gCEREneYzHqR7qma72xMlr3JYxYAIAOw==", "worm": "R0lGODlhEAAIAMIFAL4mM78uNL8wOp2dnZ6env///////////yH5BAEKAAcALAAAAAAQAAgAAAMneEc8+lCRQmmEs4igg2SEUgVAEXhZdVRskW2duq4jd9JRK7OiNRcJADs=" };
+  var images_default = { "bat": "R0lGODlhEAAGAMIFAAAAAL8uNOuIMeuJMf7+/v///////////yH5BAEKAAcALAAAAAAQAAYAAAMdeEdM+vAAEEidqjkFNHgDIWxZ9z1ahD0msUbcGScAOw==", "bg": "R0lGODlhIgAiAIABAAAAAP///yH5BAEKAAEALAAAAAAiACIAAAJOhIOpy20PmpwKHoqZzXzBDgZfmG0kZp6TFanr6Dpw7M10Yt9IrvN3qtv5YkPiI1i7IEVFFWvJbJKeSyBSesJOj9BoC6oFUa/WXpgzDj4KADs=", "bg2": "R0lGODlhIgAiAIABABMbJP///yH5BAEKAAEALAAAAAAiACIAAAJ8jG8AyKjbYoLyvBoVtno7unXeJFbleIXgGJxZyrrNs2K0Tddzbl7wnrtxhLJW8Hgcfogd5AsSVJJ+DGdVp+LtWMPihEvyeIEo7LNs3oqpOHT6iu4lszUku8u0a5dRo36Ppyc3dwUIZFg45ndHpgJmVPao+AU2KRTzthhRAAA7", "bone": "R0lGODlhDwAHAIAAAP///////yH5BAEKAAEALAAAAAAPAAcAAAITDBCpena40pu0Ilsd3lE+1zFIAQA7", "bridge": "R0lGODlhCgAYAMIFAEk8K6NkIqRkIuqJMeuJMf///////////yH5BAEKAAcALAAAAAAKABgAAAMtKLo7AkwBEtkAOOdQ26uA0wlid2kaNzpQFI4kfKKYasqfW1Z7NNM2Xo7xWskSADs=", "bullet": "R0lGODlhBAAIAMIDAL4mM+uJMffia////////////////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAQALAAAAAAEAAgAAAMNSAA6siKwIEm1jOjNEgA7", "cactus": "R0lGODlhDAAIAMIEAESJGqPOJ/7+/v7//v///////////////yH5BAEKAAQALAAAAAAMAAgAAAMcSBraTiGAFicbQTgGoZyeFUkUuXwnIJojGJZTAgA7", "circle": "R0lGODlhEAAQAIABAP///+BviyH5BAEKAAEALAAAAAAQABAAAAIdjA2px6G/GJzgUIoudLr7D4aix32ZeWpN11gbUwAAOw==", "donut": "R0lGODlhCAAIAMIEAEk8K05CNOByjeuJMf///////////////yH5BAEKAAQALAAAAAAIAAgAAAMXSAEsQI7JOcZkhIB4meVAZVXhQIgjkQAAOw==", "dot": "R0lGODlhAQABAIABAP///zGi8iH5BAEKAAEALAAAAAABAAEAAAICRAEAOw==", "firefly": "R0lGODlhEAAGAKECAOuJMffia////////yH5BAEKAAMALAAAAAAQAAYAAAIbzI6GO+HfnmzA1RNqVkE4j3kd14lY6SSQmg4FADs=", "font": "R0lGODlhmwAFAIABAAAAAEk8KyH5BAEKAAEALAAAAACbAAUAAAJ4hGOAd6sZFpowPhrxhZz5x2ji5pRTyVEfulaWRV6vfNayksV5O/b53NMBcbjX0JY50pYwkFHDAxGTTlsUpZIadRViYzo1tVazcfHHRSOVWx9UyKK2wym6+nRei47PtkTbAbgTc1X3VvOXtfXFhkfmpVUWqZiSZFkAADs=", "gecko": "R0lGODlhCAAIAMIEABsmMr0oM+Bvi99wiv///////////////yH5BAEKAAcALAAAAAAIAAgAAAMXeAczoOOQRtQRIgRsMW+XJnQeR0KWZiUAOw==", "grass": "R0lGODlhCAAHAIABAAAAAP///yH5BAEKAAEALAAAAAAIAAcAAAIOjA2neeyRQIRwVsmQPAUAOw==", "heart": "R0lGODlhBQAFAIABAL4mMzGi8iH5BAEKAAEALAAAAAAFAAUAAAIIDGygu3mBQgEAOw==", "hole": "R0lGODlhRAAcAKEDAAAAAJycnJ2dnf///yH5BAEKAAMALAAAAABEABwAAAJznC0pd+rPxpvURVYT2HX7D2TgSIaZUHpHym5rC7sva8TlbNN1O+R37+MBacHRsHiLHZFLJKhJgvqkTgC1is1qt9yu9wsOi8fksvmMTqvX7Lb7DY/L5/S6PfcAObAB1Oi05wE4OPG3J1FxcTGh2OjYwIhRAAA7", "pointer": "R0lGODlhBAAFAKECAAAAAP////fia/fiayH5BAEKAAIALAAAAAAEAAUAAAIIjGWAEKIsIigAOw==", "pup": "R0lGODlhDgAEAKEDAOqKMfbia////v///yH5BAEKAAMALAAAAAAOAAQAAAIS1H6GKAIQWnvRPBiGo/HQ9Q0FADs=", "skull": "R0lGODlhBAAEAIAAAP///////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAEALAAAAAAEAAQAAAIFhB2Ql1kAOw==", "spark": "R0lGODlhDgAOAIAAAP///////yH5BAEKAAEALAAAAAAOAA4AAAIdjA9wy8md4jNRwloXxnT7v3WfBj7hdE6BoyIKUwAAOw==", "spider": "R0lGODlhEAAIAMIEAL4mM70qOTGi8v7+/////////////////yH5BAEKAAcALAAAAAAQAAgAAAMpeBAiASfKudqL1cHYmsxXNIhTJ0gCEREneYzHqR7qma72xMlr3JYxYAIAOw==", "worm": "R0lGODlhEAAIAMIFAL4mM78uNL8wOp2dnZ6env///////////yH5BAEKAAcALAAAAAAQAAgAAAMneEc8+lCRQmmEs4igg2SEUgVAEXhZdVRskW2duq4jd9JRK7OiNRcJADs=" };
 
   // src/game/data/sfx.js
   var sfx_default = {
@@ -414,6 +414,11 @@
     g.imgs["wormtail_flipY"] = g.draw.flip(g.imgs["wormtail"], 0, 1);
     g.imgs["titleFont"] = g.H.mkFont(g, 8, 2);
     g.imgs["_titleFont"] = g.H.mkFont(g, 8, 0);
+    g.imgs["bg_skull"] = g.draw.rotate(g.draw.resize(g.imgs["skull"], 6, 0.03), 4.4);
+    g.imgs["bg_skull_flip"] = g.draw.flip(g.imgs["bg_skull"], 1, 0);
+    g.imgs["bg_bone"] = g.draw.rotate(g.draw.resize(g.imgs["bone"], 2, 0.03), 4.4);
+    g.imgs["bg_bone_flip"] = g.draw.flip(g.imgs["bg_bone"], 1, 0);
+    g.imgs["bg_grass"] = g.draw.resize(g.imgs["grass"], 4, 0.1);
     g.SONG = [[[, 0, 77, , , 0.7, 2, 0.41, , , , , , , , 0.06], [, 0, 43, 0.01, , 0.3, 2, , , , , , , , , 0.02, 0.01], [, 0, 170, 3e-3, , 8e-3, , 0.97, -35, 53, , , , , , 0.1], [0.8, 0, 270, , , 0.12, 3, 1.65, -2, , , , , 4.5, , 0.02], [, 0, 86, , , , , 0.7, , , , 0.5, , 6.7, 1, 0.05], [, 0, 41, , 0.05, 0.4, 2, 0, , , 9, 0.01, , , , 0.08, 0.02], [, 0, 2200, , , 0.04, 3, 2, , , 800, 0.02, , 4.8, , 0.01, 0.1], [0.3, 0, 16, , , 0.3, 3]], [[[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33], [3, 1, 22, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 24, , , , , , , , , , , , , , , , , , , , , , , , 22, , 22, , 22, , , ,], [5, -1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,], [, 1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,]], [[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33], [3, 1, 24, , , , , , , , 27, , , , , , , , , , , , , , , , 27, , , , 24, , , , 24, , , , , , , , 27, , , , , , , , , , , , , , , , 24, , 24, , 24, , , ,], [5, -1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,], [, 1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,], [6, 1, , , 34, 34, 34, , , , , , 34, 34, , , , , 34, , , , 34, 34, , , , , 34, , , , 34, , , , 34, 34, 34, , , , , , 34, , , , , , 34, 34, , , 34, 34, , , , , , , , , 34, 34], [4, 1, , , , , , , 24, , , , , , 24, , 24, , , , 24, , , , 24, , , , , , , , , , , , , , , , 24, , , , , , 24, , 24, , , , 24, , , , 24, , , , , , , , , ,]], [[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 23, 23, 35, 23, 23, 36, 23, 23, 35, 23, 23, 36, 23, 23, 35, 35, 23, 23, 35, 23, 23, 35, 23, 23, 36, 23, 23, 35, 23, 23, 36, 36], [5, -1, 21, , , 19, , , 21, , , , , , , , , , 21, , , 19, , , 17, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,], [3, 1, 24, , , 24, , , 24, , , , , , , , , , 24, , , 24, , , 24, , , , 24.75, 24.5, 24.26, 24.01, 24.01, 24.01, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25], [4, -1, , , , , , , , , , , , , , , , , , , , , , , , , , , 24.75, 24.5, 24.26, 24.01, 24.01, 24.01, 24.01, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24], [7, -1, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 23, , 21, 23, , 35, , 23, , 21, 23, , 35, , 35, , 23, , 21, 23, , 35, , 21, 23, , 35, , 21, 23, , ,], [6, 1, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 34, 36, 34, , 33, 34, 34, 36, 31, 36, 34, , 31, 34, 32, , 33, 36, 34, , 31, 34, 34, 36, 33, 36, 33, , 31, , ,]], [[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 29], [4, 1, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, , , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24], [7, -1, 21, , 19, 21, , 33, , 21, , 19, 21, , 33, , 33, , 21, , 19, 21, , 33, , 21, , 19, 21, , 33, , 33, , 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29], [2, 1, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, , , , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, , ,], [6, 1, , , 36, , , , , , 36, , 36, , , , , , , , 36, , , , , , 36, , 36, , , , , , , , 36, , , , , , , , , , , , , , , , 36, , , , , , 36, , 36, , , , , ,], [3, 1, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25, , , , , 25, , , , , 25, , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25]], [[1, -1, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 26, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 29, 19, 19, 31, 19, 19, 31, 19, 19, 31, 19, 19, 31, 19, 19, 31, 31], [4, 1, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 36, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24], [7, -1, 14, , 14, 14, 26, 14, 14, 26, 14, , 14, 14, 26, 14, 14, 26, 14, , 14, 14, 26, 14, 14, 26, 14, , 14, 14, 26, 14, 14, 26, 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29, 19, , 19, 19, 31, 19, 19, 31, 19, , 19, 19, 31, 19, 19, 31], [2, 1, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, , , , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, , ,], [3, 1, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25], [6, 1, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 34, , , , , , 34, , 34, , , , , , , , 34, , , , , , 34, , 34, , , , , ,]]], [0, 1, 1, 2, 3, 4, 4]];
     g.tune = g.zzfxM(...g.SONG);
     document.querySelector("#c").style.cursor = "none";
@@ -711,46 +716,42 @@
       this.bgPos = 0;
       this.bgSpeed = 1;
       this.bgCol = 12;
+      for (let n = 0; n < 8; n += 1) {
+        this.g.spawn("Obj", {
+          p: this
+        });
+      }
       this.p1 = this.g.spawn("P1", { p: this });
       this.score = 0;
+      this.dist = 0;
       this.offset = {
         x: 0,
         y: 0
       };
       this.scoreFont = g.H.mkFont(g, 4, 2);
       this.gameOver = false;
-      this.audio = this.g.zzfxP(...this.g.tune);
-      this.audio.loop = true;
-      this.g.spawn("Hole", { p: this, y: -g.h });
-      this.baddies = [
-        "Cactus",
-        "Bat",
-        "Spider",
-        "Worm"
-      ];
+      g.audio = g.zzfxP(...g.tune);
+      g.audio.loop = true;
+      this.hole = this.g.spawn("Hole", { p: this, y: -g.h });
+      this.allBaddies = ["Cactus", "Bat", "Spider", "Worm"];
+      this.baddies = [];
+      this.startSpawn();
     }
     update(dt) {
       this.fader = Math.sin((/* @__PURE__ */ new Date()).getTime() * 3e-3);
-      if (!this.gameOver && Math.random() > 0.99) {
-        if (Math.random() > 0.1) {
-          this.g.spawn(this.g.H.rndArray(this.baddies), { p: this });
-        } else {
-          let x = this.g.H.rnd(50, 250);
-          for (let i = 1; i <= 4; i += 1) {
-            this.g.spawn("Donut", { p: this, x, y: i * -32 });
-          }
-        }
-      }
       this.g.ents.forEach((e) => {
         e.update(dt);
       });
       this.bgPos += this.bgSpeed;
-      this.score += this.bgSpeed / 100;
+      this.dist += this.bgSpeed;
       if (this.bgPos > this.g.h) {
         this.bgPos = 0;
       }
       if (this.p1.dead) {
         this.bgSpeed = 0;
+      }
+      if (this.dist % 1e3 === 0) {
+        this.addBaddie();
       }
     }
     render() {
@@ -784,7 +785,7 @@
         return;
       this.g.sfx("thunder");
       try {
-        this.audio.stop();
+        this.g.audio.stop();
       } catch (e) {
         console.log(e);
       }
@@ -804,6 +805,27 @@
         text: "REPLAY",
         cb: () => {
           this.g.changeScene("Play");
+        }
+      });
+    }
+    startSpawn() {
+      this.addBaddie();
+      this.spawn();
+    }
+    addBaddie() {
+      if (this.baddies.length !== this.allBaddies.length) {
+        this.baddies.push(this.allBaddies[this.baddies.length]);
+      }
+    }
+    spawn() {
+      let level = ~~(this.dist / 500);
+      level = level > 20 ? 20 : level;
+      const nextSpawn = this.g.H.rnd(80, 120) - level;
+      this.g.addEvent({
+        t: nextSpawn,
+        cb: () => {
+          this.g.spawn(this.g.H.rndArray(this.baddies), { p: this });
+          this.spawn(nextSpawn);
         }
       });
     }
@@ -1127,7 +1149,6 @@
     }
     addPowerup() {
       this.powerups += 1;
-      console.log("ADDED POWERUP", this.powerups);
     }
   };
 
@@ -1394,169 +1415,6 @@
     }
   };
 
-  // src/engine/ent.js
-  var Ent = class {
-    constructor(g, o) {
-      this.frames = o.frames || 1;
-      this.key = o.key || this.constructor.name.toLowerCase();
-      this.img = g.imgs[this.key];
-      this.texture = g.textures[this.key];
-      o.rotation = o.rotation || 1;
-      o.scale = o.scale || 1;
-      o.w = this.img.width / this.frames;
-      o.w = this.img.width;
-      o.h = this.img.height;
-      let frameY = 0, frameW = o.w / this.frames, frameH = o.h;
-      this.o = o;
-      this.g = g;
-      this.frame = 0;
-      this.frameRate = o.frameRate || 8;
-      this.frameNext = o.frameNext || 0;
-      this.frameData = [...Array(this.frames).keys()];
-      this.frameData.forEach((n) => {
-        this.frameData[n] = [
-          n / this.frameData.length,
-          (n + 1) / this.frameData.length
-        ];
-      });
-      this.anims = { idle: { frames: [0], rate: 0.5 } };
-      this.changeAnim("idle");
-      this.scale = o.scale || 1;
-      this.x = o.x;
-      this.y = o.y;
-      this.w = o.w * o.scale / this.frames;
-      this.h = o.h * o.scale;
-      this.rotation = 0;
-      this.u0 = this.frameData[this.frame][0];
-      this.v0 = frameY / this.texture.height;
-      this.u1 = this.frameData[this.frame][1];
-      this.v1 = this.v0 + frameH / this.texture.height;
-      this.halfWidth = frameW / 2;
-      this.id = `id-${Math.random().toString(36).substr(2, 16)}`;
-      this.dead = false;
-      this.remove = false;
-      this.xLimit = g.data.w - this.w;
-      this.yLimit = g.data.h - this.h;
-      this.remove = false;
-      this.vx = 0;
-      this.vy = 0;
-    }
-    render() {
-      this.g.canvas.c.img(
-        this.texture,
-        0,
-        0,
-        // always 0 0?
-        this.w,
-        this.h,
-        this.rotation,
-        ~~this.x,
-        ~~this.y,
-        1,
-        1,
-        // scale x & y
-        // UV0
-        this.u0,
-        this.v0,
-        // UV1
-        this.u1,
-        this.v1
-      );
-    }
-    update(dt) {
-      if (this.frames > 1) {
-        this.updateAnim(dt);
-      }
-      if (this.collidesWith) {
-        this.collidesWith.forEach((group) => {
-          this.hitGroup(group);
-        });
-      }
-    }
-    isOffscreen() {
-      return this.x < 0 || this.x > this.xLimit || this.y < 0 || this.y > this.yLimit;
-    }
-    bindToScreen() {
-      if (this.x < 0)
-        this.x = 0;
-      if (this.x > this.xLimit)
-        this.x = this.xLimit;
-      if (this.y < 0)
-        this.y = 0;
-      if (this.y > this.yLimit)
-        this.y = this.yLimit;
-    }
-    hit(o) {
-      return !(o.y + o.h < this.y || o.y > this.y + this.h || o.x + o.w < this.x || o.x > this.x + this.w);
-    }
-    hitGroup(group) {
-      this.g.ents.forEach((e) => {
-        if (e && e.group === group && e.id !== this.id && this.hit(e)) {
-          this.receiveDamage(e);
-          e.doDamage(this);
-        }
-      });
-    }
-    receiveDamage(o) {
-    }
-    doDamage(o) {
-    }
-    kill() {
-      this.dead = this.remove = true;
-    }
-    updateAnim(step) {
-      if (this.frameNext < 0) {
-        this.frameNext = this.anim.rate;
-        this.anim.counter += 1;
-        if (this.anim.counter >= this.anim.frames.length) {
-          if (this.anim.next) {
-            this.changeAnim(this.anim.next);
-          } else {
-            if (this.anim.cb) {
-              this.anim.cb.call(this);
-            }
-            this.anim.counter = 0;
-          }
-        }
-        this.frame = this.anim.frames[this.anim.counter];
-      }
-      this.frameNext -= step;
-      this.u0 = this.frameData[this.frame][0];
-      this.u1 = this.frameData[this.frame][1];
-    }
-    changeAnim(name) {
-      if (this.anim && this.anim.name && this.anim.name === name) {
-        return;
-      }
-      this.anim = this.anims[name];
-      this.anim.name = name;
-      this.anim.counter = 0;
-      this.frame = this.anim.frames[0];
-      this.frameNext = this.anim.rate;
-    }
-  };
-
-  // src/game/ents/bg.js
-  var Bg = class extends Ent {
-    constructor(g, o) {
-      super(g, o);
-      this.vy = 4.5;
-      this.vx = 0;
-    }
-    update(dt) {
-      super.update(dt);
-      this.updateAnim(dt);
-      this.y += this.vy;
-      this.x += this.vx;
-      if (this.y < 0 - this.h) {
-        this.remove = true;
-      }
-      if (this.y > this.g.data.h) {
-        this.y = -this.h;
-      }
-    }
-  };
-
   // src/game/ents/baddie.js
   var Baddie = class extends Sprite {
     constructor(g, o) {
@@ -1617,7 +1475,9 @@
           this.g.addEvent({
             t: 2,
             cb: () => {
-              this.p.bgCol = 12;
+              if (this.p.gameOver)
+                return;
+              this.p.bgCol = this.p.gameOver ? 4 : 12;
             }
           });
         }
@@ -1771,6 +1631,9 @@
         this.x += this.vx;
         this.flip.x = true;
       }
+      if (this.hit(this.p.hole)) {
+        this.vy = this.p.bgSpeed;
+      }
       if (this.y < -this.h) {
         this.remove = true;
       }
@@ -1827,6 +1690,9 @@
       if (this.active) {
         this.x += this.vx;
         this.y += this.vy;
+        if (this.hit(this.p.hole)) {
+          this.vy *= -1;
+        }
       }
       if (!this.p.gameOver) {
         this.y += this.p.bgSpeed;
@@ -1837,9 +1703,40 @@
     }
   };
 
+  // src/game/ents/obj.js
+  var Obj = class extends Sprite {
+    constructor(g, o) {
+      super(g, o);
+      this.reset(g.H.rnd(0, g.h));
+    }
+    update() {
+      this.y += this.p.bgSpeed;
+      if (this.y > this.g.h + 20) {
+        this.reset();
+      }
+    }
+    render() {
+      this.g.draw.img(this.i, this.x, this.y);
+    }
+    reset(y = false) {
+      console.log(y);
+      this.x = this.g.H.rnd(30, this.g.w - 30);
+      this.y = y || this.g.H.rnd(20, 60) * -1;
+      this.i = this.g.imgs[this.g.H.rndArray([
+        "bg_skull",
+        "bg_skull_flip",
+        "bg_bone",
+        "bg_bone_flip",
+        "bg_grass",
+        "bg_grass",
+        "bg_grass"
+      ])];
+    }
+  };
+
   // src/index.js
   base_default.scenes = { Title, Play };
-  base_default.ents = { Particle, P1, Bullet, Circle, Bg, Boom, Bat, Button: Control, Hole, Cactus, Donut, Spider, Powerup, Worm };
+  base_default.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button: Control, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj };
   new Game(base_default).init();
 })();
 //! ZzFXM (v2.0.3) | (C) Keith Clark | MIT | https://github.com/keithclark/ZzFXM

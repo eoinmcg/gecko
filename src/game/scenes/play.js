@@ -8,9 +8,14 @@ export default class Play {
     this.bgPos = 0;
     this.bgSpeed = 1;
     this.bgCol = 12;
-
+    for (let n = 0; n < 8; n += 1) {
+      this.g.spawn('Obj', {
+        p: this,
+      })
+    }
     this.p1 = this.g.spawn('P1', {p: this});
     this.score = 0;
+    this.dist = 0;
 
     this.offset = {
       x: 0, y: 0
@@ -19,36 +24,26 @@ export default class Play {
     this.scoreFont = g.H.mkFont(g, 4, 2);
     this.gameOver = false;
 
-    this.audio = this.g.zzfxP(...this.g.tune);
-    this.audio.loop = true;
-    this.g.spawn('Hole', {p: this, y: -g.h});
+    g.audio = g.zzfxP(...g.tune);
+    g.audio.loop = true;
 
-    this.baddies = [
-      'Cactus', 'Bat', 'Spider',
-      'Worm'
-    ];
+    this.hole = this.g.spawn('Hole', {p: this, y: -g.h});
+
+    this.allBaddies = ['Cactus', 'Bat', 'Spider', 'Worm'];
+    this.baddies = [];
+    this.startSpawn();
+
   }
 
   update(dt) {
     this.fader = Math.sin(new Date().getTime() * 0.003);
-
-    if (!this.gameOver && Math.random() > 0.99) {
-      if( Math.random() > 0.1) {
-        this.g.spawn(this.g.H.rndArray(this.baddies), {p: this});
-      } else {
-        let x = this.g.H.rnd(50, 250);
-        for (let i = 1; i <= 4; i+= 1) {
-          this.g.spawn('Donut', {p: this, x: x, y: i * -32});
-        }
-      }
-    }
 
     this.g.ents.forEach((e) => {
       e.update(dt);
     })
 
     this.bgPos += this.bgSpeed;
-    this.score += this.bgSpeed / 100;
+    this.dist += this.bgSpeed;
     if (this.bgPos > this.g.h) {
       this.bgPos = 0;
     }
@@ -57,6 +52,9 @@ export default class Play {
       this.bgSpeed = 0;
     }
 
+    if (this.dist % 1000 === 0) {
+      this.addBaddie();
+    }
   }
 
 
@@ -99,7 +97,7 @@ export default class Play {
 
     this.g.sfx('thunder');
     try {
-      this.audio.stop();
+      this.g.audio.stop();
     } catch (e) {
       console.log(e);
     }
@@ -122,6 +120,33 @@ export default class Play {
         this.g.changeScene('Play');
       }
     });
+  }
+
+
+  startSpawn() {
+
+    this.addBaddie();
+
+    this.spawn();
+  }
+
+  addBaddie() {
+    if (this.baddies.length !== this.allBaddies.length) {
+      this.baddies.push(this.allBaddies[this.baddies.length]);
+    }
+  }
+
+  spawn() {
+    let level = ~~(this.dist / 500);
+    level = (level > 20) ? 20 : level
+    const nextSpawn = this.g.H.rnd(80,120) - level;
+    this.g.addEvent({
+      t: nextSpawn,
+      cb:() => {
+        this.g.spawn(this.g.H.rndArray(this.baddies), {p: this});
+        this.spawn(nextSpawn)
+      }
+    })
   }
 
 }

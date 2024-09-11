@@ -56,6 +56,9 @@ export default class Worm extends Baddie {
     if (this.active) {
       this.x += this.vx;
       this.y += this.vy;
+      if (this.hit(this.p.hole)) {
+        this.vy *= -1;
+      }
     }
 
     if (!this.p.gameOver) {

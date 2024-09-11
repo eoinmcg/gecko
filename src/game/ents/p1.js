@@ -171,7 +171,6 @@ export default class P1 extends Sprite {
 
   addPowerup() {
     this.powerups += 1;
-    console.log('ADDED POWERUP', this.powerups);
 
   }
 }

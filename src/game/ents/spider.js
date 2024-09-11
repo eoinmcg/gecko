@@ -30,6 +30,9 @@ export default class Spider extends Baddie {
       this.x += this.vx;
       this.flip.x = true;
     }
+    if (this.hit(this.p.hole)) {
+      this.vy = this.p.bgSpeed;
+    }
 
     if (this.y < -this.h) {
       this.remove = true;
