@@ -874,7 +874,6 @@
       this.bgSpeed = 1;
       this.bgColMaster = g.H.rndArray([12, 16, 17, 18, 19]);
       this.bgCol = this.bgColMaster;
-      console.log(this.bgColMaster);
       for (let n = 0; n < 6; n += 1) {
         this.g.spawn("Obj", { p: this });
       }
@@ -1754,14 +1753,14 @@
     }
     reset(y = false) {
       this.y = y || -this.g.h;
-      let scale = this.scale + 3;
+      let scale = this.scale + 2;
       const key = `bridge_${this.scale}`;
       this.bridge = {
         x: this.g.H.rnd(30, this.g.w - 30),
         yOff: 10,
         key: `bridge_${scale}`,
-        w: this.g.imgs[key].width * scale,
-        h: this.g.imgs[key].height * scale
+        w: this.g.imgs[key].width * (scale / 2),
+        h: this.g.imgs[key].height * (scale / 2)
       };
     }
     update(dt) {
@@ -1769,16 +1768,16 @@
       if (!this.p.p1.dead) {
         this.y += this.p.bgSpeed;
       }
+      this.bridge.y = this.y - this.bridge.yOff;
       if (this.y > this.g.h + this.h) {
         this.reset();
       }
     }
     render() {
       super.render();
-      this.g.draw.img(this.g.imgs[this.bridge.key], this.bridge.x - this.bridge.yOff, this.y);
+      this.g.draw.img(this.g.imgs[this.bridge.key], this.bridge.x, this.bridge.y);
     }
     receiveDamage(o) {
-      this.bridge.y = this.y - this.bridge.yOff;
       if (!o.hit(this.bridge)) {
         o.fall();
       }

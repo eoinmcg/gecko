@@ -9,7 +9,6 @@ export default class Play {
     this.bgSpeed = 1;
     this.bgColMaster = g.H.rndArray([12, 16, 17, 18, 19]);
     this.bgCol = this.bgColMaster;
-    console.log(this.bgColMaster);
     for (let n = 0; n < 6; n += 1) {
       this.g.spawn('Obj', { p: this });
     }
