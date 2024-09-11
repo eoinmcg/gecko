@@ -21,7 +21,6 @@ export default class Obj extends Sprite {
   }
 
   reset(y = false) {
-    console.log(y);
     this.x = this.g.H.rnd(30, this.g.w - 30);
     this.y = y || this.g.H.rnd(20, 60) * -1;
     this.i = this.g.imgs[

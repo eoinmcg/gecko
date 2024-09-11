@@ -7,11 +7,10 @@ export default class Play {
     this.bg2 = g.imgs['bg2'];
     this.bgPos = 0;
     this.bgSpeed = 1;
-    this.bgCol = 12;
-    for (let n = 0; n < 8; n += 1) {
-      this.g.spawn('Obj', {
-        p: this,
-      })
+    this.bgColMaster = 12;
+    this.bgCol = this.bgColMaster;
+    for (let n = 0; n < 6; n += 1) {
+      this.g.spawn('Obj', { p: this });
     }
     this.p1 = this.g.spawn('P1', {p: this});
     this.score = 0;
@@ -133,17 +132,30 @@ export default class Play {
   addBaddie() {
     if (this.baddies.length !== this.allBaddies.length) {
       this.baddies.push(this.allBaddies[this.baddies.length]);
+    } else if (this.bgSpeed < 3) {
+      this.bgSpeed += 0.5;
     }
   }
 
   spawn() {
+    if (this.gameOver) return;
     let level = ~~(this.dist / 500);
     level = (level > 20) ? 20 : level
     const nextSpawn = this.g.H.rnd(80,120) - level;
     this.g.addEvent({
       t: nextSpawn,
       cb:() => {
-        this.g.spawn(this.g.H.rndArray(this.baddies), {p: this});
+        let baddie = this.g.H.rndArray(this.baddies);
+        if (Math.random() > 0.7) {
+          this.g.spawn('Cactus', {p: this});
+        }
+        this.g.spawn(baddie, {p: this});
+        if (Math.random() > 0.9) {
+          let x = this.g.H.rnd(50, 250);
+          for (let i = 1; i <= 4; i+= 1) {
+            this.g.spawn('Donut', {p: this, x: x, y: i * -32});
+          }
+        }
         this.spawn(nextSpawn)
       }
     })

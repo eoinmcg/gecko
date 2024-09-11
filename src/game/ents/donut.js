@@ -13,6 +13,12 @@ export default class Donut extends Sprite {
     this.collidesWith = ['player'];
     this.y = o.y || -this.h;
     this.collected = false;
+
+    g.ents.forEach((e) => {
+      if (e.group === 'baddies' && this.hit(e)) {
+        this.remove = true;
+      }
+    });
   }
 
   update(dt) {
@@ -55,5 +61,6 @@ export default class Donut extends Sprite {
     this.vy = -2 * this.p.bgSpeed;
     this.g.sfx('piano');
     this.g.spawn("Boom", { x: this.x + this.halfW, y: this.y + this.halfW, key: "boom", scale: 4, type: 'spark', col: 8});
+    this.p.score += 20;
   }
 }

@@ -56,13 +56,13 @@ export default class Baddie extends Sprite {
         this.g.addEvent({
           t: 2,
           cb: () => {
-            if (this.p.gameOver) return;
             this.p.bgCol = (this.p.gameOver)
-              ? 4 : 12;
+              ? 3 : 12;
           }
         });
       }
       this.kill();
+      this.p.score += this.scale * 10;
     } else {
       this.vy / 2;
       this.hurt = true;

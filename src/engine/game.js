@@ -48,10 +48,11 @@ export default class Game {
 
     this.ents = [];
     this.imgs = [];
-    this.textures = [];
     this.events = [];
     this.H = H;
 
+    this.mute = false;
+    this.pause = false;
     window.G = this;
   }
 
@@ -102,7 +103,7 @@ export default class Game {
   }
 
   sfx(key) {
-    if (this.ios) return;
+    if (this.mute) return;
     zzfx(...this.data.sfx[key]);
   }
 
@@ -132,10 +133,27 @@ export default class Game {
     this.frameCurr = H.timeStamp();
     this.dt = this.dt + Math.min(1, (this.frameCurr - this.framePrev) / 1000);
 
-    this.update(this.frameStep);
+    if (!this.pause) {
+      this.update(this.frameStep);
+      this.render();
+    }
 
-    this.render();
     this.framePrev = this.frameCurr;
+
+    if (this.input.freshKeys.KeyS) {
+      this.screenshot();
+    }
+    if (this.input.freshKeys.KeyM) {
+      this.mute = !this.mute;
+      if (this.mute && this.audio) {
+        this.audio.stop();
+      } else if (this.audio) {
+        // this.audio.play();
+      }
+    }
+    if (this.input.freshKeys.KeyP) {
+      this.pause = !this.pause;
+    }
     this.input.freshKeys = [];
     // this.stats.end();
     requestAnimationFrame(() => this.loop());
@@ -201,5 +219,23 @@ export default class Game {
         this.events.splice(i, 1);
       }
     });
+  }
+
+  screenshot() {
+    this.c.toBlob((blob) => {
+      saveBlob(blob, `screencapture-${this.w}x${this.h}.png`);
+    });
+
+    const saveBlob = (function() {
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.style.display = 'none';
+      return function saveData(blob, fileName) {
+        const url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = fileName;
+        a.click();
+      };
+    }());
   }
 }

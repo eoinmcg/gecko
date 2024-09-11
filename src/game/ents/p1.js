@@ -171,6 +171,8 @@ export default class P1 extends Sprite {
 
   addPowerup() {
     this.powerups += 1;
-
+    if (this.powerups > 4) {
+      this.p.score += 50;
+    }
   }
 }

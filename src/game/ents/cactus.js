@@ -33,7 +33,7 @@ export default class Cactus extends Baddie {
 
   receiveDamage(o) {
     super.receiveDamage(o);
-    if (this.hits === -1 && Math.random() > 0) {
+    if (this.hits === -1 && Math.random() > 0.5) {
       this.g.spawn('Powerup', {p: this.p, x: this.x, y: this.y});
     }
   }

@@ -414,11 +414,11 @@
     g.imgs["wormtail_flipY"] = g.draw.flip(g.imgs["wormtail"], 0, 1);
     g.imgs["titleFont"] = g.H.mkFont(g, 8, 2);
     g.imgs["_titleFont"] = g.H.mkFont(g, 8, 0);
-    g.imgs["bg_skull"] = g.draw.rotate(g.draw.resize(g.imgs["skull"], 6, 0.03), 4.4);
+    g.imgs["bg_skull"] = g.draw.rotate(g.draw.resize(g.imgs["skull"], 6, 0.1), 4.4);
     g.imgs["bg_skull_flip"] = g.draw.flip(g.imgs["bg_skull"], 1, 0);
-    g.imgs["bg_bone"] = g.draw.rotate(g.draw.resize(g.imgs["bone"], 2, 0.03), 4.4);
+    g.imgs["bg_bone"] = g.draw.rotate(g.draw.resize(g.imgs["bone"], 2, 0.1), 4.4);
     g.imgs["bg_bone_flip"] = g.draw.flip(g.imgs["bg_bone"], 1, 0);
-    g.imgs["bg_grass"] = g.draw.resize(g.imgs["grass"], 4, 0.1);
+    g.imgs["bg_grass"] = g.draw.resize(g.imgs["grass"], 4, 0.2);
     g.SONG = [[[, 0, 77, , , 0.7, 2, 0.41, , , , , , , , 0.06], [, 0, 43, 0.01, , 0.3, 2, , , , , , , , , 0.02, 0.01], [, 0, 170, 3e-3, , 8e-3, , 0.97, -35, 53, , , , , , 0.1], [0.8, 0, 270, , , 0.12, 3, 1.65, -2, , , , , 4.5, , 0.02], [, 0, 86, , , , , 0.7, , , , 0.5, , 6.7, 1, 0.05], [, 0, 41, , 0.05, 0.4, 2, 0, , , 9, 0.01, , , , 0.08, 0.02], [, 0, 2200, , , 0.04, 3, 2, , , 800, 0.02, , 4.8, , 0.01, 0.1], [0.3, 0, 16, , , 0.3, 3]], [[[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33], [3, 1, 22, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 24, , , , , , , , , , , , , , , , , , , , , , , , 22, , 22, , 22, , , ,], [5, -1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,], [, 1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,]], [[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33], [3, 1, 24, , , , , , , , 27, , , , , , , , , , , , , , , , 27, , , , 24, , , , 24, , , , , , , , 27, , , , , , , , , , , , , , , , 24, , 24, , 24, , , ,], [5, -1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,], [, 1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,], [6, 1, , , 34, 34, 34, , , , , , 34, 34, , , , , 34, , , , 34, 34, , , , , 34, , , , 34, , , , 34, 34, 34, , , , , , 34, , , , , , 34, 34, , , 34, 34, , , , , , , , , 34, 34], [4, 1, , , , , , , 24, , , , , , 24, , 24, , , , 24, , , , 24, , , , , , , , , , , , , , , , 24, , , , , , 24, , 24, , , , 24, , , , 24, , , , , , , , , ,]], [[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 23, 23, 35, 23, 23, 36, 23, 23, 35, 23, 23, 36, 23, 23, 35, 35, 23, 23, 35, 23, 23, 35, 23, 23, 36, 23, 23, 35, 23, 23, 36, 36], [5, -1, 21, , , 19, , , 21, , , , , , , , , , 21, , , 19, , , 17, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,], [3, 1, 24, , , 24, , , 24, , , , , , , , , , 24, , , 24, , , 24, , , , 24.75, 24.5, 24.26, 24.01, 24.01, 24.01, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25], [4, -1, , , , , , , , , , , , , , , , , , , , , , , , , , , 24.75, 24.5, 24.26, 24.01, 24.01, 24.01, 24.01, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24], [7, -1, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 23, , 21, 23, , 35, , 23, , 21, 23, , 35, , 35, , 23, , 21, 23, , 35, , 21, 23, , 35, , 21, 23, , ,], [6, 1, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 34, 36, 34, , 33, 34, 34, 36, 31, 36, 34, , 31, 34, 32, , 33, 36, 34, , 31, 34, 34, 36, 33, 36, 33, , 31, , ,]], [[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 29], [4, 1, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, , , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24], [7, -1, 21, , 19, 21, , 33, , 21, , 19, 21, , 33, , 33, , 21, , 19, 21, , 33, , 21, , 19, 21, , 33, , 33, , 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29], [2, 1, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, , , , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, , ,], [6, 1, , , 36, , , , , , 36, , 36, , , , , , , , 36, , , , , , 36, , 36, , , , , , , , 36, , , , , , , , , , , , , , , , 36, , , , , , 36, , 36, , , , , ,], [3, 1, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25, , , , , 25, , , , , 25, , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25]], [[1, -1, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 26, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 29, 19, 19, 31, 19, 19, 31, 19, 19, 31, 19, 19, 31, 19, 19, 31, 31], [4, 1, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 36, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24], [7, -1, 14, , 14, 14, 26, 14, 14, 26, 14, , 14, 14, 26, 14, 14, 26, 14, , 14, 14, 26, 14, 14, 26, 14, , 14, 14, 26, 14, 14, 26, 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29, 19, , 19, 19, 31, 19, 19, 31, 19, , 19, 19, 31, 19, 19, 31], [2, 1, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, , , , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, , ,], [3, 1, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25], [6, 1, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 34, , , , , , 34, , 34, , , , , , , , 34, , , , , , 34, , 34, , , , , ,]]], [0, 1, 1, 2, 3, 4, 4]];
     g.tune = g.zzfxM(...g.SONG);
     document.querySelector("#c").style.cursor = "none";
@@ -523,9 +523,10 @@
       this.plays = 0;
       this.ents = [];
       this.imgs = [];
-      this.textures = [];
       this.events = [];
       this.H = helpers_default;
+      this.mute = false;
+      this.pause = false;
       window.G = this;
     }
     init() {
@@ -565,7 +566,7 @@
       }
     }
     sfx(key) {
-      if (this.ios)
+      if (this.mute)
         return;
       zzfx(...this.data.sfx[key]);
     }
@@ -591,9 +592,24 @@
     loop() {
       this.frameCurr = helpers_default.timeStamp();
       this.dt = this.dt + Math.min(1, (this.frameCurr - this.framePrev) / 1e3);
-      this.update(this.frameStep);
-      this.render();
+      if (!this.pause) {
+        this.update(this.frameStep);
+        this.render();
+      }
       this.framePrev = this.frameCurr;
+      if (this.input.freshKeys.KeyS) {
+        this.screenshot();
+      }
+      if (this.input.freshKeys.KeyM) {
+        this.mute = !this.mute;
+        if (this.mute && this.audio) {
+          this.audio.stop();
+        } else if (this.audio) {
+        }
+      }
+      if (this.input.freshKeys.KeyP) {
+        this.pause = !this.pause;
+      }
       this.input.freshKeys = [];
       requestAnimationFrame(() => this.loop());
     }
@@ -651,6 +667,22 @@
           this.events.splice(i, 1);
         }
       });
+    }
+    screenshot() {
+      this.c.toBlob((blob) => {
+        saveBlob(blob, `screencapture-${this.w}x${this.h}.png`);
+      });
+      const saveBlob = function() {
+        const a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style.display = "none";
+        return function saveData(blob, fileName) {
+          const url = window.URL.createObjectURL(blob);
+          a.href = url;
+          a.download = fileName;
+          a.click();
+        };
+      }();
     }
   };
 
@@ -715,11 +747,10 @@
       this.bg2 = g.imgs["bg2"];
       this.bgPos = 0;
       this.bgSpeed = 1;
-      this.bgCol = 12;
-      for (let n = 0; n < 8; n += 1) {
-        this.g.spawn("Obj", {
-          p: this
-        });
+      this.bgColMaster = 12;
+      this.bgCol = this.bgColMaster;
+      for (let n = 0; n < 6; n += 1) {
+        this.g.spawn("Obj", { p: this });
       }
       this.p1 = this.g.spawn("P1", { p: this });
       this.score = 0;
@@ -815,16 +846,30 @@
     addBaddie() {
       if (this.baddies.length !== this.allBaddies.length) {
         this.baddies.push(this.allBaddies[this.baddies.length]);
+      } else if (this.bgSpeed < 3) {
+        this.bgSpeed += 0.5;
       }
     }
     spawn() {
+      if (this.gameOver)
+        return;
       let level = ~~(this.dist / 500);
       level = level > 20 ? 20 : level;
       const nextSpawn = this.g.H.rnd(80, 120) - level;
       this.g.addEvent({
         t: nextSpawn,
         cb: () => {
-          this.g.spawn(this.g.H.rndArray(this.baddies), { p: this });
+          let baddie = this.g.H.rndArray(this.baddies);
+          if (Math.random() > 0.7) {
+            this.g.spawn("Cactus", { p: this });
+          }
+          this.g.spawn(baddie, { p: this });
+          if (Math.random() > 0.9) {
+            let x = this.g.H.rnd(50, 250);
+            for (let i = 1; i <= 4; i += 1) {
+              this.g.spawn("Donut", { p: this, x, y: i * -32 });
+            }
+          }
           this.spawn(nextSpawn);
         }
       });
@@ -1149,6 +1194,9 @@
     }
     addPowerup() {
       this.powerups += 1;
+      if (this.powerups > 4) {
+        this.p.score += 50;
+      }
     }
   };
 
@@ -1165,6 +1213,11 @@
       this.collidesWith = ["player"];
       this.y = o.y || -this.h;
       this.collected = false;
+      g.ents.forEach((e) => {
+        if (e.group === "baddies" && this.hit(e)) {
+          this.remove = true;
+        }
+      });
     }
     update(dt) {
       super.update(dt);
@@ -1201,6 +1254,7 @@
       this.vy = -2 * this.p.bgSpeed;
       this.g.sfx("piano");
       this.g.spawn("Boom", { x: this.x + this.halfW, y: this.y + this.halfW, key: "boom", scale: 4, type: "spark", col: 8 });
+      this.p.score += 20;
     }
   };
 
@@ -1475,13 +1529,12 @@
           this.g.addEvent({
             t: 2,
             cb: () => {
-              if (this.p.gameOver)
-                return;
-              this.p.bgCol = this.p.gameOver ? 4 : 12;
+              this.p.bgCol = this.p.gameOver ? 3 : 12;
             }
           });
         }
         this.kill();
+        this.p.score += this.scale * 10;
       } else {
         this.vy / 2;
         this.hurt = true;
@@ -1599,7 +1652,7 @@
     }
     receiveDamage(o) {
       super.receiveDamage(o);
-      if (this.hits === -1 && Math.random() > 0) {
+      if (this.hits === -1 && Math.random() > 0.5) {
         this.g.spawn("Powerup", { p: this.p, x: this.x, y: this.y });
       }
     }
@@ -1719,7 +1772,6 @@
       this.g.draw.img(this.i, this.x, this.y);
     }
     reset(y = false) {
-      console.log(y);
       this.x = this.g.H.rnd(30, this.g.w - 30);
       this.y = y || this.g.H.rnd(20, 60) * -1;
       this.i = this.g.imgs[this.g.H.rndArray([
