@@ -4,8 +4,9 @@ By [@eoinmcg](https://twitter.com/eoinmcg)
 
 
  ![Banner](https://raw.githubusercontent.com/eoinmcg/gecko/main/promo/title.png "Banner")
- ![Banner](https://raw.githubusercontent.com/eoinmcg/gecko/main/promo/screenshot-1.png "Banner")
+ ![Banner](https://raw.githubusercontent.com/eoinmcg/gecko/main/promo/screenshot-title.png "Banner")
  ![Banner](https://raw.githubusercontent.com/eoinmcg/gecko/main/promo/screenshot-2.png "Banner")
+ ![Banner](https://raw.githubusercontent.com/eoinmcg/gecko/main/promo/screenshot-3.png "Banner")
 
 
 
