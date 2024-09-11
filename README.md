@@ -4,12 +4,27 @@ By [@eoinmcg](https://twitter.com/eoinmcg)
 
 
  ![Banner](https://raw.githubusercontent.com/eoinmcg/gecko/main/promo/title.png "Banner")
- ![Banner](https://raw.githubusercontent.com/eoinmcg/gecko/main/promo/screenhot-1.png "Banner")
- ![Banner](https://raw.githubusercontent.com/eoinmcg/gecko/main/promo/screenhot-2.png "Banner")
+ ![Banner](https://raw.githubusercontent.com/eoinmcg/gecko/main/promo/screenshot-1.png "Banner")
+ ![Banner](https://raw.githubusercontent.com/eoinmcg/gecko/main/promo/screenshot-2.png "Banner")
 
 
 
-## Play here
+## How To Play
+
+*Mile 13 in the Desert of Doom is feared by all Geckos.*
+*After all, they know that evil things lurk there*
+*...but, Mile 13 is also home to the best donuts.*
+
+Can you brave your fear of Mile 13 to munch on sweet treats?
+
+Drag your finger on the screen to move our little gecko friend. You can also use the mouse.
+
+- Collect power-ups to increase firepower.
+- Eat all the donuts.
+- Oh, and try to stay alive.
+
+Good luck you'll need it!
+## Where To Play
 [Js13kGames entry](https://dev.js13kgames.com/2024/games/gecko-blaster)
 
 [Latest version](https://eoinmcgrath.com/gecko)
