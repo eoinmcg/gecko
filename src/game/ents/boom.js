@@ -8,8 +8,6 @@ export default class Boom {
     this.magnitude = o.m || 4;
     this.scale = 1;
     this.factor = o.factor || 0.5;
-    // this.iKey = `${this.type}_${this.scale}_${this.col}`;
-    // this.i = this.g.imgs[this.iKey];
 
     if (o.p) {
       while(o.p--) {

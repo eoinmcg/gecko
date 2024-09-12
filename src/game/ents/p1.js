@@ -126,9 +126,8 @@ export default class P1 extends Sprite {
     this.p.initGameOver();
     this.g.sfx("land");
 
-    this.g.shake();
     this.p.bgCol = 3;
-    this.g.shake
+    this.g.shake();
     while(booms--) {
       this.g.addEvent({
         t: booms * 15,

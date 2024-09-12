@@ -144,12 +144,12 @@ export default class Sprite {
     return Math.atan2(dy, dx);
   }
 
-  offScreen() {
-    return (this.x < 0
-        || this.x > W - this.w
-        || this.y < 0
-        || this.y > H - this.h);
-  }
+  // offScreen() {
+  //   return (this.x < 0
+  //       || this.x > W - this.w
+  //       || this.y < 0
+  //       || this.y > H - this.h);
+  // }
 
   mkImg(key) {
     let flipX = `${key}_flipx`;
@@ -207,6 +207,10 @@ export default class Sprite {
     if (this.x > this.xLimit) this.x = this.xLimit;
     if (this.y < 0) this.y = 0;
     if (this.y > this.yLimit) this.y = this.yLimit;
+  }
+
+  boom() {
+
   }
 }
 

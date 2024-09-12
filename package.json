@@ -1,6 +1,6 @@
 {
   "name": "geckoblaster",
-  "version": "0.1",
+  "version": "0.9",
   "description": "js13k 2024 entry",
   "main": "index.js",
   "scripts": {

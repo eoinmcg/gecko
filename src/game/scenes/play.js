@@ -32,7 +32,16 @@ export default class Play {
 
     this.allBaddies = ['Cactus', 'Bat', 'Spider', 'Worm'];
     this.baddies = [];
+    this.boss = false;
     this.startSpawn();
+
+    // uncomment for boss testing
+    // g.addEvent({
+    //   t: 500,
+    //   cb: () => {
+    //     this.bossTime();
+    //   }
+    // });
 
   }
 
@@ -97,11 +106,7 @@ export default class Play {
     if (this.gameOver) return;
 
     this.g.sfx('thunder');
-    try {
-      this.g.audio.stop();
-    } catch (e) {
-      console.log(e);
-    }
+    this.stopMusic();
     this.gameOver = true;
     this.g.addEvent({
       t: 100,
@@ -125,22 +130,22 @@ export default class Play {
 
 
   startSpawn() {
-
     this.addBaddie();
-
     this.spawn();
   }
 
   addBaddie() {
     if (this.baddies.length !== this.allBaddies.length) {
       this.baddies.push(this.allBaddies[this.baddies.length]);
-    } else if (this.bgSpeed < 3) {
+    } else if (this.bgSpeed < 2) {
       this.bgSpeed += 0.5;
+    } else if (this.bgSpeed >= 2) {
+      this.bossTime();
     }
   }
 
   spawn() {
-    if (this.gameOver) return;
+    if (this.gameOver || this.boss) return;
     let level = ~~(this.dist / 500);
     level = (level > 20) ? 20 : level
     const nextSpawn = this.g.H.rnd(80,120) - level;
@@ -161,6 +166,49 @@ export default class Play {
         this.spawn(nextSpawn)
       }
     })
+  }
+
+  bossTime() {
+    this.stopMusic();
+    this.g.addText('BOSS TIME', 0, false, 200, 3, 5);
+    this.g.addEvent({
+      t: 50,
+      cb: () => {
+        this.sparkle();
+      }
+    })
+    this.g.addEvent({
+      t: 100,
+      cb: () => {
+        this.boss = true;
+        this.bgSpeed = 0;
+        this.g.spawn('Boss', {p: this });
+      }
+    })
+  }
+
+  sparkle() {
+    let n = 20;
+    let w = 20,
+        x = this.g.w / 2,
+        y = 50;
+    while(n--) {
+      this.g.addEvent({
+        t: n * 3,
+        cb: () => {
+          let rnd = this.g.H.rnd(-w, w);
+          this.g.spawn("Boom", { x: x + rnd, y: y + rnd, key: "boom", type: 'spark', col: this.g.H.rnd(3,4) });
+        }
+      })
+    }
+  }
+
+  stopMusic() {
+    try {
+      this.g.audio.stop();
+    } catch (e) {
+      console.log(e);
+    }
   }
 
 }

@@ -3,12 +3,13 @@ export default class Tut {
     this.g = g;
 
     this.tutorial = true;
-      this.escape = false;
+    this.escape = false;
 
     this.bgPos = 0;
     this.bgSpeed = 1;
 
     this.f = g.H.mkFont(g, 5, 4);
+    this.f2 = g.H.mkFont(g, 2, 1);
     this.p1 = g.spawn('P1', {p: this});
 
     g.addText(g.mobile ? 'MOVE WITH FINGER' : 'MOVE WITH MOUSE', 50);
@@ -78,6 +79,11 @@ export default class Tut {
     g.ents.forEach((e) => {
       e.render();
     });
+
+
+    if (!this.g.mobile) {
+      this.g.draw.text('ESC TO SKIP', this.f2, false, this.g.h - 30);
+    }
 
   }
 }

@@ -1,6 +1,6 @@
 (() => {
   // src/game/data/images.js
-  var images_default = { "bat": "R0lGODlhEAAGAMIFAAAAAL8uNOuIMeuJMf7+/v///////////yH5BAEKAAcALAAAAAAQAAYAAAMdeEdM+vAAEEidqjkFNHgDIWxZ9z1ahD0msUbcGScAOw==", "bg": "R0lGODlhIgAiAIABAAAAAP///yH5BAEKAAEALAAAAAAiACIAAAJOhIOpy20PmpwKHoqZzXzBDgZfmG0kZp6TFanr6Dpw7M10Yt9IrvN3qtv5YkPiI1i7IEVFFWvJbJKeSyBSesJOj9BoC6oFUa/WXpgzDj4KADs=", "bg2": "R0lGODlhIgAiAIABABMbJP///yH5BAEKAAEALAAAAAAiACIAAAJ8jG8AyKjbYoLyvBoVtno7unXeJFbleIXgGJxZyrrNs2K0Tddzbl7wnrtxhLJW8Hgcfogd5AsSVJJ+DGdVp+LtWMPihEvyeIEo7LNs3oqpOHT6iu4lszUku8u0a5dRo36Ppyc3dwUIZFg45ndHpgJmVPao+AU2KRTzthhRAAA7", "bone": "R0lGODlhDwAHAIAAAP///////yH5BAEKAAEALAAAAAAPAAcAAAITDBCpena40pu0Ilsd3lE+1zFIAQA7", "bridge": "R0lGODlhCgAYAMIFAEk8K6NkIqRkIuqJMeuJMf///////////yH5BAEKAAcALAAAAAAKABgAAAMtKLo7AkwBEtkAOOdQ26uA0wlid2kaNzpQFI4kfKKYasqfW1Z7NNM2Xo7xWskSADs=", "bullet": "R0lGODlhBAAIAMIDAL4mM+uJMffia////////////////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAQALAAAAAAEAAgAAAMNSAA6siKwIEm1jOjNEgA7", "cactus": "R0lGODlhDAAIAMIEAESJGqPOJ/7+/v7//v///////////////yH5BAEKAAQALAAAAAAMAAgAAAMcSBraTiGAFicbQTgGoZyeFUkUuXwnIJojGJZTAgA7", "circle": "R0lGODlhEAAQAIABAP///+BviyH5BAEKAAEALAAAAAAQABAAAAIdjA2px6G/GJzgUIoudLr7D4aix32ZeWpN11gbUwAAOw==", "donut": "R0lGODlhCAAIAMIEAEk8K05CNOByjeuJMf///////////////yH5BAEKAAQALAAAAAAIAAgAAAMXSAEsQI7JOcZkhIB4meVAZVXhQIgjkQAAOw==", "dot": "R0lGODlhAQABAIABAP///zGi8iH5BAEKAAEALAAAAAABAAEAAAICRAEAOw==", "firefly": "R0lGODlhEAAGAKECAOuJMffia////////yH5BAEKAAMALAAAAAAQAAYAAAIbzI6GO+HfnmzA1RNqVkE4j3kd14lY6SSQmg4FADs=", "font": "R0lGODlhmwAFAIABAAAAAEk8KyH5BAEKAAEALAAAAACbAAUAAAJ4hGOAd6sZFpowPhrxhZz5x2ji5pRTyVEfulaWRV6vfNayksV5O/b53NMBcbjX0JY50pYwkFHDAxGTTlsUpZIadRViYzo1tVazcfHHRSOVWx9UyKK2wym6+nRei47PtkTbAbgTc1X3VvOXtfXFhkfmpVUWqZiSZFkAADs=", "gecko": "R0lGODlhCAAIAMIEABsmMr0oM+Bvi99wiv///////////////yH5BAEKAAcALAAAAAAIAAgAAAMXeAczoOOQRtQRIgRsMW+XJnQeR0KWZiUAOw==", "grass": "R0lGODlhCAAHAIABAAAAAP///yH5BAEKAAEALAAAAAAIAAcAAAIOjA2neeyRQIRwVsmQPAUAOw==", "heart": "R0lGODlhBQAFAIABAL4mMzGi8iH5BAEKAAEALAAAAAAFAAUAAAIIDGygu3mBQgEAOw==", "hole": "R0lGODlhRAAcAKEDAAAAAJycnJ2dnf///yH5BAEKAAMALAAAAABEABwAAAJznC0pd+rPxpvURVYT2HX7D2TgSIaZUHpHym5rC7sva8TlbNN1O+R37+MBacHRsHiLHZFLJKhJgvqkTgC1is1qt9yu9wsOi8fksvmMTqvX7Lb7DY/L5/S6PfcAObAB1Oi05wE4OPG3J1FxcTGh2OjYwIhRAAA7", "pointer": "R0lGODlhBAAFAKECAAAAAP////fia/fiayH5BAEKAAIALAAAAAAEAAUAAAIIjGWAEKIsIigAOw==", "pup": "R0lGODlhDgAEAKEDAOqKMfbia////v///yH5BAEKAAMALAAAAAAOAAQAAAIS1H6GKAIQWnvRPBiGo/HQ9Q0FADs=", "skull": "R0lGODlhBAAEAIAAAP///////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAEALAAAAAAEAAQAAAIFhB2Ql1kAOw==", "spark": "R0lGODlhDgAOAIAAAP///////yH5BAEKAAEALAAAAAAOAA4AAAIdjA9wy8md4jNRwloXxnT7v3WfBj7hdE6BoyIKUwAAOw==", "spider": "R0lGODlhEAAIAMIEAL4mM70qOTGi8v7+/////////////////yH5BAEKAAcALAAAAAAQAAgAAAMpeBAiASfKudqL1cHYmsxXNIhTJ0gCEREneYzHqR7qma72xMlr3JYxYAIAOw==", "title": "R0lGODlhNgAWAMIEAL4mM+uJMaPOJ/fia////////////////yH5BAEKAAQALAAAAAA2ABYAAAPFSLrc/jDKqYYlNuM8tucdJW4dSF5oyY3TtbhVGH8qKwkCgev4vi89YO5ne/iGPSQjqDgWIU4ib6l0Ph1JZDA7PTKv1G2SJ+6Owei0es1uiwLwuALuiMsJdjo+P+fv8356DIB9doV3hH+BAX11jHuND4KQDXqGlJORlo+Og5wLmwCiAAyiDqOjCqimC6yqq6+rqa2kDbKxs6+lsASyrL+1u7q2wb3FrrTAw8jLxcPPxqezt8aozbjI2bzA1N213LnRydPfAAkAOw==", "worm": "R0lGODlhEAAIAMIFAL4mM78uNL8wOp2dnZ6env///////////yH5BAEKAAcALAAAAAAQAAgAAAMneEc8+lCRQmmEs4igg2SEUgVAEXhZdVRskW2duq4jd9JRK7OiNRcJADs=" };
+  var images_default = { "bat": "R0lGODlhEAAGAMIFAAAAAL8uNOuIMeuJMf7+/v///////////yH5BAEKAAcALAAAAAAQAAYAAAMdeEdM+vAAEEidqjkFNHgDIWxZ9z1ahD0msUbcGScAOw==", "bg": "R0lGODlhIgAiAIABAAAAAP///yH5BAEKAAEALAAAAAAiACIAAAJOhIOpy20PmpwKHoqZzXzBDgZfmG0kZp6TFanr6Dpw7M10Yt9IrvN3qtv5YkPiI1i7IEVFFWvJbJKeSyBSesJOj9BoC6oFUa/WXpgzDj4KADs=", "bg2": "R0lGODlhIgAiAIABABMbJP///yH5BAEKAAEALAAAAAAiACIAAAJ8jG8AyKjbYoLyvBoVtno7unXeJFbleIXgGJxZyrrNs2K0Tddzbl7wnrtxhLJW8Hgcfogd5AsSVJJ+DGdVp+LtWMPihEvyeIEo7LNs3oqpOHT6iu4lszUku8u0a5dRo36Ppyc3dwUIZFg45ndHpgJmVPao+AU2KRTzthhRAAA7", "bone": "R0lGODlhDwAHAIAAAP///////yH5BAEKAAEALAAAAAAPAAcAAAITDBCpena40pu0Ilsd3lE+1zFIAQA7", "boss": "R0lGODlhEAAIAKEBAL4mM////////////yH5BAEKAAIALAAAAAAQAAgAAAIhlGJolwsQwjMvTlEloFCzGC0HOIYlWTYfoiiqy8SqKCoFADs=", "bridge": "R0lGODlhCgAYAMIFAEk8K6NkIqRkIuqJMeuJMf///////////yH5BAEKAAcALAAAAAAKABgAAAMtKLo7AkwBEtkAOOdQ26uA0wlid2kaNzpQFI4kfKKYasqfW1Z7NNM2Xo7xWskSADs=", "bullet": "R0lGODlhBAAIAMIDAL4mM+uJMffia////////////////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAQALAAAAAAEAAgAAAMNSAA6siKwIEm1jOjNEgA7", "cactus": "R0lGODlhDAAIAMIEAESJGqPOJ/7+/v7//v///////////////yH5BAEKAAQALAAAAAAMAAgAAAMcSBraTiGAFicbQTgGoZyeFUkUuXwnIJojGJZTAgA7", "circle": "R0lGODlhEAAQAIABAP///+BviyH5BAEKAAEALAAAAAAQABAAAAIdjA2px6G/GJzgUIoudLr7D4aix32ZeWpN11gbUwAAOw==", "donut": "R0lGODlhCAAIAMIEAEk8K05CNOByjeuJMf///////////////yH5BAEKAAQALAAAAAAIAAgAAAMXSAEsQI7JOcZkhIB4meVAZVXhQIgjkQAAOw==", "dot": "R0lGODlhAQABAIABAP///zGi8iH5BAEKAAEALAAAAAABAAEAAAICRAEAOw==", "firefly": "R0lGODlhEAAGAKECAOuJMffia////////yH5BAEKAAMALAAAAAAQAAYAAAIbzI6GO+HfnmzA1RNqVkE4j3kd14lY6SSQmg4FADs=", "font": "R0lGODlhmwAFAIABAAAAAEk8KyH5BAEKAAEALAAAAACbAAUAAAJ4hGOAd6sZFpowPhrxhZz5x2ji5pRTyVEfulaWRV6vfNayksV5O/b53NMBcbjX0JY50pYwkFHDAxGTTlsUpZIadRViYzo1tVazcfHHRSOVWx9UyKK2wym6+nRei47PtkTbAbgTc1X3VvOXtfXFhkfmpVUWqZiSZFkAADs=", "gecko": "R0lGODlhCAAIAMIEABsmMr0oM+Bvi99wiv///////////////yH5BAEKAAcALAAAAAAIAAgAAAMXeAczoOOQRtQRIgRsMW+XJnQeR0KWZiUAOw==", "grass": "R0lGODlhCAAHAIABAAAAAP///yH5BAEKAAEALAAAAAAIAAcAAAIOjA2neeyRQIRwVsmQPAUAOw==", "heart": "R0lGODlhBQAFAIABAL4mMzGi8iH5BAEKAAEALAAAAAAFAAUAAAIIDGygu3mBQgEAOw==", "hole": "R0lGODlhRAAcAKEDAAAAAJycnJ2dnf///yH5BAEKAAMALAAAAABEABwAAAJznC0pd+rPxpvURVYT2HX7D2TgSIaZUHpHym5rC7sva8TlbNN1O+R37+MBacHRsHiLHZFLJKhJgvqkTgC1is1qt9yu9wsOi8fksvmMTqvX7Lb7DY/L5/S6PfcAObAB1Oi05wE4OPG3J1FxcTGh2OjYwIhRAAA7", "pointer": "R0lGODlhBAAFAKECAAAAAP////fia/fiayH5BAEKAAIALAAAAAAEAAUAAAIIjGWAEKIsIigAOw==", "pup": "R0lGODlhDgAEAKEDAOqKMfbia////v///yH5BAEKAAMALAAAAAAOAAQAAAIS1H6GKAIQWnvRPBiGo/HQ9Q0FADs=", "skull": "R0lGODlhBAAEAIAAAP///////yH5BAEKAAEALAAAAAAEAAQAAAIFhB2Ql1kAOw==", "spark": "R0lGODlhDgAOAIAAAP///////yH5BAEKAAEALAAAAAAOAA4AAAIdjA9wy8md4jNRwloXxnT7v3WfBj7hdE6BoyIKUwAAOw==", "spider": "R0lGODlhEAAIAMIEAL4mM70qOTGi8v7+/////////////////yH5BAEKAAcALAAAAAAQAAgAAAMpeBAiASfKudqL1cHYmsxXNIhTJ0gCEREneYzHqR7qma72xMlr3JYxYAIAOw==", "title": "R0lGODlhNgAWAMIEAL4mM+uJMaPOJ/fia////////////////yH5BAEKAAQALAAAAAA2ABYAAAPFSLrc/jDKqYYlNuM8tucdJW4dSF5oyY3TtbhVGH8qKwkCgev4vi89YO5ne/iGPSQjqDgWIU4ib6l0Ph1JZDA7PTKv1G2SJ+6Owei0es1uiwLwuALuiMsJdjo+P+fv8356DIB9doV3hH+BAX11jHuND4KQDXqGlJORlo+Og5wLmwCiAAyiDqOjCqimC6yqq6+rqa2kDbKxs6+lsASyrL+1u7q2wb3FrrTAw8jLxcPPxqezt8aozbjI2bzA1N213LnRydPfAAkAOw==", "worm": "R0lGODlhEAAIAMIFAL4mM78uNL8wOp2dnZ6env///////////yH5BAEKAAcALAAAAAAQAAgAAAMneEc8+lCRQmmEs4igg2SEUgVAEXhZdVRskW2duq4jd9JRK7OiNRcJADs=" };
 
   // src/game/data/sfx.js
   var sfx_default = {
@@ -394,7 +394,7 @@
   };
 
   // package.json
-  var version = "0.1";
+  var version = "0.9";
 
   // src/game/setup.js
   function Setup(g) {
@@ -451,7 +451,7 @@
     return e;
   };
   zzfxG = (q = 1, k = 0.05, c2 = 220, e = 0, t = 0, u = 0.1, r = 0, F = 1, v = 0, z = 0, w = 0, A = 0, l = 0, B = 0, x = 0, G = 0, d = 0, y = 1, m = 0, C = 0) => {
-    let b = 2 * Math.PI, H2 = v *= 500 * b / zzfxR ** 2, I = (0 < x ? 1 : -1) * b / 4, D = c2 *= (1 + 2 * k * Math.random() - k) * b / zzfxR, Z = [], g = 0, E = 0, a = 0, n = 1, J = 0, K = 0, f = 0, p, h;
+    let b = 2 * Math.PI, H = v *= 500 * b / zzfxR ** 2, I = (0 < x ? 1 : -1) * b / 4, D = c2 *= (1 + 2 * k * Math.random() - k) * b / zzfxR, Z = [], g = 0, E = 0, a = 0, n = 1, J = 0, K = 0, f = 0, p, h;
     e = 99 + zzfxR * e;
     m *= zzfxR;
     t *= zzfxR;
@@ -463,7 +463,7 @@
     A *= zzfxR;
     l = zzfxR * l | 0;
     for (h = e + m + t + u + d | 0; a < h; Z[a++] = f)
-      ++K % (100 * G | 0) || (f = r ? 1 < r ? 2 < r ? 3 < r ? Math.sin((g % b) ** 3) : Math.max(Math.min(Math.tan(g), 1), -1) : 1 - (2 * g / b % 2 + 2) % 2 : 1 - 4 * Math.abs(Math.round(g / b) - g / b) : Math.sin(g), f = (l ? 1 - C + C * Math.sin(2 * Math.PI * a / l) : 1) * (0 < f ? 1 : -1) * Math.abs(f) ** F * q * zzfxV * (a < e ? a / e : a < e + m ? 1 - (a - e) / m * (1 - y) : a < e + m + t ? y : a < h - d ? (h - a - d) / u * y : 0), f = d ? f / 2 + (d > a ? 0 : (a < h - d ? 1 : (h - a) / d) * Z[a - d | 0] / 2) : f), p = (c2 += v += z) * Math.sin(E * x - I), g += p - p * B * (1 - 1e9 * (Math.sin(a) + 1) % 2), E += p - p * B * (1 - 1e9 * (Math.sin(a) ** 2 + 1) % 2), n && ++n > A && (c2 += w, D += w, n = 0), !l || ++J % l || (c2 = D, v = H2, n = n || 1);
+      ++K % (100 * G | 0) || (f = r ? 1 < r ? 2 < r ? 3 < r ? Math.sin((g % b) ** 3) : Math.max(Math.min(Math.tan(g), 1), -1) : 1 - (2 * g / b % 2 + 2) % 2 : 1 - 4 * Math.abs(Math.round(g / b) - g / b) : Math.sin(g), f = (l ? 1 - C + C * Math.sin(2 * Math.PI * a / l) : 1) * (0 < f ? 1 : -1) * Math.abs(f) ** F * q * zzfxV * (a < e ? a / e : a < e + m ? 1 - (a - e) / m * (1 - y) : a < e + m + t ? y : a < h - d ? (h - a - d) / u * y : 0), f = d ? f / 2 + (d > a ? 0 : (a < h - d ? 1 : (h - a) / d) * Z[a - d | 0] / 2) : f), p = (c2 += v += z) * Math.sin(E * x - I), g += p - p * B * (1 - 1e9 * (Math.sin(a) + 1) % 2), E += p - p * B * (1 - 1e9 * (Math.sin(a) ** 2 + 1) % 2), n && ++n > A && (c2 += w, D += w, n = 0), !l || ++J % l || (c2 = D, v = H, n = n || 1);
     return Z;
   };
   zzfxV = 0.3;
@@ -765,6 +765,7 @@
       this.bgPos = 0;
       this.bgSpeed = 1;
       this.f = g.H.mkFont(g, 5, 4);
+      this.f2 = g.H.mkFont(g, 2, 1);
       this.p1 = g.spawn("P1", { p: this });
       g.addText(g.mobile ? "MOVE WITH FINGER" : "MOVE WITH MOUSE", 50);
       g.sfx("piano");
@@ -823,6 +824,9 @@
       g.ents.forEach((e) => {
         e.render();
       });
+      if (!this.g.mobile) {
+        this.g.draw.text("ESC TO SKIP", this.f2, false, this.g.h - 30);
+      }
     }
   };
 
@@ -893,6 +897,7 @@
       this.hole = this.g.spawn("Hole", { p: this, y: -g.h * 3 });
       this.allBaddies = ["Cactus", "Bat", "Spider", "Worm"];
       this.baddies = [];
+      this.boss = false;
       this.startSpawn();
     }
     update(dt) {
@@ -942,11 +947,7 @@
       if (this.gameOver)
         return;
       this.g.sfx("thunder");
-      try {
-        this.g.audio.stop();
-      } catch (e) {
-        console.log(e);
-      }
+      this.stopMusic();
       this.gameOver = true;
       this.g.addEvent({
         t: 100,
@@ -973,12 +974,14 @@
     addBaddie() {
       if (this.baddies.length !== this.allBaddies.length) {
         this.baddies.push(this.allBaddies[this.baddies.length]);
-      } else if (this.bgSpeed < 3) {
+      } else if (this.bgSpeed < 2) {
         this.bgSpeed += 0.5;
+      } else if (this.bgSpeed >= 2) {
+        this.bossTime();
       }
     }
     spawn() {
-      if (this.gameOver)
+      if (this.gameOver || this.boss)
         return;
       let level = ~~(this.dist / 500);
       level = level > 20 ? 20 : level;
@@ -999,6 +1002,79 @@
           }
           this.spawn(nextSpawn);
         }
+      });
+    }
+    bossTime() {
+      this.stopMusic();
+      this.g.addText("BOSS TIME", 0, false, 200, 3, 5);
+      this.g.addEvent({
+        t: 50,
+        cb: () => {
+          this.sparkle();
+        }
+      });
+      this.g.addEvent({
+        t: 100,
+        cb: () => {
+          this.boss = true;
+          this.bgSpeed = 0;
+          this.g.spawn("Boss", { p: this });
+        }
+      });
+    }
+    sparkle() {
+      let n = 20;
+      let w = 20, x = this.g.w / 2, y = 50;
+      while (n--) {
+        this.g.addEvent({
+          t: n * 3,
+          cb: () => {
+            let rnd = this.g.H.rnd(-w, w);
+            this.g.spawn("Boom", { x: x + rnd, y: y + rnd, key: "boom", type: "spark", col: this.g.H.rnd(3, 4) });
+          }
+        });
+      }
+    }
+    stopMusic() {
+      try {
+        this.g.audio.stop();
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  };
+
+  // src/game/scenes/win.js
+  var Win = class {
+    constructor(g) {
+      this.g = g;
+      this.bgPos = 0;
+      this.f = g.H.mkFont(g, 6, 2);
+      this._f = g.H.mkFont(g, 6, 0);
+      this.d = this.g.draw.resize(this.g.imgs["donut"], 8);
+      g.addText("THE END", 100, false, g.h - 50, 1);
+    }
+    update(dt) {
+      this.g.ents.forEach((e) => {
+        e.update(dt);
+      });
+      if (this.g.input.freshKeys.Escape && !this.escape) {
+        this.escape = true;
+        this.g.changeScene("Title");
+      }
+    }
+    render() {
+      const g = this.g;
+      g.draw.clear(16);
+      g.draw.img(g.imgs.bg2, 0, this.bgPos - this.g.h);
+      g.draw.img(g.imgs.bg2, 0, this.bgPos);
+      if (this.g.fader > 0) {
+        this.g.draw.text("YOU ROCK", this._f, false, 26);
+        this.g.draw.text("YOU ROCK", this.f, false, 20);
+      }
+      this.g.draw.img(this.d, 105, 200);
+      g.ents.forEach((e) => {
+        e.render();
       });
     }
   };
@@ -1121,9 +1197,12 @@
       let dy = y - this.y;
       return Math.atan2(dy, dx);
     }
-    offScreen() {
-      return this.x < 0 || this.x > W - this.w || this.y < 0 || this.y > H - this.h;
-    }
+    // offScreen() {
+    //   return (this.x < 0
+    //       || this.x > W - this.w
+    //       || this.y < 0
+    //       || this.y > H - this.h);
+    // }
     mkImg(key) {
       let flipX = `${key}_flipx`;
       let flipY = `${key}_flipy`;
@@ -1177,6 +1256,8 @@
         this.y = 0;
       if (this.y > this.yLimit)
         this.y = this.yLimit;
+    }
+    boom() {
     }
   };
 
@@ -1280,9 +1361,8 @@
       super.kill();
       this.p.initGameOver();
       this.g.sfx("land");
-      this.g.shake();
       this.p.bgCol = 3;
-      this.g.shake;
+      this.g.shake();
       while (booms--) {
         this.g.addEvent({
           t: booms * 15,
@@ -1707,21 +1787,23 @@
   // src/game/ents/bat.js
   var Bat = class extends Baddie {
     constructor(g, o) {
-      o.x = g.H.rndArray([0, g.w]);
-      o.i = "bat";
-      o.frames = 2;
-      o.scale = 5;
+      o.x = o.x || g.H.rndArray([0, g.w]);
+      o.i = o.i || "bat";
+      o.frames = o.frames || 2;
+      o.scale = o.scale || 5;
       o.hits = 2;
       super(g, o);
       this.vy = 2;
       this.vx = 0.5;
-      this.y = -this.h;
-      this.anims = { flap: { frames: [1, 2], rate: 0.4 } };
-      this.changeAnim("flap");
-      this.shadow = {
-        x: this.halfW,
-        y: this.h
-      };
+      this.y = o.y || -this.h;
+      if (o.frames == 2) {
+        this.anims = { flap: { frames: [1, 2], rate: 0.4 } };
+        this.changeAnim("flap");
+        this.shadow = {
+          x: this.halfW,
+          y: this.h
+        };
+      }
     }
     update(dt) {
       super.update(dt);
@@ -1918,6 +2000,83 @@
     }
   };
 
+  // src/game/ents/boss.js
+  var Boss = class extends Baddie {
+    constructor(g, o) {
+      o.i = "spider";
+      o.frames = 2;
+      o.scale = 7;
+      o.hits = 20;
+      o.shake = true;
+      o.flash = true;
+      o.x = g.w / 2;
+      o.y = 50;
+      o.vx = 1;
+      o.vy = 5;
+      o.attack = false;
+      super(g, o);
+      this.shadow = { x: this.halfW / 2, y: this.h / 2 };
+      this.anims = { run: { frames: [1, 2], rate: 0.2 } };
+      this.changeAnim("run");
+    }
+    update(dt) {
+      super.update(dt);
+      if (Math.random() > 0.995) {
+        this.attack = true;
+      }
+      if (this.attack) {
+        this.y += this.vy;
+        if (this.y > this.g.h - this.h) {
+          this.vy *= -1;
+        }
+        if (this.y < 50) {
+          this.y = 50;
+          this.vy *= -1;
+          this.attack = false;
+        }
+      } else {
+        this.x += this.vx;
+        if (this.x < 0 || this.x > this.g.w - this.w) {
+          this.vx *= -1;
+        }
+      }
+    }
+    receiveDamage(o) {
+      super.receiveDamage(o);
+      if (this.hits === -1) {
+        this.die();
+      } else {
+        this.g.spawn("Bat", { p: this.p, x: this.x, y: this.y, scale: 4 });
+      }
+    }
+    die() {
+      this.g.ents.forEach((e) => {
+        if (e.group === "baddies") {
+          this.kill();
+        }
+      });
+      let booms = 10;
+      let w = this.w / 2, x = this.x, y = this.y;
+      while (booms--) {
+        this.g.addEvent({
+          t: booms * 10,
+          cb: () => {
+            let rnd = this.g.H.rnd(-w, w);
+            this.g.shake();
+            this.g.sfx("land");
+            this.g.spawn("Boom", { x: x + rnd, y: y + rnd, key: "boom" });
+          }
+        });
+      }
+      this.g.addEvent({
+        t: 250,
+        cb: () => {
+          this.g.changeScene("Win");
+        }
+      });
+    }
+  };
+
   // src/game/ents/obj.js
   var Obj = class extends Sprite {
     constructor(g, o) {
@@ -1949,8 +2108,8 @@
   };
 
   // src/index.js
-  base_default.scenes = { Title, Help, Play, Tut };
-  base_default.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button: Control, Text, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj };
+  base_default.scenes = { Title, Help, Play, Tut, Win };
+  base_default.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button: Control, Text, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj, Boss };
   new Game(base_default).init();
 })();
 //! ZzFXM (v2.0.3) | (C) Keith Clark | MIT | https://github.com/keithclark/ZzFXM
