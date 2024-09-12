@@ -36,10 +36,10 @@ export default class Hole extends Sprite {
       this.y += this.p.bgSpeed;
     }
 
-    this.bridge.y = this.y - this.bridge.yOff;
     if (this.y > this.g.h + this.h) {
       this.reset();
     }
+    this.bridge.y = this.y - this.bridge.yOff;
 
   }
 

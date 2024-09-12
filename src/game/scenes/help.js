@@ -17,6 +17,21 @@ export default class Help {
       }
     });
 
+    g.spawn('Button', {
+      x: 45,
+      y: 265,
+      size: 3,
+      noscroll: true,
+      textCol: 1,
+      clickCol: 0,
+      col: false,
+      w: 120,
+      text: 'SOURCE',
+      cb: () => {
+        window.location.href = 'https://modarchive.org/index.php?request=view_by_moduleid&query=37544';
+      }
+    });
+
   }
 
   update(dt) {
@@ -32,12 +47,12 @@ export default class Help {
     g.draw.clear(0);
 
     this.g.draw.text('CREDITS', this.f, false, 20);
-    this.g.draw.text('CODE AND GFX', this.f3, 50, 150);
-    this.g.draw.text('BY EOINMCG', this.f2, 50, 180);
+    this.g.draw.text('CODE AND GFX', this.f3, 50, 90);
+    this.g.draw.text('BY EOINMCG', this.f2, 50, 120);
 
-    this.g.draw.text('MUSIC', this.f3, 50, 250);
-    this.g.draw.text('DEPP. UNKNOWN', this.f2, 50, 280);
-    this.g.draw.text('COMPOSER', this.f2, 50, 310);
+    this.g.draw.text('MUSIC', this.f3, 50, 180);
+    this.g.draw.text('DEPP. UNKNOWN', this.f2, 50, 210);
+    this.g.draw.text('COMPOSER', this.f2, 50, 240);
 
     g.ents.forEach((e) => {
       e.render();

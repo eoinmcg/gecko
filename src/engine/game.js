@@ -42,8 +42,13 @@ export default class Game {
     this.scenes = o.scenes;
     this.availEnts = o.ents;
 
-    this.score = 0;
-    this.hiScore = 20;
+    let hi = 500;
+    try {
+      hi = parseInt(window.localStorage.getItem('GBhi'), 10) || 500;
+    } catch (e) {
+      console.log(e);
+    }
+    this.hiScore = hi;
     this.plays = 0;
 
     this.ents = [];
@@ -73,7 +78,6 @@ export default class Game {
         this.c.classList.add("active");
         this.draw = new Draw(this.o.w, this.o.h, this.o.pal);
         this.scene = new this.scenes[this.sceneName](this);
-        // @todo put these in config
         this.scaleUp('dot', [0, 2, 3, 8, 11]);
         this.scaleUp('circle', [0, 2, 3, 8, 11]);
         this.scaleUp('bridge');
@@ -81,7 +85,7 @@ export default class Game {
         Setup(this);
 
         this.favIcon(this.draw.resize(this.imgs.gecko, 8));
-        document.querySelector("#l").style.display = "none";
+        document.querySelector('#l').style.display = 'none';
         this.c.style.display = "block";
         this.loop();
       }, 400);
@@ -90,7 +94,6 @@ export default class Game {
 
   scaleUp(key, colors = []) {
     for (let i = 8; i > 0; i -= 1) {
-      let cols = this.o.pal.length;
       if (colors.length) {
         colors.forEach((col) => {
         let img = this.draw.color(this.imgs[key], this.o.pal[col]);

@@ -2,6 +2,7 @@ export default class Title {
   constructor(g) {
     this.g = g;
 
+    this.f = g.H.mkFont(g, 3, 1);
     this.i = g.draw.resize(this.g.imgs.title, 4);
     this.shadow = g.draw.color(this.i, g.data.pal[0], 0.2);
 
@@ -30,8 +31,7 @@ export default class Title {
           textCol: 1,
           clickCol: 0,
           col: false,
-          w: 40,
-          text: 'ABOUT',
+          text: 'CREDITS',
           cb: () => {
             g.changeScene('Help');
           }
@@ -67,7 +67,12 @@ export default class Title {
       e.render();
     });
 
-    g.draw.img(g.imgs['pointer'], g.input.mx, g.input.my);
+    g.draw.text('HI', this.f, 95, 10);
+    g.draw.text(this.g.hiScore, this.f, 130, 10);
+
+    if (!g.mobile) {
+      g.draw.img(g.imgs['pointer'], g.input.mx, g.input.my);
+    }
   }
 
   bling() {
@@ -77,7 +82,7 @@ export default class Title {
       [60, 150],
     ]);
     this.g.addEvent({
-      t: this.g.H.rnd(150, 200),
+      t: this.g.H.rnd(100, 150),
       cb: () => {
     this.g.spawn('Boom', { x: coords[0], y: coords[1], key: 'boom', scale: 4, col: 2,
       type: 'spark' });

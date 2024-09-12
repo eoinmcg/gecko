@@ -2,9 +2,9 @@ import Baddie from "./baddie";
 
 export default class Boss extends Baddie {
   constructor(g, o) {
-    o.i = 'spider';
+    o.i = 'boss';
     o.frames = 2;
-    o.scale = 7;
+    o.scale = 5;
     o.hits = 20;
     o.shake = true;
     o.flash = true;
@@ -47,6 +47,11 @@ export default class Boss extends Baddie {
         this.vx *= -1;
       }
     }
+  }
+
+  render() {
+    super.render();
+    this.g.draw.img(this.g.imgs['13'], this.x + 13, this.y + 35 + (this.frame * 2));
   }
 
   receiveDamage(o) {

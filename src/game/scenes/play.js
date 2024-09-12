@@ -13,6 +13,7 @@ export default class Play {
       this.g.spawn('Obj', { p: this });
     }
     this.p1 = this.g.spawn('P1', {p: this});
+    this.newHiScore = false;
     this.score = 0;
     this.dist = 0;
     g.plays += 1;
@@ -37,7 +38,7 @@ export default class Play {
 
     // uncomment for boss testing
     // g.addEvent({
-    //   t: 500,
+    //   t: 200,
     //   cb: () => {
     //     this.bossTime();
     //   }
@@ -64,6 +65,11 @@ export default class Play {
 
     if (this.dist % 1000 === 0) {
       this.addBaddie();
+    }
+
+    if (!this.newHiScore && this.score > this.g.hiScore) {
+      this.newHiScore = true;
+      this.g.addText('NEW HISCORE', 0, false, 200, 4, 5);
     }
   }
 
@@ -104,6 +110,13 @@ export default class Play {
   initGameOver() {
 
     if (this.gameOver) return;
+
+    if (this.newHiScore) {
+      this.g.hiScore = this.score;
+      try {
+        window.localStorage.setItem('GBhi', this.g.hiScore);
+      } catch (e) {}
+    }
 
     this.g.sfx('thunder');
     this.stopMusic();
@@ -171,6 +184,7 @@ export default class Play {
   bossTime() {
     this.stopMusic();
     this.g.addText('BOSS TIME', 0, false, 200, 3, 5);
+    this.g.sfx('boss');
     this.g.addEvent({
       t: 50,
       cb: () => {
@@ -197,6 +211,7 @@ export default class Play {
         t: n * 3,
         cb: () => {
           let rnd = this.g.H.rnd(-w, w);
+          this.g.sfx('speak');
           this.g.spawn("Boom", { x: x + rnd, y: y + rnd, key: "boom", type: 'spark', col: this.g.H.rnd(3,4) });
         }
       })

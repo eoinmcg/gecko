@@ -44,6 +44,21 @@ export default class Tut {
       }
     })
 
+    if (g.mobile) {
+        g.spawn('Button', {
+          x: g.w - 80,
+          y: g.h - 40,
+          textCol: 1,
+          clickCol: 0,
+          col: false,
+          w: 40,
+          text: 'SKIP',
+          cb: () => {
+            g.changeScene('Play');
+          }
+        });
+    }
+
   }
 
   initGameOver() {

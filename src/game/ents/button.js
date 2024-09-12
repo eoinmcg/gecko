@@ -36,7 +36,9 @@ export default class Control extends Sprite {
       this.tX = this.x + 4;
     }
 
-    this.y = this.g.h + this.h * 2;
+    if (!o.noscroll) {
+      this.y = this.g.h + this.h * 2;
+    }
   }
 
   update() {

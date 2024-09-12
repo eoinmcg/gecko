@@ -21,6 +21,9 @@ export default class Spider extends Baddie {
   update(dt) {
     super.update(dt);
 
+    // this.vy = (this.y > this.g.h - this.g.h / 4)
+    //   ? -0.5 : -2;
+
     this.y += this.vy;
 
     if (this.x > this.p1.x) {
