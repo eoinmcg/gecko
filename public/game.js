@@ -814,7 +814,7 @@
           textCol: 1,
           clickCol: 0,
           col: false,
-          w: 40,
+          w: 120,
           text: "SKIP",
           cb: () => {
             g.changeScene("Play");
