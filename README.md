@@ -34,4 +34,4 @@ Good luck you'll need it!
 
 ## Credits
 
-- [Music 'Depp' by Unknown Composer](https://modarchive.org/index.php?request=view_by_moduleid&query=37544)
+- [Music by Unknown Snabisch](https://snabisch.itch.io/free-music-sequences-for-pico-8)
