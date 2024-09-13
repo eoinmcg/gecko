@@ -28,7 +28,7 @@ export default class Help {
       w: 120,
       text: 'SOURCE',
       cb: () => {
-        window.location.href = 'https://modarchive.org/index.php?request=view_by_moduleid&query=37544';
+        window.location.href = 'https://snabisch.itch.io/free-music-sequences-for-pico-8';
       }
     });
 
@@ -51,8 +51,7 @@ export default class Help {
     this.g.draw.text('BY EOINMCG', this.f2, 50, 120);
 
     this.g.draw.text('MUSIC', this.f3, 50, 180);
-    this.g.draw.text('DEPP. UNKNOWN', this.f2, 50, 210);
-    this.g.draw.text('COMPOSER', this.f2, 50, 240);
+    this.g.draw.text('BY SNABISCH', this.f2, 50, 210);
 
     g.ents.forEach((e) => {
       e.render();

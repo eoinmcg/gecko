@@ -393,6 +393,102 @@
     }
   };
 
+  // src/lib/p8.js
+  var CUSTOM_INSTRUMENTS_ENABLED = true;
+  var SOUND_CACHING_ENABLED = true;
+  var FX_SLIDE = 1;
+  var FX_VIBRATO = 2;
+  var FX_DROP = 3;
+  var FX_FADE_IN = 4;
+  var FX_FADE_OUT = 5;
+  var FX_ARP_FAST = 6;
+  var SAMPLE_RATE = 44100;
+  var BASE_SPEED = 120;
+  var audioCtx = new AudioContext();
+  window.P8 = function(t, _) {
+    const d = t.split("\n"), M = _.split("\n");
+    let a = 0;
+    const g = (t2, _2, a2) => parseInt(t2.substr(_2, a2), 16), x = (t2) => t2 + 0.5 | 0;
+    const p = [(t2) => Math.abs(2 * t2 - 1) - 1, (t2) => {
+      return 0.5 * (t2 < 0.9 ? 2 * t2 / 0.9 - 1 : 2 * (1 - t2) / (1 - 0.9) - 1);
+    }, (t2) => 0.6 * (t2 < 0.5 ? t2 : t2 - 1), (t2) => t2 < 0.5 ? 0.5 : -0.5, (t2) => t2 < 0.3 ? 0.5 : -0.5, (t2) => (t2 < 0.5 ? 3 - Math.abs(24 * t2 - 6) : 1 - Math.abs(16 * t2 - 12)) / 9, () => {
+      var t2 = 2 * Math.random() - 1, t2 = (a + 0.02 * t2) / 1.02;
+      return 10 * (a = t2);
+    }, (t2, _2) => {
+      _2 = Math.abs(_2 / 128 % 1 * 2 - 1);
+      return (Math.abs(4 * ((t2 + 0.5 * _2) % 1) - 2) - Math.abs(8 * t2 - 4)) / 6;
+    }], w = (t2) => 65 * 2 ** (t2 / 12), E = {}, e = (t2, n) => {
+      const r = d[t2];
+      var S = g(r, 2, 2), _2 = S / BASE_SPEED;
+      const a2 = g(r, 4, 2), E2 = g(r, 6, 2) || 32;
+      var e2 = E2 * SAMPLE_RATE, t2 = audioCtx.createBuffer(1, e2, SAMPLE_RATE), F = t2.getChannelData(0), o = (t3) => t3 + 1 >= E2 ? a2 : t3 + 1, D = (t3, _3, a3) => g(r, 8 + 5 * t3 + _3, a3);
+      let T = 0, l = 0, s = 0, u = 24, M2 = w(24), f2 = -1, i2 = -1, X = -1;
+      for (; T < e2; ) {
+        var N = D(s, 0, 2) + n, R = w(N), h = D(s, 2, 1), L = D(s, 3, 1) / 8, P = D(s, 4, 1), C = o(s), v = D(C, 0, 2) + n, I = D(C, 2, 1), c2 = D(C, 3, 1), C = D(C, 4, 1);
+        let E3 = 0.02, e3 = ((P === FX_FADE_IN || h === f2 && (N === u || P === FX_SLIDE) && 0 < i2 && X !== FX_FADE_OUT) && (E3 = 0), 0.05);
+        (P === FX_FADE_OUT || h === I && (N === v || C === FX_SLIDE) && 0 < c2 && C !== FX_FADE_IN) && (e3 = 0);
+        var O = x(_2 * SAMPLE_RATE), B = CUSTOM_INSTRUMENTS_ENABLED && 7 < h && k(h - 8, n + N - 24);
+        let A = 0;
+        for (let r2 = T; r2 < T + O; r2++) {
+          var U, b = (r2 - T) / O;
+          let t3 = 1, _3 = (b < E3 ? t3 = b / E3 : b > 1 - e3 && (t3 = (1 - b) / e3), R), a3 = L;
+          P === FX_SLIDE && (_3 = (1 - b) * M2 + b * R, 0 < i2) && (a3 = (1 - b) * i2 + b * L), P === FX_VIBRATO && (_3 *= 1 + 0.02 * Math.sin(7.5 * b)), P === FX_DROP && (_3 *= 1 - b), P === FX_FADE_IN && (a3 *= b), P === FX_FADE_OUT && (a3 *= 1 - b), P >= FX_ARP_FAST && (U = (S <= 8 ? 32 : 16) / (P === FX_ARP_FAST ? 4 : 8), U = -4 & s | 3 & (U * b | 0), _3 = w(D(U, 0, 2) + n)), l += _3 / SAMPLE_RATE, h < 8 ? F[r2] += a3 * t3 * p[h](l % 1, l) : CUSTOM_INSTRUMENTS_ENABLED && (F[r2] += a3 * t3 * B[A], A = (A + 1) % B.length);
+        }
+        T += O, u = N, M2 = R, f2 = h, i2 = L, X = P, s = o(s);
+      }
+      return t2;
+    }, k = (_2, a2) => {
+      if (SOUND_CACHING_ENABLED) {
+        var r = _2 + "-" + a2;
+        let t2 = E[r];
+        return t2 || (t2 = e(_2, a2), E[r] = t2), t2;
+      }
+      return e(_2, a2);
+    }, f = (t2, _2, a2, r, E2 = 0) => {
+      var e2 = k(r, E2).getChannelData(0);
+      let A = 0;
+      for (; _2 < a2; )
+        t2[_2] += e2[A], A = (A + 1) % e2.length, _2++;
+    }, i = (t2, _2 = false, a2 = 0) => {
+      var r = audioCtx.createBufferSource();
+      return r.buffer = t2, r.loop = _2, r.loopStart = a2, r.connect(audioCtx.destination), r.start(), r;
+    };
+    this.sfx = (t2) => i(k(t2, 0)), this.music = (a2) => {
+      var r = [], E2 = [];
+      let t2 = 0, e2 = 0, A = M.length - 1;
+      for (let _3 = a2; _3 <= A; _3++) {
+        var n = M[_3], S = g(n, 0, 2);
+        for (let t3 = r[_3] = 0; t3 < 4; t3++) {
+          var F = g(n, 3 + 2 * t3, 2);
+          if (F < d.length) {
+            F = d[F];
+            if (0 === g(F, 6, 2)) {
+              r[_3] = t3;
+              break;
+            }
+          }
+        }
+        var o = g(n, 3 + 2 * r[_3], 2), o = d[o], o = g(o, 2, 2) / BASE_SPEED;
+        if (E2[_3] = x(32 * o * SAMPLE_RATE), 1 == (1 & S) && (t2 = e2), e2 += 32 * o, 2 == (2 & S)) {
+          A = _3;
+          break;
+        }
+      }
+      var _2 = SAMPLE_RATE * e2, _2 = audioCtx.createBuffer(1, _2, SAMPLE_RATE), D = _2.getChannelData(0);
+      let T = 0;
+      for (let t3 = a2; t3 <= A; t3++) {
+        var l = M[t3], s = E2[t3];
+        for (let t4 = 0; t4 < 4; t4++) {
+          var u = g(l, 3 + 2 * t4, 2);
+          u < d.length && f(D, T, T + s, u);
+        }
+        T += s;
+      }
+      return i(_2, true, t2);
+    };
+  };
+  var p8_default = P8;
+
   // package.json
   var version = "0.9";
 
@@ -413,7 +509,15 @@
     g.imgs["bg_bone_flip"] = g.draw.flip(g.imgs["bg_bone"], 1, 0);
     g.imgs["bg_grass"] = g.draw.resize(g.imgs["grass"], 4, 0.2);
     g.imgs["13"] = g.draw.resize(g.imgs["13"], 3, 0.5);
-    g.SONG = [[[, 0, 77, , , 0.7, 2, 0.41, , , , , , , , 0.06], [, 0, 43, 0.01, , 0.3, 2, , , , , , , , , 0.02, 0.01], [, 0, 170, 3e-3, , 8e-3, , 0.97, -35, 53, , , , , , 0.1], [0.8, 0, 270, , , 0.12, 3, 1.65, -2, , , , , 4.5, , 0.02], [, 0, 86, , , , , 0.7, , , , 0.5, , 6.7, 1, 0.05], [, 0, 41, , 0.05, 0.4, 2, 0, , , 9, 0.01, , , , 0.08, 0.02], [, 0, 2200, , , 0.04, 3, 2, , , 800, 0.02, , 4.8, , 0.01, 0.1], [0.3, 0, 16, , , 0.3, 3]], [[[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33], [3, 1, 22, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 24, , , , , , , , , , , , , , , , , , , , , , , , 22, , 22, , 22, , , ,], [5, -1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,], [, 1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,]], [[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33], [3, 1, 24, , , , , , , , 27, , , , , , , , , , , , , , , , 27, , , , 24, , , , 24, , , , , , , , 27, , , , , , , , , , , , , , , , 24, , 24, , 24, , , ,], [5, -1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,], [, 1, 21, , , , , , , , , , , , , , , , , , , , , , , , , , , , 24, , , , 23, , , , , , , , , , , , , , , , , , , , , , , , 24, , 23, , 21, , , ,], [6, 1, , , 34, 34, 34, , , , , , 34, 34, , , , , 34, , , , 34, 34, , , , , 34, , , , 34, , , , 34, 34, 34, , , , , , 34, , , , , , 34, 34, , , 34, 34, , , , , , , , , 34, 34], [4, 1, , , , , , , 24, , , , , , 24, , 24, , , , 24, , , , 24, , , , , , , , , , , , , , , , 24, , , , , , 24, , 24, , , , 24, , , , 24, , , , , , , , , ,]], [[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 23, 23, 35, 23, 23, 36, 23, 23, 35, 23, 23, 36, 23, 23, 35, 35, 23, 23, 35, 23, 23, 35, 23, 23, 36, 23, 23, 35, 23, 23, 36, 36], [5, -1, 21, , , 19, , , 21, , , , , , , , , , 21, , , 19, , , 17, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,], [3, 1, 24, , , 24, , , 24, , , , , , , , , , 24, , , 24, , , 24, , , , 24.75, 24.5, 24.26, 24.01, 24.01, 24.01, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25], [4, -1, , , , , , , , , , , , , , , , , , , , , , , , , , , 24.75, 24.5, 24.26, 24.01, 24.01, 24.01, 24.01, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24], [7, -1, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 23, , 21, 23, , 35, , 23, , 21, 23, , 35, , 35, , 23, , 21, 23, , 35, , 21, 23, , 35, , 21, 23, , ,], [6, 1, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 34, 36, 34, , 33, 34, 34, 36, 31, 36, 34, , 31, 34, 32, , 33, 36, 34, , 31, 34, 34, 36, 33, 36, 33, , 31, , ,]], [[1, -1, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 21, 21, 33, 33, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 29], [4, 1, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, , , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24], [7, -1, 21, , 19, 21, , 33, , 21, , 19, 21, , 33, , 33, , 21, , 19, 21, , 33, , 21, , 19, 21, , 33, , 33, , 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29], [2, 1, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, , , , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, 34, 34, , 34, , ,], [6, 1, , , 36, , , , , , 36, , 36, , , , , , , , 36, , , , , , 36, , 36, , , , , , , , 36, , , , , , , , , , , , , , , , 36, , , , , , 36, , 36, , , , , ,], [3, 1, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25, , , , , 25, , , , , 25, , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25]], [[1, -1, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 14, 14, 26, 26, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 17, 17, 29, 29, 19, 19, 31, 19, 19, 31, 19, 19, 31, 19, 19, 31, 19, 19, 31, 31], [4, 1, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 36, , 24, 24, , 24, 24, , 24, 24, 24, 24, , 24, 24, , 24, 24], [7, -1, 14, , 14, 14, 26, 14, 14, 26, 14, , 14, 14, 26, 14, 14, 26, 14, , 14, 14, 26, 14, 14, 26, 14, , 14, 14, 26, 14, 14, 26, 17, , 17, 17, 29, 17, 17, 29, 17, , 17, 17, 29, 17, 17, 29, 19, , 19, 19, 31, 19, 19, 31, 19, , 19, 19, 31, 19, 19, 31], [2, 1, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, , , , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, 36, 36, , 36, , ,], [3, 1, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25, , , , , 25, , , , , , , , 25, , , , , , , , 25, , , , , , , , 25, 25, 25, 25], [6, 1, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 34, , , , , , 34, , 34, , , , , , , , 34, , , , , , 34, , 34, , , , , ,]]], [0, 1, 1, 2, 3, 4, 4]];
+    g.p8S = `000e00001776217760177601776017762177601776017760177621776017762177601e7621e7601f7621f7601f7601f7601f7621f7601c7621c7601e7621e7601a7621a7601c7621c76019762197601a7621a760
+000e00000b2200b22017220172200b2200b22017220172200b2200b22017220172200b2200b22017220172200b2200b22017220172200b2200b22017220172200b2200b22017220172200b2200b2201722017220
+000e00001a7621a7601a7601a7601a7621a7601a7601a7601a7621a7601a7621a76021762217602276222760227602276022762227601f7621f76021762217601d7621d7601f7621f7601c7621c7601d7621d760
+000e00000e2200e2201a2201a2200e2200e2201a2201a2200e2200e2201a2201a2200e2200e2201a2201a2200e2200e2201a2201a2200e2200e2201a2201a2200e2200e2201a2201a2200e2200e2201a2201a220
+010e00000c053000003f215000000c053000003f215000000c053000003f215000000c053000003f215000000c053000003f215000000c053000003f215000000c053000003f215000000c053000003f21500000`;
+    g.p8M = `00 00010404
+00 00010404
+00 02030404
+04 02030404`;
     document.querySelector("#c").style.cursor = "none";
     console.log(`%c ${g.data.title} V:${version} (${window.BUILD || "DEV"})`, "background: #222; color: #bada55");
   }
@@ -444,54 +548,41 @@
     return c;
   }
 
-  // src/lib/zzfxm.js
-  var zzfx = (...t) => zzfxP(zzfxG(...t));
-  var zzfxP = (...t) => {
-    let e = zzfxX.createBufferSource(), f = zzfxX.createBuffer(t.length, t[0].length, zzfxR);
-    t.map((d, i) => f.getChannelData(i).set(d)), e.buffer = f, e.connect(zzfxX.destination), e.start();
-    return e;
-  };
-  zzfxG = (q = 1, k = 0.05, c2 = 220, e = 0, t = 0, u = 0.1, r = 0, F = 1, v = 0, z = 0, w = 0, A = 0, l = 0, B = 0, x = 0, G = 0, d = 0, y = 1, m = 0, C = 0) => {
-    let b = 2 * Math.PI, H = v *= 500 * b / zzfxR ** 2, I = (0 < x ? 1 : -1) * b / 4, D = c2 *= (1 + 2 * k * Math.random() - k) * b / zzfxR, Z = [], g = 0, E = 0, a = 0, n = 1, J = 0, K = 0, f = 0, p, h;
-    e = 99 + zzfxR * e;
-    m *= zzfxR;
-    t *= zzfxR;
-    u *= zzfxR;
-    d *= zzfxR;
-    z *= 500 * b / zzfxR ** 3;
-    x *= b / zzfxR;
-    w *= b / zzfxR;
-    A *= zzfxR;
-    l = zzfxR * l | 0;
-    for (h = e + m + t + u + d | 0; a < h; Z[a++] = f)
-      ++K % (100 * G | 0) || (f = r ? 1 < r ? 2 < r ? 3 < r ? Math.sin((g % b) ** 3) : Math.max(Math.min(Math.tan(g), 1), -1) : 1 - (2 * g / b % 2 + 2) % 2 : 1 - 4 * Math.abs(Math.round(g / b) - g / b) : Math.sin(g), f = (l ? 1 - C + C * Math.sin(2 * Math.PI * a / l) : 1) * (0 < f ? 1 : -1) * Math.abs(f) ** F * q * zzfxV * (a < e ? a / e : a < e + m ? 1 - (a - e) / m * (1 - y) : a < e + m + t ? y : a < h - d ? (h - a - d) / u * y : 0), f = d ? f / 2 + (d > a ? 0 : (a < h - d ? 1 : (h - a) / d) * Z[a - d | 0] / 2) : f), p = (c2 += v += z) * Math.sin(E * x - I), g += p - p * B * (1 - 1e9 * (Math.sin(a) + 1) % 2), E += p - p * B * (1 - 1e9 * (Math.sin(a) ** 2 + 1) % 2), n && ++n > A && (c2 += w, D += w, n = 0), !l || ++J % l || (c2 = D, v = H, n = n || 1);
-    return Z;
-  };
+  // src/lib/zzfx.js
+  var zzfx;
+  var zzfxV;
+  var zzfxX;
   zzfxV = 0.3;
-  zzfxR = 44100;
-  zzfxX = new (window.AudioContext || webkitAudioContext)();
-  var zzfxM = (n, f, t, e = 125) => {
-    let l, o, z, r, g, h, x, a, u, c2, d, i, m, p, G, M = 0, R = [], b = [], j = [], k = 0, q = 0, s = 1, v = {}, w = zzfxR / e * 60 >> 2;
-    for (; s; k++)
-      R = [s = a = d = m = 0], t.map((e2, d2) => {
-        for (x = f[e2][k] || [0, 0, 0], s |= !!f[e2][k], G = m + (f[e2][0].length - 2 - !a) * w, p = d2 == t.length - 1, o = 2, r = m; o < x.length + p; a = ++o) {
-          for (g = x[o], u = o == x.length + p - 1 && p || c2 != (x[0] || 0) | g | 0, z = 0; z < w && a; z++ > w - 99 && u ? i += (i < 1) / 99 : 0)
-            h = (1 - i) * R[M++] / 2 || 0, b[r] = (b[r] || 0) - h * q + h, j[r] = (j[r++] || 0) + h * q + h;
-          g && (i = g % 1, q = x[1] || 0, (g |= 0) && (R = v[[c2 = x[M = 0] || 0, g]] = v[[c2, g]] || (l = [...n[c2]], l[2] *= 2 ** ((g - 12) / 12), g > 0 ? zzfxG(...l) : [])));
-        }
-        m = G;
-      });
-    return [b, j];
+  zzfx = // play sound
+  (p = 1, k = 0.05, b = 220, e = 0, r = 0, t = 0.1, q = 0, D = 1, u = 0, y = 0, v = 0, z = 0, l = 0, E = 0, A = 0, F = 0, c2 = 0, w = 1, m = 0, B = 0, M = Math, R = 44100, d = 2 * M.PI, G = u *= 500 * d / R / R, C = b *= (1 - k + 2 * k * M.random(k = [])) * d / R, g = 0, H = 0, a = 0, n = 1, I = 0, J = 0, f = 0, x, h) => {
+    e = R * e + 9;
+    m *= R;
+    r *= R;
+    t *= R;
+    c2 *= R;
+    y *= 500 * d / R ** 3;
+    A *= d / R;
+    v *= d / R;
+    z *= R;
+    l = R * l | 0;
+    for (h = e + m + r + t + c2 | 0; a < h; k[a++] = f)
+      ++J % (100 * F | 0) || (f = q ? 1 < q ? 2 < q ? 3 < q ? M.sin((g % d) ** 3) : M.max(M.min(M.tan(g), 1), -1) : 1 - (2 * g / d % 2 + 2) % 2 : 1 - 4 * M.abs(M.round(g / d) - g / d) : M.sin(g), f = (l ? 1 - B + B * M.sin(d * a / l) : 1) * (0 < f ? 1 : -1) * M.abs(f) ** D * zzfxV * p * (a < e ? a / e : a < e + m ? 1 - (a - e) / m * (1 - w) : a < e + m + r ? w : a < h - c2 ? (h - a - c2) / t * w : 0), f = c2 ? f / 2 + (c2 > a ? 0 : (a < h - c2 ? 1 : (h - a) / c2) * k[a - c2 | 0] / 2) : f), x = (b += u += y) * M.cos(A * H++), g += x - x * E * (1 - 1e9 * (M.sin(a) + 1) % 2), n && ++n > z && (b += v, C += v, n = 0), !l || ++I % l || (b = C, u = G, n ||= 1);
+    p = zzfxX.createBuffer(1, h, R);
+    p.getChannelData(0).set(k);
+    b = zzfxX.createBufferSource();
+    b.buffer = p;
+    b.connect(zzfxX.destination);
+    b.start();
+    return b;
   };
+  zzfxX = new AudioContext();
+  var zzfx_default = zzfx;
 
   // src/engine/game.js
   var Game = class {
     constructor(o) {
       const defaults = { w: base_default.w, h: base_default.h };
       let ua = navigator.userAgent.toLowerCase();
-      this.zzfx = zzfx;
-      this.zzfxM = zzfxM;
-      this.zzfxP = zzfxP;
       this.android = ua.indexOf("android") > -1;
       this.ios = /ipad|iphone|ipod/.test(ua);
       this.mobile = this.android || this.ios;
@@ -543,6 +634,7 @@
           this.scaleUp("bridge");
           this.scaleUp("spark", [0, 2, 3, 8, 11]);
           Setup(this);
+          this.track1 = new p8_default(this.p8S, this.p8M);
           this.favIcon(this.draw.resize(this.imgs.gecko, 8));
           document.querySelector("#l").style.display = "none";
           this.c.style.display = "block";
@@ -565,7 +657,7 @@
     sfx(key) {
       if (this.mute)
         return;
-      zzfx(...this.data.sfx[key]);
+      zzfx_default(...this.data.sfx[key]);
     }
     favIcon(i) {
       let c2 = document.createElement("canvas"), ctx2 = c2.getContext("2d"), l = document.createElement("link");
@@ -880,7 +972,7 @@
         w: 120,
         text: "SOURCE",
         cb: () => {
-          window.location.href = "https://modarchive.org/index.php?request=view_by_moduleid&query=37544";
+          window.location.href = "https://snabisch.itch.io/free-music-sequences-for-pico-8";
         }
       });
     }
@@ -896,8 +988,7 @@
       this.g.draw.text("CODE AND GFX", this.f3, 50, 90);
       this.g.draw.text("BY EOINMCG", this.f2, 50, 120);
       this.g.draw.text("MUSIC", this.f3, 50, 180);
-      this.g.draw.text("DEPP. UNKNOWN", this.f2, 50, 210);
-      this.g.draw.text("COMPOSER", this.f2, 50, 240);
+      this.g.draw.text("BY SNABISCH", this.f2, 50, 210);
       g.ents.forEach((e) => {
         e.render();
       });
@@ -929,9 +1020,8 @@
       };
       this.scoreFont = g.H.mkFont(g, 4, 2);
       this.gameOver = false;
-      g.tune = g.zzfxM(...g.SONG);
-      g.audio = g.zzfxP(...g.tune);
-      g.audio.loop = true;
+      this.g.audio = this.g.track1.music(0);
+      window.P = this;
       this.hole = this.g.spawn("Hole", { p: this, y: -g.h * 3 });
       this.allBaddies = ["Cactus", "Bat", "Spider", "Worm"];
       this.baddies = [];
@@ -2169,4 +2259,3 @@
   base_default.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button: Control, Text, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj, Boss };
   new Game(base_default).init();
 })();
-//! ZzFXM (v2.0.3) | (C) Keith Clark | MIT | https://github.com/keithclark/ZzFXM

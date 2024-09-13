@@ -25,9 +25,17 @@ export default class Play {
     this.scoreFont = g.H.mkFont(g, 4, 2);
     this.gameOver = false;
 
-    g.tune = g.zzfxM(...g.SONG);
-    g.audio = g.zzfxP(...g.tune);
-    g.audio.loop = true;
+    // g.tune = g.zzfxM(...g.SONG);
+    // g.audio = g.zzfxP(...g.tune);
+    // g.audio.loop = true;
+
+    // this.M = new P8(g.p8S, g.p8M);
+    // this.g.playing = this.M.music(0);
+
+    this.g.audio = this.g.track1.music(0);
+    
+    window.P = this;
+
 
     this.hole = this.g.spawn('Hole', {p: this, y: -g.h * 3});
 
