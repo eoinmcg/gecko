@@ -29,10 +29,9 @@ Good luck you'll need it!
 ## Where To Play
 
 [Js13kGames entry](https://dev.js13kgames.com/2024/games/gecko-blaster)
-
 [Latest version](https://eoinmcgrath.com/gecko)
 
-[Post-mortem](https://eoinmcgrath.com/gecko)
+[Post-mortem](https://eoinmcgrath.com/gecko/post-mortem.html)
 
 ## Credits
 
