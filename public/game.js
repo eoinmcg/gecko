@@ -1220,6 +1220,32 @@
     }
   };
 
+  // src/game/scenes/test.js
+  var Test = class {
+    constructor(g) {
+      this.g = g;
+      this.bgPos = 0;
+      this.f = g.H.mkFont(g, 6, 2);
+      this.p1 = this.g.spawn("P1", { p: this });
+    }
+    update(dt) {
+      this.g.ents.forEach((e) => {
+        e.update(dt);
+      });
+      if (this.g.input.freshKeys.Escape && !this.escape) {
+        this.escape = true;
+        this.g.changeScene("Title");
+      }
+    }
+    render() {
+      const g = this.g;
+      g.draw.clear(0);
+      g.ents.forEach((e) => {
+        e.render();
+      });
+    }
+  };
+
   // src/engine/sprite.js
   var Sprite = class {
     constructor(g, o) {
@@ -2255,7 +2281,7 @@
   };
 
   // src/index.js
-  base_default.scenes = { Title, Help, Play, Tut, Win };
+  base_default.scenes = { Title, Help, Play, Tut, Win, Test };
   base_default.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button: Control, Text, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj, Boss };
   new Game(base_default).init();
 })();

@@ -34,4 +34,4 @@ Good luck you'll need it!
 
 ## Credits
 
-- [Music by Unknown Snabisch](https://snabisch.itch.io/free-music-sequences-for-pico-8)
+- [Music by Snabisch](https://snabisch.itch.io/free-music-sequences-for-pico-8)

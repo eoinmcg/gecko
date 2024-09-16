@@ -7,6 +7,7 @@ import Tut from './game/scenes/tut';
 import Help from './game/scenes/help';
 import Play from './game/scenes/play';
 import Win from './game/scenes/win';
+import Test from './game/scenes/test';
 
 import P1 from './game/ents/p1';
 import Donut from './game/ents/donut';
@@ -26,6 +27,6 @@ import Boss from './game/ents/boss';
 
 import Obj from './game/ents/obj';
 
-o.scenes = { Title, Help, Play, Tut, Win };
+o.scenes = { Title, Help, Play, Tut, Win, Test };
 o.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button, Text, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj, Boss };
 new Game(o).init();
