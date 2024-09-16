@@ -32,6 +32,8 @@ Good luck you'll need it!
 
 [Latest version](https://eoinmcgrath.com/gecko)
 
+[Post-mortem](https://eoinmcgrath.com/gecko)
+
 ## Credits
 
 - [Music by Snabisch](https://snabisch.itch.io/free-music-sequences-for-pico-8)
