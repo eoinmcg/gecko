@@ -4,11 +4,12 @@
 
 <meta charset="UTF-8" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 
 <title>Gecko Blaster - A post mortem</title>
 
 <meta name="description" content="Post mortem of an entry to a javascript game jam." />
+<meta name="author" content="Eoin McGrath" />
 
 <link href="style.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -210,7 +211,7 @@ Started too late and didn't have time to get others to play test
 <h3>Ok, ok just lemme play the game!</h3>
 <p>
   <a href="https://js13kgames.com/2024/games/gecko-blaster">
-    Play Geck Blaster
+    Play Gecko Blaster
   </a>
 </p>
 
@@ -227,7 +228,6 @@ Started too late and didn't have time to get others to play test
 <footer>
 &copy; <a href="http://twitter.com/eoinmcg">@eoinmcg</a>
       <div class="cactus"></div>
-      <div class="boss"></div>
 </footer>
 
 
@@ -237,11 +237,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.querySelectorAll('#arcade a').forEach((link) => {
     link.setAttribute('target', '_blank');
   });
-  const title = document.querySelector('h1');
-  const subtitle = document.querySelector('h2');
-  const post = document.querySelector('.post');
+
   window.setTimeout(() => {
-    document.body.classList.add('loaded');
     document.body.className = '';
     window.scrollTo(0, 0);
   }, 200);
@@ -260,9 +257,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 </script>
 
 <script>
-  document.querySelectorAll('.post a').forEach((a) => {
-    a.setAttribute('target', '_blank');
-  });
 </script>
 
 </body>
