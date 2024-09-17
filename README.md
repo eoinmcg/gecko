@@ -32,7 +32,7 @@ Good luck you'll need it!
 
 [Latest version](https://eoinmcgrath.com/gecko)
 
-[Post-mortem](https://eoinmcgrath.com/gecko/post-mortem.html)
+[Post-mortem](https://eoinmcgrath.com/gecko/post-mortem/)
 
 ## Credits
 
