@@ -87,6 +87,7 @@ export default class Boss extends Baddie {
     this.g.addEvent({
       t: 250,
       cb: () => {
+        this.p.updateHiScore();
         this.g.changeScene('Win');
       }
     })

@@ -1078,13 +1078,7 @@
     initGameOver() {
       if (this.gameOver)
         return;
-      if (this.newHiScore) {
-        this.g.hiScore = this.score;
-        try {
-          window.localStorage.setItem("GBhi", this.g.hiScore);
-        } catch (e) {
-        }
-      }
+      this.updateHiScore();
       this.g.sfx("thunder");
       this.stopMusic();
       this.gameOver = true;
@@ -1094,6 +1088,15 @@
           this.spawnReplay();
         }
       });
+    }
+    updateHiScore() {
+      if (this.newHiScore) {
+        this.g.hiScore = this.score;
+        try {
+          window.localStorage.setItem("GBhi", this.g.hiScore);
+        } catch (e) {
+        }
+      }
     }
     spawnReplay() {
       this.g.spawn("Button", {
@@ -2244,6 +2247,7 @@
       this.g.addEvent({
         t: 250,
         cb: () => {
+          this.p.updateHiScore();
           this.g.changeScene("Win");
         }
       });

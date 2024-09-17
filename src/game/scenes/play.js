@@ -119,12 +119,7 @@ export default class Play {
 
     if (this.gameOver) return;
 
-    if (this.newHiScore) {
-      this.g.hiScore = this.score;
-      try {
-        window.localStorage.setItem('GBhi', this.g.hiScore);
-      } catch (e) {}
-    }
+    this.updateHiScore();
 
     this.g.sfx('thunder');
     this.stopMusic();
@@ -135,6 +130,15 @@ export default class Play {
         this.spawnReplay();
       },
     });
+  }
+
+  updateHiScore() {
+    if (this.newHiScore) {
+      this.g.hiScore = this.score;
+      try {
+        window.localStorage.setItem('GBhi', this.g.hiScore);
+      } catch (e) {}
+    }
   }
 
   spawnReplay() {
