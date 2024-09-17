@@ -168,7 +168,7 @@ footer .boss {
 
 #tweet_me { position: absolute; top: 1em; left: 1em; }
 
-@media (min-width: 375px) {
+@media (min-width: 360px) {
   #arcade { width: 300px; }
 }
 @media (min-width: 768px) {
