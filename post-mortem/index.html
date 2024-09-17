@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+
+    <title>Gecko Blaster - A post mortem</title>
+
+    <meta name="description" content="Post mortem of an entry to a javascript game jam." />
+
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕹️</text></svg>">
+  </head>
+  <body>
+
+    <div class="post" id="arcade">
+
+<h1> Gecko Blaster </h1>
+<h2> A Post Mortem </h2>
+
+<h3> Background </h3>
+<p>
+<a href="https://js13kgames.com/">Js13kGames</a> is an annual
+game jam that challenges developers to
+craft a game within a mere 13KB limit. The tools at your
+disposal are plain old HTML, JavaScript, and CSS. No fancy
+fonts or frameworks—just the basics. These limitations
+encourage creativity. In a web landscape dominated by bloated
+libraries, convoluted tooling, and an overwhelming torrent of
+new versions, it's refreshing to step back and build something
+from scratch.
+</p>
+
+<h3> The Theme </h3>
+<p>
+This year's theme was Triskaidekaphobia, or fear of the
+number 13. Hmm... okay, so something spooky? Honestly,
+I couldn’t think of a killer hook for the theme, and with
+time running out, I decided to just get cracking. I had a
+clear idea of the kind of game I wanted to make:
+<ul class="boom">
+<li> Fast paced, frentic and fun. </li>
+<li> Retro style, evoking the glory days of 8bit/16bit games (yep, I'm showing my age!) </li>
+<li> Mobile-friendly. Although mobile gaming hasn’t quite lived up to its early promise, it can still provide a fun-filled five minutes.</li>
+</ul>
+</p>
+
+
+<h3>The idea</h3>
+<p>
+I've always wanted to make a top-down shoot 'em up, so that was
+a logical starting point. After brainstorming and a few false
+starts, I landed on the rather random idea of a gecko racing
+through a desert filled with enemies and... donuts. <br />
+¯\_(ツ)_/¯
+<img src="mockup.png" alt="An early mockup of gameplay">
+</p>
+
+<h3> Controls </h3>
+<p>
+I experimented with an on-screen joystick where speed increased
+as you moved your finger or thumb further from the center.
+Sounded good on paper, but it felt too clunky in practice.
+<img src="joystick.gif" alt="Early attempt at on screen joystick">
+</p>
+<p>
+Next, I tried dividing the screen into five lanes with swipe
+controls for horizontal movement—similar to Subway Surfers.
+Again, it didn’t feel natural or fun, especially in the cramped
+2D play area.
+</p>
+<p>
+On-screen buttons? Not my thing. They lack the tactile feel
+of physical buttons and take up valuable screen space.
+</p>
+<p>
+Finally, I settled on a control scheme where the character
+moves by dragging on the screen. Simple, and it works equally
+well with a mouse for desktop players. Using an auto-fire
+mechanism eliminated the need for a separate fire button,
+keeping things clean.
+</p>
+
+<h3> Graphics </h3>
+<p>
+Since I'm not much of a pixel artist, I hid my lack of skill
+behind a low-rez design and a tried-and-tested color palette.
+Most sprites are around 8x8 pixels, and the canvas size is a
+mere 270x480.
+</p>
+<div class="imgs big">
+  <img src="../a/gecko.gif" alt="Image of Gecko">
+  <img src="../a/pup.gif" alt="Image of a firefly">
+  <img src="../a/cactus.gif" alt="Image of cactus">
+  <img src="../a/bat.gif" alt="Image of bat">
+  <img src="../a/spider.gif" alt="Image of spider">
+  <img src="../a/worm.gif" alt="Image of worm">
+  <img src="../a/boss.gif" alt="Image of end boss">
+  <img src="../a/skull.gif" alt="Image of skull">
+  <img src="../a/donut.gif" alt="Image of a tasty donut">
+</div>
+
+<p>
+Background images are tiled and drawn to a separate canvas,
+then saved as a single image to reduce the number of draw
+calls. Anytime a sprite needed to be scaled, flipped, or
+recolored, it is saved as an in-game image to avoid repeating
+expensive operations. This had a positive impact
+on performance: mobile Chrome and Safari held steady at 60
+FPS, while Firefox hovered around respectable 50 FPS.
+</p>
+
+<p>
+In total, there are 25 images in the game, taking up
+3,470 bytes.
+</p>
+
+<h3> SFX </h3>
+<p>
+<a href="https://github.com/KilledByAPixel/ZzFX">ZZfx</a>
+is the JavaScript game developer's best friend. It has
+a tiny footprint, is simple to integrate, and produces cool
+sounds. The <a href="https://killedbyapixel.github.io/ZzFX/">
+online generator
+</a>allowed me to quickly generate
+and tweak effects.
+</p>
+
+<h3> Music </h3>
+<p>
+<a href="https://keithclark.github.io/ZzFXM/">ZZfxM</a>, an
+extension of ZZfx, features some awesome chiptune
+examples. Initially, I used the tune “Depp,” which fit the
+game perfectly. However, I later realized that I didn’t
+have permission to use it.
+</p>
+
+<p>
+<a href="https://keithclark.github.io/ZzFXM/tracker/">ZZfxM’s tracker</a> is an excellent piece of
+software, but my musical expertise
+is even more lacking than my pixel-pushing skills, so I
+struggled to come up with an original soundtrack. As the
+deadline loomed, I grabbed a free Pico-8 tune and played it
+back using the excellent
+<a href="https://github.com/codyebberson/pico8-music">
+Pico-8 music player.
+</a>
+</a>Thankfully,
+the final game stayed within the 13,312-byte limit—but only
+just!
+<img src="build.png" alt="build process - 95% of limit reached">
+</p>
+<p>
+<i>
+WARNING: Last-minute changes invite disaster and are the equivalent
+          of deploying to production on a Friday afternoon.
+</i>
+</p>
+<img src="https://i.imgflip.com/93oxjd.jpg" alt="Never deploy big changes on a friday"> 
+<h3> Bling </h3>
+<p> Or, <a href="https://www.youtube.com/watch?v=Fy0aCDmgnxg">Juice it or lose it</a>.
+The following techniques were put to use to make the game 'pop'
+</p>
+<ul class="boom">
+<li>Plenty of explosions and particles to create general mayhem.</li>
+<li>Screen shake and flash when certain enemies die</li>
+<li> Our Gecko's tail is not static but moves in tune with the player's movements. </li>
+</ul>
+    <img src="gecko_move.gif" alt="Gecko's tail movement">
+
+
+<h3> What went well </h3>
+<ul class="good">
+<li>
+Building on code from previous jams meant I concentrated on the game.
+</li>
+<li>
+Keeping things simple with a defined scope.
+</li>
+<li>
+Adding a soundtrack, using pico8-music
+</li>
+<li>
+<a href="https://github.com/lifthrasiir/roadroller">
+Using Roadroller</a>
+</li>
+</ul>
+
+
+<h3> What didn't </h3>
+<ul class="bad">
+<li>
+Started too late and didn't have time to get others to play test
+</li>
+
+<h3>Ok, ok just lemme play the game!</h3>
+<p>
+  <a href="https://js13kgames.com/2024/games/gecko-blaster">
+    Play Geck Blaster
+  </a>
+</p>
+
+<p>
+  <a href="https://github.com/eoinmcg/gecko">
+        Source Code
+  </a>
+</p>
+
+	
+    </div>
+
+
+<footer>
+&copy; <a href="http://twitter.com/eoinmcg">@eoinmcg</a>
+      <div class="cactus"></div>
+      <div class="boss"></div>
+</footer>
+
+
+<script>
+document.body.className = 'loading';
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.querySelectorAll('#arcade a').forEach((link) => {
+    link.setAttribute('target', '_blank');
+  });
+  const title = document.querySelector('h1');
+  const subtitle = document.querySelector('h2');
+  const post = document.querySelector('.post');
+  window.setTimeout(() => {
+    document.body.classList.add('loaded');
+    document.body.className = '';
+    window.scrollTo(0, 0);
+  }, 200);
+});
+</script>
+  
+  </body>
+</html>
