@@ -3,7 +3,7 @@ import Sfx from './sfx';
 
 export default {
   title: 'Gecko Blaster',
-  start: 'Test',
+  start: 'Title',
   w: 270,
   h: 480,
   pal: [ // AndroidArts16 - https://androidarts.com/palette/16pal.htm
