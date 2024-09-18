@@ -1,4 +1,5 @@
 const fs = require('fs');
+const showInfo = (process.argv.slice(2).indexOf('info') !== -1);
 
 const files = fs.readdirSync('a'),
   ext = '.gif',
@@ -16,24 +17,33 @@ function encode(img) {
 
 
 const results = [];
+let key;
 for (let n in files) {
   if (files[n].indexOf(ext) !== -1) {
-    let file = 'a/' + files[n],
-        key = files[n].replace(ext, '');
+    key = files[n].replace(ext, '');
+    let file = 'a/' + files[n];
     encoded[key] = encode('a/'+files[n]);
+
+    let size = fs.statSync(file).size,
+        diff = Math.ceil((encoded[key].length / size) * 100) + '%';
     results.push({
       key: key,
-      size: fs.statSync(file).size,
-      encoded: encoded[key].length
+      size: size,
+      encoded: encoded[key].length,
+      diff: diff
     });
     totalImages += 1;
   }
 }
 
-console.table(results);
-
-console.log('Total [files]: ', results.reduce((total, obj) => obj.size + total,0));
-console.log('Total [encoded]: ', results.reduce((total, obj) => obj.encoded + total,0));
+if (showInfo) {
+  console.table(results);
+  console.log('Total [files]: ', results.reduce((total, obj) => obj.size + total,0));
+  console.log('Total [encoded]: ', results.reduce((total, obj) => obj.encoded + total,0));
+  console.log('');
+  console.log('--------------------------------');
+  console.log('');
+}
 
 encoded = JSON.stringify(encoded);
 encoded = encoded.replace(re, "'");

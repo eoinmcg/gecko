@@ -18,10 +18,6 @@ export default class Game {
 
     let ua = navigator.userAgent.toLowerCase();
 
-    // this.zzfx = zzfx;
-    // this.zzfxM = zzfxM;
-    // this.zzfxP = zzfxP;
-
     this.android = ua.indexOf("android") > -1;
     this.ios = /ipad|iphone|ipod/.test(ua);
     this.mobile = this.android || this.ios;
@@ -87,9 +83,7 @@ export default class Game {
         Setup(this);
 
         this.track1 = new P8(this.p8S, this.p8M);
-        // this.audio = this.track1.music(0);
-        // this.audio.stop();
-        this.favIcon(this.draw.resize(this.imgs.gecko, 8));
+        this.favIcon(this.draw.resize(this.imgs.donut, 8));
         document.querySelector('#l').style.display = 'none';
         this.c.style.display = "block";
         this.loop();

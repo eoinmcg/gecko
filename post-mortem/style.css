@@ -16,8 +16,8 @@ body.loading h1 {  transform: scale(0); }
 body.loading h2 { transform: scale(0) rotate(0deg); }
 body.loading #arcade { opacity: 0; }
 
-::selection { background: rgba(234, 239, 44, 1); color: black; }
-::-moz-selection { background: rgba(234, 239, 44, 1); color: black; }
+::selection { background: rgba(234, 239, 44, 1); color: black; text-shadow: transparent 0px 0px; }
+::-moz-selection { background: rgba(234, 239, 44, 1); color: black; text-shadow: transparent 0px 0px; }
 a { color: #F7E26B;; text-decoration: none; border-bottom: 1px dashed #F7E26B; transition: all 0.2s linear}
 a:hover { color: #EB8931; text-decoration: none; border-color: #EB8931; }
 
@@ -51,9 +51,7 @@ h2 {
 h2:hover { transform: rotate(3deg); }
 
 h3 {
-  /* background: rgba(0, 0, 0, 0.2); */
   margin: 3rem 0 1rem 0;
-  padding-left: .5rem;
   font: 26px 'Press Start 2P', Arial, sans-serif;
   line-height: 2.3rem;
   text-shadow: #000 3px 3px 0;
@@ -62,7 +60,7 @@ h3 {
 img { max-width: 80%; margin: 2rem auto; }
 div.imgs img {
   display: inline-block !important;
-  padding-right: 3rem; 
+  padding-right: 3rem;
 }
 div.imgs.big  {
   margin-left: 1rem;
@@ -88,7 +86,7 @@ code {
   margin: 2rem auto;
   padding: 0 2rem;
   max-width: 600px;
-  min-width: 250px;
+  min-width: 260px;
   transition: opacity 2s linear;
 }
 
@@ -172,9 +170,17 @@ footer .boss {
 
 #tweet_me { position: absolute; top: 1em; left: 1em; }
 
+@media (min-width: 320px) {
+  #arcade { width: 260px; }
+  div.imgs.big img { width: 26px; }
+}
 @media (min-width: 360px) {
   #arcade { width: 300px; }
   div.imgs.big img { width: 40px; }
+}
+@media (min-width: 410px) {
+  #arcade { width: 350px; }
+  div.imgs.big img { width: 50px; }
 }
 @media (min-width: 768px) {
   #arcade { width: 600px; }
