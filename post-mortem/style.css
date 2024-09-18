@@ -64,6 +64,9 @@ div.imgs img {
   display: inline-block !important;
   padding-right: 3rem; 
 }
+div.imgs.big  {
+  margin-left: 1rem;
+}
 div.imgs.big img {
   width: 100px;
   image-rendering: pixelated;
@@ -171,9 +174,11 @@ footer .boss {
 
 @media (min-width: 360px) {
   #arcade { width: 300px; }
+  div.imgs.big img { width: 40px; }
 }
 @media (min-width: 768px) {
   #arcade { width: 600px; }
+  div.imgs.big img { width: 50px; }
 }
 @media (min-width: 992px) {
   #arcade { width: 600px; }
