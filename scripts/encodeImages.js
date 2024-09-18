@@ -14,12 +14,26 @@ function encode(img) {
   return i;
 };
 
+
+const results = [];
 for (let n in files) {
   if (files[n].indexOf(ext) !== -1) {
-    encoded[files[n].replace(ext, '')] = encode('a/'+files[n]);
+    let file = 'a/' + files[n],
+        key = files[n].replace(ext, '');
+    encoded[key] = encode('a/'+files[n]);
+    results.push({
+      key: key,
+      size: fs.statSync(file).size,
+      encoded: encoded[key].length
+    });
     totalImages += 1;
   }
 }
+
+console.table(results);
+
+console.log('Total [files]: ', results.reduce((total, obj) => obj.size + total,0));
+console.log('Total [encoded]: ', results.reduce((total, obj) => obj.encoded + total,0));
 
 encoded = JSON.stringify(encoded);
 encoded = encoded.replace(re, "'");

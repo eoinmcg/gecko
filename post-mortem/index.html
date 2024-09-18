@@ -91,20 +91,22 @@ keeping things clean.
 <h3> Graphics </h3>
 <p>
 Since I'm not much of a pixel artist, I hid my lack of skill
-behind a low-rez design and a tried-and-tested color palette.
+behind a low-rez design and 
+<a href="http://androidarts.com/palette/16pal.htm">
+a tried-and-tested color palette.</a>
 Most sprites are around 8x8 pixels, and the canvas size is a
 mere 270x480.
 </p>
-<div class="imgs big">
+<div class="imgs big animate">
   <img src="../a/gecko.gif" alt="Image of Gecko">
-  <img src="../a/pup.gif" alt="Image of a firefly">
+  <img src="../a/skull.gif" alt="Image of skull">
+  <img src="../a/donut.gif" alt="Image of a tasty donut">
   <img src="../a/cactus.gif" alt="Image of cactus">
+  <img src="../a/pup.gif" alt="Image of a firefly">
   <img src="../a/bat.gif" alt="Image of bat">
   <img src="../a/spider.gif" alt="Image of spider">
   <img src="../a/worm.gif" alt="Image of worm">
   <img src="../a/boss.gif" alt="Image of end boss">
-  <img src="../a/skull.gif" alt="Image of skull">
-  <img src="../a/donut.gif" alt="Image of a tasty donut">
 </div>
 
 <p>
@@ -222,7 +224,7 @@ Started too late and didn't have time to get others to play test
 </p>
 
 	
-    </div>
+</div>
 
 
 <footer>
@@ -241,7 +243,58 @@ document.addEventListener("DOMContentLoaded", (event) => {
   window.setTimeout(() => {
     document.body.className = '';
     window.scrollTo(0, 0);
+    initAnimate();
   }, 200);
+
+  const initAnimate = () => {
+    let images = document.querySelectorAll('.animate img');
+    let animations = {};
+    images.forEach((i) => {
+      const w = i.naturalWidth;
+      if (w > 8) {
+        let name = i.src.split('/').pop()
+        .replace('.gif', '');
+        i.dataset.name = name;
+        animations[`${name}_0`] = drawImage(i);
+        animations[`${name}_1`] = drawImage(i, (w / 2) * -1);
+        i.src = animations[`${name}_0`];
+        i.dataset.frame = 0;
+      }
+    });
+
+    window.setInterval(() => {
+      document.querySelectorAll('.animate img[data-frame]')
+        .forEach((el) => {
+          let name = el.dataset.name;
+          let frame = parseInt(el.dataset.frame, 10) === 0
+           ? 1 : 0;
+          el.dataset.frame = frame;
+          el.src = animations[`${el.dataset.name}_${frame}`];
+        });
+    }, 2000);
+  }
+
+  const drawImage = (i, xOff = 0) => {
+    let w = i.naturalWidth / 2,
+        h = i.naturalHeight;
+    let c = mkCanvas(w, h);
+    let ctx = c.getContext('2d');
+    ctx.drawImage(i, xOff, 0);
+
+    return c.toDataURL('image/png');
+  }
+
+  const mkCanvas = (w, h) => {
+    const c = document.createElement("canvas");
+    const ctx = c.getContext("2d");
+    c.width = w;
+    c.height = h;
+
+    ctx.imageSmoothingEnabled = false;
+
+    return c;
+  }
+
 });
 </script>
 
@@ -254,9 +307,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   gtag('js', new Date());
 
   gtag('config', 'UA-149691096-1');
-</script>
-
-<script>
 </script>
 
 </body>
