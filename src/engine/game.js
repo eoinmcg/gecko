@@ -83,7 +83,7 @@ export default class Game {
         Setup(this);
 
         this.track1 = new P8(this.p8S, this.p8M);
-        this.favIcon(this.draw.resize(this.imgs.donut, 8));
+        this.favIcon(this.draw.resize(this.imgs.gecko, 8));
         document.querySelector('#l').style.display = 'none';
         this.c.style.display = "block";
         this.loop();
