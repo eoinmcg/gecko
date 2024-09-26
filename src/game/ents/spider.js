@@ -2,7 +2,7 @@ import Baddie from "./baddie";
 
 export default class Spider extends Baddie {
   constructor(g, o) {
-    o.x = g.H.rndArray([0, g.w]);
+    o.x = o.p.p1.x > g.w / 2 ? 0 : g.w;
     o.i = 'spider';
     o.frames = 2;
     o.scale = 3;

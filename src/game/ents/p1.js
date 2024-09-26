@@ -23,6 +23,8 @@ export default class P1 extends Sprite {
     this.shotDelay = 50;
 
     this.powerups = 0;
+    this.lives = 2;
+    this.hurtTimeMaster = 250;
 
     this.minX = 0;
     this.maxX = this.g.w - this.w;
@@ -90,11 +92,15 @@ export default class P1 extends Sprite {
     }
 
     this.shotDelay--;
+    console.log(this.hurt);
 
   }
 
   render() {
     this.g.draw.img(this.shadow, this.x + 6, this.y + 12);
+    if (this.hurt) {
+      this.g.draw.ctx.globalAlpha = this.g.fader > 0 ? 0.25 : 0.5;
+   }
     this.g.draw.img(this.imgs[`${this.dir}${this.frame}`], this.x, this.y + 6);
     let last = { x: this.x, y: this.y }
     let r = 8;
@@ -109,6 +115,7 @@ export default class P1 extends Sprite {
         last = t;
         this.tailxOff += this.tailxDir;
       })
+    this.g.draw.ctx.globalAlpha = 1;
   }
  
   receiveDamage(o) {
@@ -119,6 +126,20 @@ export default class P1 extends Sprite {
 
 
   kill(booms = 3) {
+
+    if (this.hurt) return;
+    this.lives -= 1;
+    this.hurt = true;
+    this.hurtTime = this.hurtTimeMaster;
+
+    if (this.lives >= 0) {
+      console.log('NOT DEAD YET!');
+      this.g.shake();
+      this.g.spawn("Boom", { x: this.x, y: this.y, key: "boom" });
+      this.g.sfx('hurt');
+      return;
+    }
+
     const x = this.x,
           y = this.y,
           w = this.w / 2;
@@ -141,8 +162,10 @@ export default class P1 extends Sprite {
 
   fall() {
     this.kill(0);
-    this.g.sfx('fall');
-    this.p.initGameOver();
+    if (this.lives < 0) {
+      this.g.sfx('fall');
+      this.p.initGameOver();
+    }
   }
 
   shoot() {

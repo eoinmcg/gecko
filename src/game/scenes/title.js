@@ -10,6 +10,7 @@ export default class Title {
 
     this.bgPos = 0;
     this.bgSpeed = 0.25;
+    g.voice.play();
 
     g.spawn('Button', {
       y: this.g.h - 130,
@@ -17,6 +18,7 @@ export default class Title {
       col: 4,
       text: 'PLAY',
       cb: () => {
+        g.audio.stop();
         g.changeScene(g.plays === 0 ? 'Tut' : 'Play');
       }
     });
@@ -39,6 +41,16 @@ export default class Title {
       },
     });
     this.bling();
+
+    g.voice.play();
+
+
+    g.addEvent({
+      t: 20,
+      cb: () => {
+        this.g.audio = this.g.track2.music(0);
+      }
+    })
 
   }
 

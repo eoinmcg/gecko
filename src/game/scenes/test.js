@@ -4,9 +4,8 @@ export default class Test {
 
     this.bgPos = 0;
 
-    this.f = g.H.mkFont(g, 6, 2);
+    this.f = g.H.mkFont(g, 5, 2);
 
-    this.p1 = this.g.spawn('P1', {p: this});
 
   }
 
@@ -30,6 +29,8 @@ export default class Test {
     g.ents.forEach((e) => {
       e.render();
     });
+
+    g.draw.text('KILL BADDIES', this.f, false, 200);
 
   }
 }

@@ -2,6 +2,7 @@ import o from './game/data/base';
 
 import Game from './engine/game';
 
+import Loader from './game/scenes/loader';
 import Title from './game/scenes/title';
 import Tut from './game/scenes/tut';
 import Help from './game/scenes/help';
@@ -27,6 +28,6 @@ import Boss from './game/ents/boss';
 
 import Obj from './game/ents/obj';
 
-o.scenes = { Title, Help, Play, Tut, Win, Test };
+o.scenes = { Loader, Title, Help, Play, Tut, Win, Test };
 o.ents = { Particle, P1, Bullet, Circle, Boom, Bat, Button, Text, Hole, Cactus, Donut, Spider, Powerup, Worm, Obj, Boss };
 new Game(o).init();

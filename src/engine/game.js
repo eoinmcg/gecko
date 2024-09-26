@@ -65,6 +65,7 @@ export default class Game {
     this.c = document.querySelector('#c');
     this.input = new Input(this.c, this);
     document.title = this.o.title;
+    document.body.classList.add('loading');
 
     // this.stats = new Stats();
     // this.stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -73,21 +74,23 @@ export default class Game {
     loader.start().then((imgs) => {
       this.imgs = imgs;
       window.setTimeout(() => {
-        this.c.classList.add("active");
+        this.c.classList.add('active');
         this.draw = new Draw(this.o.w, this.o.h, this.o.pal);
         this.scene = new this.scenes[this.sceneName](this);
         this.scaleUp('dot', [0, 2, 3, 8, 11]);
         this.scaleUp('circle', [0, 2, 3, 8, 11]);
         this.scaleUp('bridge');
         this.scaleUp('spark', [0, 2, 3, 8, 11]);
+        document.body.classList.remove('loading');
         Setup(this);
 
         this.track1 = new P8(this.p8S, this.p8M);
+        this.track2 = new P8(this.p8S2, this.p8M2);
         this.favIcon(this.draw.resize(this.imgs.gecko, 8));
         document.querySelector('#l').style.display = 'none';
         this.c.style.display = "block";
         this.loop();
-      }, 400);
+      }, 2000);
     });
   }
 

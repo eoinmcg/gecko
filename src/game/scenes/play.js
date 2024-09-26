@@ -25,13 +25,6 @@ export default class Play {
     this.scoreFont = g.H.mkFont(g, 4, 2);
     this.gameOver = false;
 
-    // g.tune = g.zzfxM(...g.SONG);
-    // g.audio = g.zzfxP(...g.tune);
-    // g.audio.loop = true;
-
-    // this.M = new P8(g.p8S, g.p8M);
-    // this.g.playing = this.M.music(0);
-
     this.g.audio = this.g.track1.music(0);
     
     window.P = this;
@@ -107,7 +100,11 @@ export default class Play {
     }
 
     let score = Math.round(this.score);
-    g.draw.text(g.H.pad(score), this.scoreFont, false, 20);
+    g.draw.text(g.H.pad(score), this.scoreFont, 20, 20);
+
+    for (let n = 0; n < this.p1.lives; n += 1) {
+      this.g.draw.img(this.g.imgs['heart'], 200 + (n * 30), 20);
+    }
 
     if (this.gameOver && !this.g.mobile) {
       this.g.draw.img(this.g.imgs['pointer'], this.g.input.mx, this.g.input.my);
