@@ -1624,12 +1624,11 @@
         this.shoot();
       }
       this.shotDelay--;
-      console.log(this.hurt);
     }
     render() {
       this.g.draw.img(this.shadow, this.x + 6, this.y + 12);
       if (this.hurt) {
-        this.g.draw.ctx.globalAlpha = this.g.fader > 0 ? 0.25 : 0.5;
+        this.g.draw.ctx.globalAlpha = this.g.fader > 0 ? 0.2 : 0.5;
       }
       this.g.draw.img(this.imgs[`${this.dir}${this.frame}`], this.x, this.y + 6);
       let last = { x: this.x, y: this.y };
@@ -1661,7 +1660,6 @@
       this.hurt = true;
       this.hurtTime = this.hurtTimeMaster;
       if (this.lives >= 0) {
-        console.log("NOT DEAD YET!");
         this.g.shake();
         this.g.spawn("Boom", { x: this.x, y: this.y, key: "boom" });
         this.g.sfx("hurt");
