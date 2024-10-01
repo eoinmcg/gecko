@@ -912,6 +912,7 @@
             col: false,
             text: "CREDITS",
             cb: () => {
+              g.audio.stop();
               g.changeScene("Help");
             }
           });
@@ -1045,6 +1046,7 @@
       });
       if (this.g.input.freshKeys.Escape && !this.escape) {
         this.escape = true;
+        this.g.audio.stop();
         this.g.changeScene("Play");
       }
     }

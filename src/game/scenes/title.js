@@ -35,6 +35,7 @@ export default class Title {
           col: false,
           text: 'CREDITS',
           cb: () => {
+            g.audio.stop();
             g.changeScene('Help');
           }
         });

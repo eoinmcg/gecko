@@ -78,6 +78,7 @@ export default class Tut {
 
     if (this.g.input.freshKeys.Escape && !this.escape) {
       this.escape = true;
+      this.g.audio.stop();
       this.g.changeScene('Play');
     }
 
