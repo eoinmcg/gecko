@@ -491,7 +491,7 @@
   var p8_default = P8;
 
   // package.json
-  var version = "0.9";
+  var version = "0.95";
 
   // src/game/setup.js
   function Setup(g) {
