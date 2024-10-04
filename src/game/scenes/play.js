@@ -168,9 +168,9 @@ export default class Play {
 
   spawn() {
     if (this.gameOver || this.boss) return;
-    let level = ~~(this.dist / 500);
-    level = (level > 20) ? 20 : level
-    const nextSpawn = this.g.H.rnd(80,120) - level;
+    let level = ~~(this.dist / 700);
+    level = (level > 10) ? 10 : level
+    const nextSpawn = this.g.H.rnd(50,100) - level;
     this.g.addEvent({
       t: nextSpawn,
       cb:() => {

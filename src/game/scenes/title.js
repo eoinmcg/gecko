@@ -70,7 +70,7 @@ export default class Title {
 
   render() {
     const g = this.g;
-    g.draw.clear(5);
+    g.draw.clear(16);
     g.draw.img(g.imgs.bg2, 0, this.bgPos - this.g.h);
     g.draw.img(g.imgs.bg2, 0, this.bgPos);
     g.draw.img(this.shadow, 20, 125);

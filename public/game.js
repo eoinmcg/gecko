@@ -131,7 +131,7 @@
   }, false);
   window.setTimeout(() => {
     resize(base_default.w, base_default.h);
-  }, 50);
+  }, 150);
 
   // src/engine/input.js
   var Input = class {
@@ -536,8 +536,15 @@
 00 01050440
 00 00060240
 04 01070440`;
+    g.p8S3 = `000e0000070600000000000070601106000000130600000007060000000706000000090600a06009060050600706000000000000706011060000001306000000070600000007060000000c0600e0600c0600a060
+010e00001a76200000000001a76200000000001a7621f76221762000000000021762000000000021762227621a76200000000001a76200000000001a7621f7621d76200000000001d76200000000001d7621b762
+010e00000c043000003f2150000024615000003f215000000c043000003f2150000024615282003f215000000c043000003f2150000024615000003f215000000c043000003f2150000024615000003f21532200
+000e00001a76200000000001a76200000000001a7621f762217620000000000217620000000000217622276224762000000000024762000000000024762227622176200000000002176200000000001d7621b762`;
+    g.p8M3 = `00 00010240
+04 00030240`;
     document.querySelector("#c").style.cursor = "none";
     g.voice = loadSound("t");
+    g.letsgo = loadSound("letsgo");
     console.log(`%c ${g.data.title} V:${version} (${window.BUILD || "DEV"})`, "background: #222; color: #bada55");
   }
   function mkTail(g, len = 4) {
@@ -627,6 +634,7 @@
       this.data = o;
       this.dt = 0;
       this.fps = 60;
+      this.msPerFrame = 1e3 / this.fps;
       this.frameStep = 1 / this.fps;
       this.frameCurr = 0;
       this.framePrev = helpers_default.timeStamp();
@@ -670,6 +678,7 @@
           Setup(this);
           this.track1 = new p8_default(this.p8S, this.p8M);
           this.track2 = new p8_default(this.p8S2, this.p8M2);
+          this.track3 = new p8_default(this.p8S3, this.p8M3);
           this.favIcon(this.draw.resize(this.imgs.gecko, 8));
           document.querySelector("#l").style.display = "none";
           this.c.style.display = "block";
@@ -716,11 +725,17 @@
     loop() {
       this.frameCurr = helpers_default.timeStamp();
       this.dt = this.dt + Math.min(1, (this.frameCurr - this.framePrev) / 1e3);
+      const delta = this.frameCurr - this.framePrev;
+      if (delta < this.msPerFrame) {
+        return;
+      } else {
+      }
       if (!this.pause) {
         this.update(this.frameStep);
         this.render();
       }
-      this.framePrev = this.frameCurr;
+      const excessTime = delta % this.msPerFrame;
+      this.framePrev = delta - excessTime;
       if (this.input.freshKeys.KeyS) {
         this.screenshot();
       }
@@ -773,7 +788,7 @@
     }
     runEvents(step) {
       this.events.forEach((e, i) => {
-        e.t -= step * 100;
+        e.t -= 1;
         if (e.t < 0) {
           e.cb.call(this);
           this.events.splice(i, 1);
@@ -939,7 +954,7 @@
     }
     render() {
       const g = this.g;
-      g.draw.clear(5);
+      g.draw.clear(16);
       g.draw.img(g.imgs.bg2, 0, this.bgPos - this.g.h);
       g.draw.img(g.imgs.bg2, 0, this.bgPos);
       g.draw.img(this.shadow, 20, 125);
@@ -987,10 +1002,11 @@
       this.f = g.H.mkFont(g, 5, 4);
       this.f2 = g.H.mkFont(g, 2, 1);
       this.p1 = g.spawn("P1", { p: this });
+      const adj = 2;
       g.addText(g.mobile ? "MOVE WITH FINGER" : "MOVE WITH MOUSE", 50);
       g.sfx("piano");
       g.addEvent({
-        t: 600,
+        t: 700 / adj,
         cb: () => {
           g.sfx("piano");
           g.addText("KILL BADDIES", 1);
@@ -998,7 +1014,7 @@
         }
       });
       g.addEvent({
-        t: 1200,
+        t: 1200 / adj,
         cb: () => {
           g.sfx("piano");
           g.addText("COLLECT POWERUPS", 1);
@@ -1006,14 +1022,14 @@
         }
       });
       g.addEvent({
-        t: 1700,
+        t: 1700 / adj,
         cb: () => {
-          g.sfx("piano");
+          g.letsgo.play();
           g.addText("LETS GO!", 1);
         }
       });
       g.addEvent({
-        t: 1900,
+        t: 1900 / adj,
         cb: () => {
           g.changeScene("Play");
         }
@@ -1248,9 +1264,9 @@
     spawn() {
       if (this.gameOver || this.boss)
         return;
-      let level = ~~(this.dist / 500);
-      level = level > 20 ? 20 : level;
-      const nextSpawn = this.g.H.rnd(80, 120) - level;
+      let level = ~~(this.dist / 700);
+      level = level > 10 ? 10 : level;
+      const nextSpawn = this.g.H.rnd(50, 100) - level;
       this.g.addEvent({
         t: nextSpawn,
         cb: () => {
@@ -1318,8 +1334,27 @@
       this.bgPos = 0;
       this.f = g.H.mkFont(g, 6, 2);
       this._f = g.H.mkFont(g, 6, 0);
-      this.d = this.g.draw.resize(this.g.imgs["donut"], 8);
+      this.donuts = [];
+      for (let i = 1; i < 9; i += 1) {
+        this.donuts.push(this.g.draw.resize(this.g.imgs["donut"], i));
+      }
+      console.log(this.donuts);
+      this.d = this.donuts[7];
       g.addText("THE END", 100, false, g.h - 50, 1);
+      g.addEvent({
+        t: 20,
+        cb: () => {
+          this.g.audio = this.g.track3.music(0);
+        }
+      });
+      for (let i = 0; i < 15; i += 1) {
+        g.addEvent({
+          t: i * 30,
+          cb: () => {
+            this.g.ents.push(new Treat(this.g, { donuts: this.donuts }));
+          }
+        });
+      }
     }
     update(dt) {
       this.g.ents.forEach((e) => {
@@ -1327,6 +1362,7 @@
       });
       if (this.g.input.freshKeys.Escape && !this.escape) {
         this.escape = true;
+        this.g.audio.stop();
         this.g.changeScene("Title");
       }
     }
@@ -1335,14 +1371,40 @@
       g.draw.clear(16);
       g.draw.img(g.imgs.bg2, 0, this.bgPos - this.g.h);
       g.draw.img(g.imgs.bg2, 0, this.bgPos);
+      g.ents.forEach((e) => {
+        e.render();
+      });
       if (this.g.fader > 0) {
         this.g.draw.text("YOU ROCK", this._f, false, 26);
         this.g.draw.text("YOU ROCK", this.f, false, 20);
       }
       this.g.draw.img(this.d, 105, 200);
-      g.ents.forEach((e) => {
-        e.render();
-      });
+    }
+  };
+  var Treat = class {
+    constructor(g, o) {
+      this.g = g;
+      this.donuts = o.donuts;
+      this.vy = 0;
+      this.reset();
+    }
+    reset() {
+      this.scale = this.g.H.rnd(1, 1);
+      this.i = this.donuts[this.scale];
+      this.w = this.i.width;
+      this.h = this.i.height;
+      this.vy = this.scale;
+      this.x = this.g.H.rnd(this.w, this.g.w - this.w);
+      this.y = this.g.H.rnd(10, 60) * -1;
+    }
+    render() {
+      this.g.draw.img(this.i, this.x, this.y);
+    }
+    update() {
+      this.y += this.vy;
+      if (this.y > this.g.h + this.h) {
+        this.reset();
+      }
     }
   };
 

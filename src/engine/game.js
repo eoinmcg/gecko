@@ -31,6 +31,7 @@ export default class Game {
     this.data = o;
     this.dt = 0;
     this.fps = 60;
+    this.msPerFrame = 1000 / this.fps;
     this.frameStep = 1 / this.fps;
     this.frameCurr = 0;
     this.framePrev = H.timeStamp();
@@ -86,6 +87,8 @@ export default class Game {
 
         this.track1 = new P8(this.p8S, this.p8M);
         this.track2 = new P8(this.p8S2, this.p8M2);
+        this.track3 = new P8(this.p8S3, this.p8M3);
+
         this.favIcon(this.draw.resize(this.imgs.gecko, 8));
         document.querySelector('#l').style.display = 'none';
         this.c.style.display = "block";
@@ -137,13 +140,23 @@ export default class Game {
     // this.stats.begin();
     this.frameCurr = H.timeStamp();
     this.dt = this.dt + Math.min(1, (this.frameCurr - this.framePrev) / 1000);
+    const delta = this.frameCurr - this.framePrev;
+
+    if (delta < this.msPerFrame) {
+      // console.log('TOO FAST!');
+      return;
+    } else {
+      // console.log(delta, this.msPerFrame, 'NO SKIP')
+    }
 
     if (!this.pause) {
       this.update(this.frameStep);
       this.render();
     }
 
-    this.framePrev = this.frameCurr;
+    // this.framePrev = this.frameCurr;
+    const excessTime = delta % this.msPerFrame
+    this.framePrev = delta - excessTime
 
     if (this.input.freshKeys.KeyS) {
       this.screenshot();
@@ -204,7 +217,8 @@ export default class Game {
 
   runEvents(step) {
     this.events.forEach((e, i) => {
-      e.t -= step * 100;
+      // e.t -= step * 100;
+      e.t -= 1;
       if (e.t < 0) {
         e.cb.call(this);
         this.events.splice(i, 1);

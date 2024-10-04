@@ -11,6 +11,9 @@ const DEST_FOLDER = "build";
 const MAX_SIZE = 1024 * 13;
 const DIR = `${__dirname}/../${DEST_FOLDER}`;
 
+const analytics = '<script defer src="https://cloud.umami.is/script.js" data-website-id="6a7a59ee-cea7-4517-8aac-1aa3347fb5da"></script>';
+
+
 const src = {
   html: fs.readFileSync("public/index.html", "UTF8"),
   js: fs.readFileSync("public/game.js", "UTF8"),
@@ -45,6 +48,8 @@ const init = (src) => {
 
   html = html.replace('<script src="game.js"></script>', "");
   html = html.replace("</body>", `<script>BUILD='${commit}';${min}</script></body`);
+
+  html = html.replace("</head>", `${analytics}</head>`);
 
   let result = fs.writeFileSync(`${DIR}/index.html`, html, "utf8");
 

@@ -34,5 +34,5 @@ export default resize;
 
   window.setTimeout(() => {
     resize(data.w, data.h);
-  }, 50);
+  }, 150);
 

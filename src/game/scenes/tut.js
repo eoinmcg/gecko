@@ -12,10 +12,12 @@ export default class Tut {
     this.f2 = g.H.mkFont(g, 2, 1);
     this.p1 = g.spawn('P1', {p: this});
 
+    const adj = 2;
+
     g.addText(g.mobile ? 'MOVE WITH FINGER' : 'MOVE WITH MOUSE', 50);
     g.sfx('piano');
     g.addEvent({
-      t: 600,
+      t: 700 / adj,
       cb: () => {
         g.sfx('piano');
         g.addText('KILL BADDIES', 1);
@@ -23,7 +25,7 @@ export default class Tut {
       }
     })
     g.addEvent({
-      t: 1200,
+      t: 1200 / adj,
       cb: () => {
         g.sfx('piano');
         g.addText('COLLECT POWERUPS', 1);
@@ -31,14 +33,14 @@ export default class Tut {
       }
     })
     g.addEvent({
-      t: 1700,
+      t: 1700 / adj,
       cb: () => {
-        g.sfx('piano');
+        g.letsgo.play();
         g.addText('LETS GO!', 1);
       }
     })
     g.addEvent({
-      t: 1900,
+      t: 1900 / adj,
       cb: () => {
         g.changeScene('Play');
       }
